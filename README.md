@@ -1,4 +1,4 @@
-# TubesOOP_K03_6
+# TubesOOP_K03_5
 
 Tugas Besar Mata Kuliah Pemrograman Berorientasi Objek STI (IF2212) membuat games bernama Sim-Plicity adaptasi The Sims dengan bahasa Java.  
 
