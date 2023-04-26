@@ -59,17 +59,17 @@ public class World {
         }
     }
 
-    public static void main(String[] args) {
-        World world = new World(6, 6);
-        world.tambahRumah("Rumah 1", new Rumah(6, 6));
-        world.tambahRumah("Rumah 2", new Rumah(12, 6));
-        world.tambahRumah("Rumah 3", new Rumah(18, 6));
-        world.printWorld();
-        world.printRumah();
-        // world.cekRumah(null);
-        world.hapusRumah("Rumah 1");
-        world.tambahRumah("Rumah 4", new Rumah(63, 63));
-        world.printWorld();
-        world.printRumah();
-    }
+    // public static void main(String[] args) {
+    //     World world = new World(6, 6);
+    //     world.tambahRumah("Rumah 1", new Rumah(6, 6));
+    //     world.tambahRumah("Rumah 2", new Rumah(12, 6));
+    //     world.tambahRumah("Rumah 3", new Rumah(18, 6));
+    //     world.printWorld();
+    //     world.printRumah();
+    //     // world.cekRumah(null);
+    //     world.hapusRumah("Rumah 1");
+    //     world.tambahRumah("Rumah 4", new Rumah(63, 63));
+    //     world.printWorld();
+    //     world.printRumah();
+    // }
 }
