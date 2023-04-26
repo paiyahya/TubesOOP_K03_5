@@ -20,6 +20,14 @@ class Rumah extends Ruangan {
         }
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+    
     public boolean isRuanganAvailable(int x, int y) {
         return !matriksRumah[x][y];
     }
