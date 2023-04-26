@@ -1,37 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class World {
-    private int panjang;
-    private int lebar;
-    private List<Rumah> daftarRumah;
-
-    public World(int panjang, int lebar) {
-        this.panjang = panjang;
-        this.lebar = lebar;
-        daftarRumah = new ArrayList<>();
-    }
-
-    public List<Rumah> getDaftarRumah() {
-        return daftarRumah;
-    }
-
-    public void tambahRumah(Rumah rumah) {
-        daftarRumah.add(rumah);
-    }
-
-    public void hapusRumah(Rumah rumah) {
-        daftarRumah.remove(rumah);
-    }
-
-    public void viewWorld() {
-        System.out.println("Panjang: " + panjang);
-        System.out.println("Lebar: " + lebar);
-        System.out.println("Daftar Rumah: " + daftarRumah);
-    }
-}
-
-class Rumah {
+class Rumah extends Ruangan {
     private int x;
     private int y;
     private List<Ruangan> daftarRuangan;
