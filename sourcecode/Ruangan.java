@@ -20,14 +20,6 @@ public class Ruangan {
         return lebarRuangan;
     }
 
-    public void setPanjangRuangan(int panjangRuangan) {
-        this.panjangRuangan = panjangRuangan;
-    }
-
-    public void setLebarRuangan(int lebarRuangan) {
-        this.lebarRuangan = lebarRuangan;
-    }
-
     public List<Barang> getDaftarBarang() {
         return daftarBarang;
     }
@@ -65,5 +57,20 @@ public class Ruangan {
             }
             System.out.println();
         }
+    }
+
+    public int getPosisiX() {
+        return 0;
+    }
+
+    public int getPosisiY() {
+        return 0;
+    }
+
+    public void setPosisi(int x, int y) {
+    }
+
+    public String getNamaRuangan() {
+        return null;
     }
 }

@@ -10,7 +10,7 @@ class Rumah {
         this.x = x;
         this.y = y;
         daftarRuangan = new ArrayList<Ruangan>();
-        daftarRuangan.add(new Ruangan("Kamar", 6, 6));
+        daftarRuangan.add(new Ruangan(6, 6));
     }
 
     // getter methods for x and y coordinates
