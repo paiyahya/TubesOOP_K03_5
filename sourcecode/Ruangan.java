@@ -5,12 +5,10 @@ public class Ruangan {
     private List<Barang> daftarBarang;
     private int panjangRuangan;
     private int lebarRuangan;
-    private int[][] matriksRuangan;
 
     public Ruangan(int panjangRuangan, int lebarRuangan) {
         this.panjangRuangan = panjangRuangan;
         this.lebarRuangan = lebarRuangan;
-        this.matriksRuangan = new int[panjangRuangan][lebarRuangan];
         this.daftarBarang = new ArrayList<Barang>();
     }
 

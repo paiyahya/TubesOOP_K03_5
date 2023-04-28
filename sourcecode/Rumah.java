@@ -1,23 +1,16 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class Rumah extends Ruangan {
+class Rumah {
     private int x;
     private int y;
     private List<Ruangan> daftarRuangan;
-    private boolean[][] matriksRumah;
 
     public Rumah(int x, int y) {
         this.x = x;
         this.y = y;
-        daftarRuangan = new ArrayList<>();
-        matriksRumah = new boolean[6][6];
-        // Set semua sel dalam matriksRumah ke false (kosong)
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                matriksRumah[i][j] = false;
-            }
-        }
+        daftarRuangan = new ArrayList<Ruangan>();
+        daftarRuangan.add(new Ruangan("Kamar", 6, 6));
     }
 
     // getter methods for x and y coordinates
@@ -30,7 +23,13 @@ class Rumah extends Ruangan {
     }
 
     public boolean isRuanganAvailable(int x, int y) {
-        return !matriksRumah[x][y];
+        // Cek apakah terdapat ruangan dengan koordinat (x,y) pada daftarRuangan
+        for (Ruangan ruangan : daftarRuangan) {
+            if (ruangan.getPosisiX() == x && ruangan.getPosisiY() == y) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public List<Ruangan> getDaftarRuangan() {
@@ -39,13 +38,22 @@ class Rumah extends Ruangan {
 
     public void tambahRuangan(Ruangan ruangan, int x, int y) {
         if (isRuanganAvailable(x, y)) {
-            daftarRuangan.add(ruangan);
-            ruangan.setPosisi(x, y);
-            // Set sel dalam matriksRumah yang ditempati oleh ruangan ke true
-            for (int i = x; i < x + ruangan.getPanjangRuangan(); i++) {
-                for (int j = y; j < y + ruangan.getLebarRuangan(); j++) {
-                    matriksRumah[i][j] = true;
+            boolean connected = false;
+            // Cek apakah ruangan baru terhubung dengan ruangan lain yang sudah ada
+            for (Ruangan r : daftarRuangan) {
+                if ((r.getPosisiX() == x && r.getPosisiY() == y - 1) ||
+                        (r.getPosisiX() == x && r.getPosisiY() == y + ruangan.getLebarRuangan()) ||
+                        (r.getPosisiX() == x - 1 && r.getPosisiY() == y) ||
+                        (r.getPosisiX() == x + ruangan.getPanjangRuangan() && r.getPosisiY() == y)) {
+                    connected = true;
+                    break;
                 }
+            }
+            if (connected) {
+                daftarRuangan.add(ruangan);
+                ruangan.setPosisi(x, y);
+            } else {
+                System.out.println("Ruangan tidak dapat ditambahkan, tidak terhubung dengan ruangan lain.");
             }
         } else {
             System.out.println("Ruangan tidak dapat ditambahkan, posisi telah ditempati.");
@@ -54,14 +62,9 @@ class Rumah extends Ruangan {
 
     public void viewRumah() {
         System.out.println("Posisi: (" + x + ", " + y + ")");
-        System.out.println("Daftar Ruangan: " + daftarRuangan);
-        System.out.println("Matriks Rumah: ");
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                System.out.print(matriksRumah[i][j] ? "x" : ".");
-                System.out.print(" ");
-            }
-            System.out.println();
+        System.out.println("Daftar Ruangan: ");
+        for (Ruangan ruangan : daftarRuangan) {
+            System.out.println("- " + ruangan.getNamaRuangan() + " (" + ruangan.getPanjangRuangan() + " x " + ruangan.getLebarRuangan() + ")");
         }
     }
 }
