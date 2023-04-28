@@ -1,44 +1,28 @@
-public class BahanMakanan extends Objek {
+import java.util.ArrayList;
+
+public class BahanMakanan {
+    private static String[] namaBahanMakanan = {
+            "Nasi", "Kentang", "Ayam", "Sapi", "Wortel", "Bayam", "Kacang", "Susu"
+    };
+    private static int[] hargas = {
+            5, 3, 10, 12, 3, 3, 2, 2
+    };
+    private static int[] kekenyangans = {
+            5, 4, 8, 15, 2, 2, 2, 1
+    };
+
+    private String bahanMakanan;
     private int harga;
     private int kekenyangan;
 
-    private static String[] namaBahanMakanan = {
-        "Nasi",
-        "Kentang",
-        "Ayam",
-        "Sapi",
-        "Wortel",
-        "Bayam",
-        "Kacang",
-        "Susu"
-    };
-
-    private static int[] hargas = {
-        5,
-        3,
-        10,
-        12,
-        3,
-        3,
-        2,
-        2
-    };
-
-    private static int[] kekenyanganValues = {
-        5,
-        4,
-        8,
-        15,
-        2,
-        2,
-        2,
-        1
-    };
-
     public BahanMakanan(int index) {
-        super(namaBahanMakanan[index]);
+        bahanMakanan = namaBahanMakanan[index];
         harga = hargas[index];
-        kekenyangan = kekenyanganValues[index];
+        kekenyangan = kekenyangans[index];
+    }
+
+    public String getBahanMakanan() {
+        return bahanMakanan;
     }
 
     public int getHarga() {
@@ -49,31 +33,23 @@ public class BahanMakanan extends Objek {
         return kekenyangan;
     }
 
-    public void masakBahanMakanan() {
-        System.out.println("Memasak bahan makanan: " + getNama());
+    public static ArrayList<BahanMakanan> inisialisasiBahanMakanan() {
+        ArrayList<BahanMakanan> listBahanMakanan = new ArrayList<>();
+        for (int i = 0; i < namaBahanMakanan.length; i++) {
+            listBahanMakanan.add(new BahanMakanan(i));
+        }
+        return listBahanMakanan;
     }
 
-    public static String[] getNamaBahanMakanan() {
-        return namaBahanMakanan;
-    }
-
-    public static int[] getHargas() {
-        return hargas;
-    }
-
-    public static int[] getKekenyanganValues() {
-        return kekenyanganValues;
+    public static void tampilkanBahanMakanan(ArrayList<BahanMakanan> listBahanMakanan) {
+        System.out.println("Daftar Bahan Makanan yang dimiliki:");
+        for (BahanMakanan bahanMakanan : listBahanMakanan) {
+            System.out.println("Nama Bahan Makanan: " + bahanMakanan.getBahanMakanan() + ", Harga: " + bahanMakanan.getHarga() + ", Kekenyangan: " + bahanMakanan.getKekenyangan());
+        }
     }
 
     public static void main(String[] args) {
-        BahanMakanan[] bahanMakanans = new BahanMakanan[namaBahanMakanan.length];
-        for (int i = 0; i < namaBahanMakanan.length; i++) {
-            bahanMakanans[i] = new BahanMakanan(i);
-        }
-
-        System.out.println("Daftar Bahan Makanan:");
-        for (BahanMakanan bahanMakanan : bahanMakanans) {
-            System.out.println("Nama Bahan Makanan: " + bahanMakanan.getNama() + ", Harga: " + bahanMakanan.getHarga() + ", Kekenyangan: " + bahanMakanan.getKekenyangan());
-        }
+        ArrayList<BahanMakanan> listBahanMakanan = inisialisasiBahanMakanan();
+        tampilkanBahanMakanan(listBahanMakanan);
     }
 }
