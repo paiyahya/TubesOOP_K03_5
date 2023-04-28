@@ -6,7 +6,8 @@ public class Sim {
     private int kesehatan;
     private String status;
     private int mood;
-    private Object[] inventory;
+    private String[] namaBarang;
+    private Barang barang;
 
     public Sim (String namaLengkap, String pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood) {
         this.namaLengkap = namaLengkap;
@@ -15,7 +16,9 @@ public class Sim {
         this.kekenyangan = kekenyangan;
         this.kesehatan = kesehatan;
         this.status = status;
-        this.mood = mood;    }
+        this.mood = mood;
+        this.barang = new Barang();
+    }
     
     public boolean isSimDead (){
         if (mood <= 0 || kekenyangan <= 0 || kesehatan <= 0){
@@ -26,11 +29,11 @@ public class Sim {
     }
 
     public void removeBarang (Object[] inventory) {
-
+        
     }
 
-    public void beliBarang (int uang, Object[] inventory) {
-
+    public void beliBarang (int uang, String namaBarang) {
+        barang.tambahBarang(namaBarang);
     }
 
     public void doKerja (int kekenyangan, int mood) {

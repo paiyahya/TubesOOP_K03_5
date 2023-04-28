@@ -74,12 +74,7 @@ public class Barang extends Objek {
     private int harga;
     private String aksi;
 
-    public Barang(int index){
-        super(namaBarang[index]);
-        panjang = panjangs[index];
-        lebar = lebars[index];
-        harga = hargas[index];
-        aksi = aksis[index];
+    public Barang(){
     }
 
     private int namaBarang(String barang) {
