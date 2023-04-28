@@ -20,6 +20,7 @@ class Rumah extends Ruangan {
         }
     }
 
+    // getter methods for x and y coordinates
     public int getX() {
         return x;
     }
@@ -27,7 +28,7 @@ class Rumah extends Ruangan {
     public int getY() {
         return y;
     }
-    
+
     public boolean isRuanganAvailable(int x, int y) {
         return !matriksRumah[x][y];
     }
