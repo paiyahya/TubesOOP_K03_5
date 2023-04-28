@@ -1,20 +1,44 @@
-public class BahanMakanan {
-    private String bahanMakanan;
+public class BahanMakanan extends Objek {
     private int harga;
     private int kekenyangan;
 
-    public BahanMakanan(String bahanMakanan, int harga, int kekenyangan) {
-        this.bahanMakanan = bahanMakanan;
-        this.harga = harga;
-        this.kekenyangan = kekenyangan;
-    }
+    private static String[] namaBahanMakanan = {
+        "Nasi",
+        "Kentang",
+        "Ayam",
+        "Sapi",
+        "Wortel",
+        "Bayam",
+        "Kacang",
+        "Susu"
+    };
 
-    public String getBahanMakanan() {
-        return bahanMakanan;
-    }
+    private static int[] hargas = {
+        5,
+        3,
+        10,
+        12,
+        3,
+        3,
+        2,
+        2
+    };
 
-    public void setBahanMakanan(String bahanMakanan) {
-        this.bahanMakanan = bahanMakanan;
+    private static int[] kekenyanganValues = {
+        5,
+        4,
+        8,
+        15,
+        2,
+        2,
+        2,
+        1
+    };
+
+    public BahanMakanan(int index) {
+        super(namaBahanMakanan[index]);
+        harga = hargas[index];
+        kekenyangan = kekenyanganValues[index];
     }
 
     public int getHarga() {
@@ -26,10 +50,30 @@ public class BahanMakanan {
     }
 
     public void masakBahanMakanan() {
-        System.out.println("Memasak " + bahanMakanan);
+        System.out.println("Memasak bahan makanan: " + getNama());
     }
 
-    public void showJenisBahanMakanan() {
-        System.out.println("Bahan Makanan: " + bahanMakanan + ", Harga: " + harga + ", Kekenyangan: " + kekenyangan);
+    public static String[] getNamaBahanMakanan() {
+        return namaBahanMakanan;
+    }
+
+    public static int[] getHargas() {
+        return hargas;
+    }
+
+    public static int[] getKekenyanganValues() {
+        return kekenyanganValues;
+    }
+
+    public static void main(String[] args) {
+        BahanMakanan[] bahanMakanans = new BahanMakanan[namaBahanMakanan.length];
+        for (int i = 0; i < namaBahanMakanan.length; i++) {
+            bahanMakanans[i] = new BahanMakanan(i);
+        }
+
+        System.out.println("Daftar Bahan Makanan:");
+        for (BahanMakanan bahanMakanan : bahanMakanans) {
+            System.out.println("Nama Bahan Makanan: " + bahanMakanan.getNama() + ", Harga: " + bahanMakanan.getHarga() + ", Kekenyangan: " + bahanMakanan.getKekenyangan());
+        }
     }
 }
