@@ -11,11 +11,12 @@ public class Sim {
     public Sim (String namaLengkap, String pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood) {
         this.namaLengkap = namaLengkap;
         this.pekerjaan = pekerjaan;
-        this.uang = uang;
-        this.kekenyangan = kekenyangan;
-        this.kesehatan = kesehatan;
+        this.uang = 100;
+        this.kekenyangan = 80;
+        this.kesehatan = 80;
         this.status = status;
-        this.mood = mood;    }
+        this.mood = 80;    
+    }
     
     public boolean isSimDead (){
         if (mood <= 0 || kekenyangan <= 0 || kesehatan <= 0){
@@ -169,6 +170,10 @@ public class Sim {
         }
     }
 
+       public void changeSim() {
+        
+    }
+    
     // getter dan setter
     public String getNama() {
         return namaLengkap;
