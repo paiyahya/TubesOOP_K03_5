@@ -73,6 +73,8 @@ public class Barang extends Objek {
     private int lebar;
     private int harga;
     private String aksi;
+    private int x;
+    private int y;
 
     public Barang(int index){
         super(namaBarang[index]);
@@ -107,6 +109,12 @@ public class Barang extends Objek {
         }
     }
 
+    public int getPosisiX() {
+        return x;
+    }
+    public int getPosisiY(){
+        return y;
+    }
     public int getpanjang(){
         return panjang;
     }
@@ -141,31 +149,6 @@ public class Barang extends Objek {
 
     public static String[] getaksis(){
         return aksis;
-    }
-
-    public int getIndex(String nama) {
-        if (nama == "Kasur Single") {
-            return 0;
-        }
-        else if (nama == "Kasur King Size") {
-            return 1;
-        }
-        else if (nama == "Toilet") {
-            return 2;
-        }
-        else if (nama == "Kompor Gas") {
-            return 3;
-        }
-        else if (nama == "Kompor Listrik") {
-            return 4;
-        }
-        else if (nama == "Meja dan Kursi") {
-            return 5;
-        }
-        else if (nama == "Jam") {
-            return 6;
-        }
-        return -1;
     }
     
     // public void interact(SIM SIM){
