@@ -1,12 +1,11 @@
 import java.util.ArrayList;
 
-public class Masakan {
-    private String namaMakanan;
+public class Masakan extends Objek {
     private ArrayList<BahanMakanan> bahanMakanan;
     private int kekenyangan;
 
     public Masakan(String namaMakanan, ArrayList<BahanMakanan> bahanMakanan) {
-        this.namaMakanan = namaMakanan;
+        super(namaMakanan); // Memanggil konstruktor superclass Objek
         this.bahanMakanan = bahanMakanan;
         this.kekenyangan = hitungKekenyangan(bahanMakanan);
     }
@@ -22,7 +21,7 @@ public class Masakan {
     }
     
     public String getNamaMakanan() {
-        return namaMakanan;
+        return getNama();
     }
 
     public ArrayList<BahanMakanan> getBahanMakanan() {
@@ -34,7 +33,7 @@ public class Masakan {
     }
 
     public void setNamaMakanan(String namaMakanan) {
-        this.namaMakanan = namaMakanan;
+        this.nama = namaMakanan;
     }
 
     public void setBahanMakanan(ArrayList<BahanMakanan> bahanMakanan) {
@@ -43,7 +42,7 @@ public class Masakan {
     }
 
     public void showJenisMakanan() {
-        System.out.print("Nama Masakan: " + namaMakanan + ", Bahan: ");
+        System.out.print("Nama Masakan: " + getNamaMakanan() + ", Bahan: ");
         for (int i = 0; i < bahanMakanan.size(); i++) {
             System.out.print(bahanMakanan.get(i).getBahanMakanan());
             if (i < bahanMakanan.size() - 1) {
