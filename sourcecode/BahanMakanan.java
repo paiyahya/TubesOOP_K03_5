@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class BahanMakanan {
+public class BahanMakanan extends Objek {
     private static String[] namaBahanMakanan = {
             "Nasi", "Kentang", "Ayam", "Sapi", "Wortel", "Bayam", "Kacang", "Susu"
     };
@@ -11,18 +11,17 @@ public class BahanMakanan {
             5, 4, 8, 15, 2, 2, 2, 1
     };
 
-    private String bahanMakanan;
     private int harga;
     private int kekenyangan;
 
     public BahanMakanan(int index) {
-        bahanMakanan = namaBahanMakanan[index];
+        super(namaBahanMakanan[index]);
         harga = hargas[index];
         kekenyangan = kekenyangans[index];
     }
 
     public String getBahanMakanan() {
-        return bahanMakanan;
+        return getNama();
     }
 
     public int getHarga() {
