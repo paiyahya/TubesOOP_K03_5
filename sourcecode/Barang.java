@@ -92,7 +92,26 @@ public class Barang extends Objek {
         "Membaca",
         "GantiBaju",
     };
-    private static int[] kuantitas =
+    private static int[] kuantitasInventory =
+    {
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+    };
+
+    private static int[] kuantitasBarang =
     {
         0,
         0,
@@ -139,14 +158,33 @@ public class Barang extends Objek {
 
     public void tambahBarang(String barang) {
         int indeksBarang = namaBarang(barang);
-        kuantitas[indeksBarang] += 1;
+        kuantitasInventory[indeksBarang] += 1;
     }
 
-    public void printBarang() {
-        System.out.println("Daftar Barang yang dimiliki");
-        for (int i = 0; i < kuantitas.length; i++) {
-            if (kuantitas[i] > 0) {
-                System.out.println(namaBarang[i] + ": " + kuantitas[i]);
+    public void hapusBarang(String barang) {
+        int indeksBarang = namaBarang(barang);
+        kuantitasInventory[indeksBarang] -= 1;
+    }
+
+    public void barangRuangan(String barang) {
+        int indeksBarang = namaBarang(barang);
+        kuantitasBarang[indeksBarang] += 1;
+    }
+
+    public void printBarangRuangan() {
+        System.out.println("Daftar Barang yang dimiliki dalam ruangan:");
+        for (int i = 0; i < kuantitasBarang.length; i++) {
+            if (kuantitasBarang[i] > 0) {
+                System.out.println(namaBarang[i] + ": " + kuantitasBarang[i]);
+            }
+        }
+    }
+
+    public void printBarangInventory() {
+        System.out.println("Daftar Barang yang dimiliki dalam inventory:");
+        for (int i = 0; i < kuantitasInventory.length; i++) {
+            if (kuantitasInventory[i] > 0) {
+                System.out.println(namaBarang[i] + ": " + kuantitasInventory[i]);
             }
         }
     }
@@ -240,7 +278,9 @@ public class Barang extends Objek {
         barang.tambahBarang("Toilet");
         barang.tambahBarang("Gitar");
         barang.tambahBarang("Sajadah");
-        barang.printBarang();
-        
+        barang.barangRuangan("Toilet");
+        barang.barangRuangan("Treadmill");
+        barang.printBarangInventory();
+        barang.printBarangRuangan();
     }
 }
