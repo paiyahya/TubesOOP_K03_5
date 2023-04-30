@@ -38,8 +38,8 @@ public class Main {
             System.out.println("12. Help");
             System.out.println("13. Exit");
 
-            int nomor = input.nextInt();
-            if (nomor == 1) {
+            Integer nomor = input.nextInt();
+            if (nomor.equals(1)) {
                 System.out.println("Nama SIM: " + sim.getNama());
                 System.out.println("Kekenyangan anda: " + sim.getKekenyangan());
                 System.out.println("Kesehatan anda: " + sim.getKesehatan());
@@ -48,36 +48,36 @@ public class Main {
                 System.out.println("Status anda: " + sim.getAksi());
                 input.nextLine();
             }
-            else if (nomor == 2) {
+            else if (nomor.equals(2)) {
                 world.printWorld();
                 world.printRumah();
                 System.out.println("Saat ini "+ sim.getNama() + " berada dalam " + namaRumah + " Pada koordinat " + rumah.getX() + "," + rumah.getY());
             }
-            else if (nomor == 3) {
+            else if (nomor.equals(3)) {
                 barang.printBarangInventory();
             }
-            else if (nomor == 4) {
+            else if (nomor.equals(4)) {
                 
             }
-            else if (nomor == 5) {
+            else if (nomor.equals(5)) {
                 
             }
-            else if (nomor == 6) {
+            else if (nomor.equals(6)) {
                 
             }
-            else if (nomor == 7) {
+            else if (nomor.equals(7)) {
                 
             }
-            else if (nomor == 8) {
+            else if (nomor.equals(8)) {
                 
             }
-            else if (nomor == 9) {
+            else if (nomor.equals(9)) {
                 
             }
-            else if (nomor == 10) {
+            else if (nomor.equals(10)) {
                 barang.printBarangRuangan();
             }
-            else if (nomor == 11) { 
+            else if (nomor.equals(11)) { 
                 //Menu ini digunakan untuk Sim berjalan menuju suatu objek.
                 //Jika menuju ke objek tersebut dapat melakukan aksi
                 System.out.println("Pilih objek yang ingin dituju: ");
@@ -85,16 +85,16 @@ public class Main {
                 int nomor1 = input.nextInt();
                 
             }
-            else if (nomor == 12) {
+            else if (nomor.equals(12)) {
                 System.out.println(""); //arahan permainan
             } 
-            else if (nomor == 13) {
+            else if (nomor.equals(13)) {
                 // boolean sim.isSimDead() = true;
             }
+            else {
+                System.out.println("Input tidak valid");
+            }
+            input.nextLine();
         }
     }
 }
-
-// if (daftarNamaBarang[i].equals(barang)) {
-                //     return i; 
-                // }
