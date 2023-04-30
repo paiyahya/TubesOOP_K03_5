@@ -190,5 +190,19 @@ public class Sim {
     public String getAksi() {
         return status;
     }
-
+    public int getKekenyangan() {
+        return kekenyangan;
+    }
+    public int getKesehatan() {
+        return kesehatan;
+    }
+    public int getMood() {
+        return mood;
+    }
+    public int getUang() {
+        return uang;
+    }
+    public String getPekerjaan() {
+        return pekerjaan;
+    }
 }
