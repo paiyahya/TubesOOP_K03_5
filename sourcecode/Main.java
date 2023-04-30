@@ -26,7 +26,61 @@ public class Main{
         System.out.println("Saat ini "+ sim.getNama() + " berada dalam " + namaRumah + " Pada koordinat " + rumah.getX() + "," + rumah.getY());
         // boolean state = !sim.isSimDead();
         while(!sim.isSimDead()) { 
+            System.out.println("Silahkan pilih aksi yang ingin dijalankan: ");
+            System.out.println("1. View Sim info");
+            System.out.println("2. View Current Location");
+            System.out.println("3. View Inventory");
+            System.out.println("4. Upgrade House");
+            System.out.println("5. Move House");
+            System.out.println("6. Edit Room");
+            System.out.println("7. Add SIM");
+            System.out.println("8. Change SIM");
+            System.out.println("9. List Object");
+            System.out.println("10. Go To Object");
+            System.out.println("11. Action");
+            System.out.println("12. Help");
+            System.out.println("13. Exit");
 
+            int nomor = input.nextInt();
+            if (nomor == 1) {
+
+            }
+            else if (nomor == 2) {
+                System.out.println(""); //arahan permainan
+            }
+            else if (nomor == 3) {
+                
+            }
+            else if (nomor == 4) {
+                
+            }
+            else if (nomor == 5) {
+                
+            }
+            else if (nomor == 6) {
+                
+            }
+            else if (nomor == 7) {
+                
+            }
+            else if (nomor == 8) {
+                
+            }
+            else if (nomor == 9) {
+                
+            }
+            else if (nomor == 10) {
+                
+            }
+            else if (nomor == 11) {
+                
+            }
+            else if (nomor == 12) {
+                
+            } 
+            else if (nomor == 13) {
+                
+            }
         }
     }
 }
