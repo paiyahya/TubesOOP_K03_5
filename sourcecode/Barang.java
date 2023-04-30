@@ -11,7 +11,14 @@ public class Barang extends Objek {
         "Kompor Gas",
         "Kompor Listrik",
         "Meja dan Kursi",
-        "Jam"
+        "Jam",
+        "Treadmill",
+        "Gitar",
+        "Sapu",
+        "Tv",
+        "Sajadah",
+        "Buku",
+        "Baju"
     };
     private static int[] panjangs =
     {
@@ -22,6 +29,13 @@ public class Barang extends Objek {
         2,
         1,
         3,
+        1,
+        3,
+        1,
+        1,
+        2,
+        1,
+        1,
         1
     };
     private static int[] lebars =
@@ -33,6 +47,13 @@ public class Barang extends Objek {
         1,
         1,
         3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
         1
     };
     private static int[] hargas =
@@ -44,7 +65,14 @@ public class Barang extends Objek {
         100,
         200,
         50,
-        10
+        10,
+        200,
+        30,
+        5,
+        150,
+        5,
+        10,
+        5
     };
     private static String[] aksis =
     {
@@ -55,7 +83,14 @@ public class Barang extends Objek {
         "Memasak",
         "Memasak",
         "Makan",
-        "Melihat waktu"
+        "Melihat waktu",
+        "Olahraga",
+        "Bermain musik",
+        "Bersih-bersih",
+        "Menonton",
+        "Ibadah",
+        "Membaca",
+        "GantiBaju",
     };
     private static int[] kuantitas =
     {
@@ -67,6 +102,13 @@ public class Barang extends Objek {
         0,
         0,
         0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
     };
 
     private int panjang;
@@ -85,7 +127,7 @@ public class Barang extends Objek {
     }
 
     private int namaBarang(String barang) {
-        String[] daftarNamaBarang = {"Kasur Single", "Kasur Queen Size", "Kasur King Size", "Toilet", "Kompor Gas", "Kompor Listrik", "Meja dan Kursi", "Jam"};
+        String[] daftarNamaBarang = {"Kasur Single", "Kasur Queen Size", "Kasur King Size", "Toilet", "Kompor Gas", "Kompor Listrik", "Meja dan Kursi", "Jam", "Treadmill", "Gitar", "Sapu", "Tv", "Sajadah", "Buku", "Baju"};
         for (int i = 0; i < daftarNamaBarang.length; i++) {
             if (daftarNamaBarang[i].equals(barang)) {
                 return i; 
@@ -189,14 +231,16 @@ public class Barang extends Objek {
     //     }
     // }
 
-    // public static void main(String[] args) {
-    //     Barang barang = new Barang(5);
-    //     barang.getaksi();
-    //     // barang.interact(null);
-    //     barang.tambahBarang("Toilet");
-    //     barang.tambahBarang("Toilet");
-    //     barang.tambahBarang("Toilet");
-    //     barang.printBarang();
+    public static void main(String[] args) {
+        Barang barang = new Barang(5);
+        barang.getaksi();
+        // barang.interact(null);
+        barang.tambahBarang("Toilet");
+        barang.tambahBarang("Toilet");
+        barang.tambahBarang("Toilet");
+        barang.tambahBarang("Gitar");
+        barang.tambahBarang("Sajadah");
+        barang.printBarang();
         
-    // }
+    }
 }
