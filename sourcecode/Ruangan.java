@@ -5,11 +5,13 @@ public class Ruangan {
     private List<Barang> daftarBarang;
     private int panjangRuangan;
     private int lebarRuangan;
+    private String namaRuangan;
 
-    public Ruangan(int panjangRuangan, int lebarRuangan) {
+    public Ruangan(int panjangRuangan, int lebarRuangan, String namaRuangan) {
         this.panjangRuangan = panjangRuangan;
         this.lebarRuangan = lebarRuangan;
         this.daftarBarang = new ArrayList<Barang>();
+        this.namaRuangan = namaRuangan;
     }
 
     public int getPanjangRuangan() {
@@ -32,7 +34,7 @@ public class Ruangan {
     }
 
     public String getNamaRuangan() {
-        return null;
+        return namaRuangan;
     }
 
     public List<Barang> getDaftarBarang() {
@@ -74,9 +76,20 @@ public class Ruangan {
         }
     }
 
-    // public static void main(String[] args) {
-    //     Ruangan ruangan = new Ruangan(6, 6);
-    //     ruangan.viewRuangan();
+    public static void main(String[] args) {
+        Rumah rumah = new Rumah(100, 100);
+        Ruangan ruangan = new Ruangan(6, 6, "Kamar Utama");
+        ruangan.viewRuangan();
+        Barang barang = new Barang(1);
+        ruangan.addObjek(barang);
+        rumah.tambahRuangan(ruangan, 0, 0);
+        // rumah.viewRumah();
+        Ruangan ruangan2 = new Ruangan(1, 1, "Kamar Tamu");
+        Barang barang2 = new Barang(2);
+        ruangan2.addObjek(barang2);
+        rumah.tambahRuangan(ruangan2, 0, 1);
+        rumah.viewRumah();
+
     //     ruangan.addObjek();
     //     World world = new World(64, 64);
     //     world.tambahRumah("Rumah 1", new Rumah(6, 6));
@@ -89,5 +102,5 @@ public class Ruangan {
     //     world.tambahRumah("Rumah 4", new Rumah(63, 63));
     //     world.printWorld();
     //     world.printRumah();
-    // }
+    }
 }
