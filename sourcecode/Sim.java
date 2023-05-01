@@ -1,4 +1,5 @@
 public class Sim {
+    private int nomor;
     private String namaLengkap;
     private String pekerjaan;
     private int uang;
@@ -7,17 +8,20 @@ public class Sim {
     private String status;
     private int mood;
     private Object[] inventory;
+    private boolean NowPlaying;
 
-    public Sim (String namaLengkap, String pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood) {
+    public Sim (int nomor, String namaLengkap, String pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood, boolean NowPlaying) {
         this.namaLengkap = namaLengkap;
+        this.nomor = nomor;
         this.pekerjaan = pekerjaan;
         this.uang = 100;
         this.kekenyangan = 80;
         this.kesehatan = 80;
         this.status = status;
-        this.mood = 80;    
+        this.mood = 80;  
+        this.NowPlaying = false;  
     }
-    
+
     public boolean isSimDead (){
         if (mood <= 0 || kekenyangan <= 0 || kesehatan <= 0){
             return true;
@@ -31,7 +35,7 @@ public class Sim {
     }
 
     public void beliBarang (int uang, Object[] inventory) {
-
+        
     }
 
     public void doKerja (int kekenyangan, int mood) {
@@ -170,15 +174,15 @@ public class Sim {
         }
     }
 
-       public void changeSim() {
-        
-    }
-    
     // getter dan setter
     public String getNama() {
         return namaLengkap;
     }
     
+    public int getNomor() {
+        return nomor;
+      }
+
     public void setNama(String namaLengkap) {
         this.namaLengkap = namaLengkap;
     }
@@ -204,5 +208,15 @@ public class Sim {
     }
     public String getPekerjaan() {
         return pekerjaan;
+    }
+
+    // Getter status bermain
+    public boolean isNowPlaying() {
+        return NowPlaying;
+    }
+
+    // Setter status bermain
+    public void setNowPlaying(boolean NowPlaying) {
+        this.NowPlaying = NowPlaying;
     }
 }
