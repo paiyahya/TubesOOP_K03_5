@@ -146,10 +146,10 @@ public class Matriks {
             }
         }
         print(matriks);
-
+    
         int input = 0;
+        Scanner sc = new Scanner(System.in);
         while (input != -999) {
-            Scanner sc = new Scanner(System.in);
             System.out.print("Masukkan angka: ");
             input = sc.nextInt();
             if (input != -999) {
@@ -180,6 +180,7 @@ public class Matriks {
             }
             print(matriks);
         }
-    }
+        sc.close();
+    }    
 }
 
