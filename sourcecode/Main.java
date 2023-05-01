@@ -1,13 +1,14 @@
-import java.util.Scanner;
+import java.util.*;
+import java.lang.System;
 
 public class Main {
     public static void main(String[] args) {
         World world = new World(64, 64);
-        Sim sim = new Sim(null, null, 100, 80, 80, "idle", 80);
-        System.out.println("Masukkan nama sim: ");
+        ArrayList<Sim> simList = new ArrayList<Sim>();
         Scanner input = new Scanner(System.in);
+        System.out.println("Masukkan nama sim: ");
         String nama = input.nextLine();
-        sim.setNama(nama);
+        Sim sim = new Sim((simList.size() + 1),nama, null, 100, 80, 80, "idle", 80, true);
         // world.tambahRumah(null, null);
         System.out.println("Masukkan nama rumah: ");
         String namaRumah = input.nextLine();
@@ -65,11 +66,18 @@ public class Main {
             else if (nomor.equals(6)) {
                 
             }
-            else if (nomor.equals(7)) {
-                
+            else if (nomor.equals(7)) {     
+                System.out.println("Masukkan nama sim yang ingin ditambah !");           
+                String nama1 = input.nextLine();
+                Sim sim1 = new Sim((simList.size() + 1),nama1, null, 100, 80, 80, "idle", 80, false);
+                simList.add(sim1);
             }
             else if (nomor.equals(8)) {
-                
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Masukkan nama sim yang ingin dimainkan !");
+                String namaMain = scanner.nextLine();
+                changePlayingSim(simList, namaMain);
+                scanner.close();
             }
             else if (nomor.equals(9)) {
                 
@@ -95,6 +103,16 @@ public class Main {
                 System.out.println("Input tidak valid");
             }
             input.nextLine();
+        }
+    input.close();
+    }
+    public static void changePlayingSim(ArrayList<Sim> simList, String namaMain) {
+        for (Sim sim : simList) {
+            if (sim.getNama().equals(namaMain)) {
+                sim.setNowPlaying(true);
+            } else {
+                sim.setNowPlaying(false);
+            }
         }
     }
 }
