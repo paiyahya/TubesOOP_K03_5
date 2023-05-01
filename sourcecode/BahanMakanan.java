@@ -120,4 +120,13 @@ public class BahanMakanan extends Objek {
  //       ArrayList<BahanMakanan> listBahanMakanan = inisialisasiBahanMakanan();
  //       tampilkanBahanMakanan(listBahanMakanan);
 //    }
+public static void main(String[] args) {
+    BahanMakanan bahanMakanan = new BahanMakanan(5);
+    bahanMakanan.tambahBahanMakanan("Wortel");
+    bahanMakanan.tambahBahanMakanan("Wortel");
+    bahanMakanan.tambahBahanMakanan("Wortel");
+    bahanMakanan.tambahBahanMakanan("Bayam");
+    bahanMakanan.tambahBahanMakanan("Kacang");
+    bahanMakanan.printBahanMakanan();
+    }
 }
