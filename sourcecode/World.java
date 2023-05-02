@@ -17,6 +17,12 @@ public class World {
 
     public void tambahRumah(String nama, Rumah rumah) {
         daftarRumah.put(nama, rumah);
+        Barang barang = new Barang(0);
+        barang.barangRuangan("Kasur Single");
+        barang.barangRuangan("Toilet");
+        barang.barangRuangan("Kompor Gas");
+        barang.barangRuangan("Meja dan Kursi");
+        barang.barangRuangan("Jam");
     }
 
     public void hapusRumah(String nama) {
