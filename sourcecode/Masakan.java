@@ -44,7 +44,7 @@ public class Masakan extends Objek {
     public void showJenisMakanan() {
         System.out.print("Nama Masakan: " + getNamaMakanan() + ", Bahan: ");
         for (int i = 0; i < bahanMakanan.size(); i++) {
-            System.out.print(bahanMakanan.get(i).getBahanMakanan());
+            System.out.print(bahanMakanan.get(i).getNama());
             if (i < bahanMakanan.size() - 1) {
                 System.out.print("+");
             }
@@ -52,40 +52,40 @@ public class Masakan extends Objek {
         System.out.println(", Kekenyangan: " + kekenyangan);
     }
 
-    public static void main(String[] args) {
-        ArrayList<BahanMakanan> listBahanMakanan = BahanMakanan.inisialisasiBahanMakanan();
+    // public static void main(String[] args) {
+    //     ArrayList<BahanMakanan> listBahanMakanan = new Masakan();
 
-        ArrayList<BahanMakanan> nasiAyamBahan = new ArrayList<>();
-        nasiAyamBahan.add(listBahanMakanan.get(0)); // Nasi
-        nasiAyamBahan.add(listBahanMakanan.get(2)); // Ayam
-        Masakan nasiAyam = new Masakan("Nasi Ayam", nasiAyamBahan);
+    //     ArrayList<BahanMakanan> nasiAyamBahan = new ArrayList<>();
+    //     nasiAyamBahan.add(listBahanMakanan.get(0)); // Nasi
+    //     nasiAyamBahan.add(listBahanMakanan.get(2)); // Ayam
+    //     Masakan nasiAyam = new Masakan("Nasi Ayam", nasiAyamBahan);
 
-        ArrayList<BahanMakanan> nasiKariBahan = new ArrayList<>();
-        nasiKariBahan.add(listBahanMakanan.get(0)); // Nasi
-        nasiKariBahan.add(listBahanMakanan.get(1)); // Kentang
-        nasiKariBahan.add(listBahanMakanan.get(4)); // Wortel
-        nasiKariBahan.add(listBahanMakanan.get(3)); // Sapi
-        Masakan nasiKari = new Masakan("Nasi Kari", nasiKariBahan);
+    //     ArrayList<BahanMakanan> nasiKariBahan = new ArrayList<>();
+    //     nasiKariBahan.add(listBahanMakanan.get(0)); // Nasi
+    //     nasiKariBahan.add(listBahanMakanan.get(1)); // Kentang
+    //     nasiKariBahan.add(listBahanMakanan.get(4)); // Wortel
+    //     nasiKariBahan.add(listBahanMakanan.get(3)); // Sapi
+    //     Masakan nasiKari = new Masakan("Nasi Kari", nasiKariBahan);
 
-        ArrayList<BahanMakanan> susuKacangBahan = new ArrayList<>();
-        susuKacangBahan.add(listBahanMakanan.get(7)); // Susu
-        susuKacangBahan.add(listBahanMakanan.get(6)); // Kacang
-        Masakan susuKacang = new Masakan("Susu Kacang", susuKacangBahan);
+    //     ArrayList<BahanMakanan> susuKacangBahan = new ArrayList<>();
+    //     susuKacangBahan.add(listBahanMakanan.get(7)); // Susu
+    //     susuKacangBahan.add(listBahanMakanan.get(6)); // Kacang
+    //     Masakan susuKacang = new Masakan("Susu Kacang", susuKacangBahan);
 
-        ArrayList<BahanMakanan> tumisSayurBahan = new ArrayList<>();
-        tumisSayurBahan.add(listBahanMakanan.get(4)); // Wortel
-        tumisSayurBahan.add(listBahanMakanan.get(5)); // Bayam
-        Masakan tumisSayur = new Masakan("Tumis Sayur", tumisSayurBahan);
+    //     ArrayList<BahanMakanan> tumisSayurBahan = new ArrayList<>();
+    //     tumisSayurBahan.add(listBahanMakanan.get(4)); // Wortel
+    //     tumisSayurBahan.add(listBahanMakanan.get(5)); // Bayam
+    //     Masakan tumisSayur = new Masakan("Tumis Sayur", tumisSayurBahan);
 
-        ArrayList<BahanMakanan> bistikBahan = new ArrayList<>();
-        bistikBahan.add(listBahanMakanan.get(1)); // Kentang
-        bistikBahan.add(listBahanMakanan.get(3)); // Sapi
-        Masakan bistik = new Masakan("Bistik", bistikBahan);
+    //     ArrayList<BahanMakanan> bistikBahan = new ArrayList<>();
+    //     bistikBahan.add(listBahanMakanan.get(1)); // Kentang
+    //     bistikBahan.add(listBahanMakanan.get(3)); // Sapi
+    //     Masakan bistik = new Masakan("Bistik", bistikBahan);
 
-        nasiAyam.showJenisMakanan();
-        nasiKari.showJenisMakanan();
-        susuKacang.showJenisMakanan();
-        tumisSayur.showJenisMakanan();
-        bistik.showJenisMakanan();
-    }
+    //     nasiAyam.showJenisMakanan();
+    //     nasiKari.showJenisMakanan();
+    //     susuKacang.showJenisMakanan();
+    //     tumisSayur.showJenisMakanan();
+    //     bistik.showJenisMakanan();
+    // }
 }

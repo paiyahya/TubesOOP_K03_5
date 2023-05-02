@@ -47,35 +47,35 @@ public class World {
     }
 
     public void printWorld() {
-        for (int i = 0; i < panjang; i++) {
-            for (int j = 0; j < lebar; j++) {
+        for (int i = 0; i < panjang +1; i++) {
+            for (int j = 0; j < lebar +1; j++) {
                 boolean isRumah = false;
                 for (Map.Entry<String, Rumah> entry : daftarRumah.entrySet()) {
                     if (entry.getValue().getX() == i && entry.getValue().getY() == j) {
-                        System.out.print("R");
+                        System.out.print("R ");
                         isRumah = true;
                         break;
                     }
                 }
                 if (!isRumah) {
-                    System.out.print(" ");
+                    System.out.print(". ");
                 }
             }
             System.out.println();
         }
     }
 
-    // public static void main(String[] args) {
-    //     World world = new World(6, 6);
-    //     world.tambahRumah("Rumah 1", new Rumah(6, 6));
-    //     world.tambahRumah("Rumah 2", new Rumah(12, 6));
-    //     world.tambahRumah("Rumah 3", new Rumah(18, 6));
-    //     world.printWorld();
-    //     world.printRumah();
-    //     // world.cekRumah(null);
-    //     world.hapusRumah("Rumah 1");
-    //     world.tambahRumah("Rumah 4", new Rumah(63, 63));
-    //     world.printWorld();
-    //     world.printRumah();
-    // }
+    public static void main(String[] args) {
+        World world = new World(64, 64);
+        world.tambahRumah("Rumah 1", new Rumah(6, 6));
+        world.tambahRumah("Rumah 2", new Rumah(12, 6));
+        world.tambahRumah("Rumah 3", new Rumah(18, 6));
+        world.printWorld();
+        world.printRumah();
+        // world.cekRumah(null);
+        world.hapusRumah("Rumah 1");
+        world.tambahRumah("Rumah 4", new Rumah(64, 64));
+        world.printWorld();
+        world.printRumah();
+    }
 }

@@ -181,10 +181,10 @@ public class Barang extends Objek {
     }
 
     public void printBarangInventory() {
-        System.out.println("Daftar Barang yang dimiliki dalam inventory:");
+        // System.out.println("Daftar Barang yang dimiliki dalam inventory:");
         for (int i = 0; i < kuantitasInventory.length; i++) {
             if (kuantitasInventory[i] > 0) {
-                System.out.println(namaBarang[i] + ": " + kuantitasInventory[i]);
+                System.out.println(namaBarang[i] + " " + kuantitasInventory[i] + " unit");
             }
         }
     }

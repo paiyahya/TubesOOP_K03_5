@@ -80,11 +80,11 @@ public class BahanMakanan extends Objek {
 
     public void printBahanMakanan()
     {
-        System.out.println("Daftar Bahan Makanan yang dimiliki:");
+        // System.out.println("Daftar Bahan Makanan yang dimiliki:");
         for (int i = 0; i < kuantitasInventory.length; i++){
             if (kuantitasInventory[i] > 0)
             {
-                System.out.println(namaBahanMakanan[i] + ": " + kuantitasInventory[i]);
+                System.out.println(namaBahanMakanan[i] + " " + kuantitasInventory[i] + " buah");
             }
         }
     }

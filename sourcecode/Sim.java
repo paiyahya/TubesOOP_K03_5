@@ -7,6 +7,7 @@ public class Sim {
     private String status;
     private int mood;
     private Object[] inventory;
+    private static Waktu waktu = new Waktu();
 
     public Sim (String namaLengkap, String pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood) {
         this.namaLengkap = namaLengkap;
@@ -37,13 +38,15 @@ public class Sim {
     public void doKerja (int kekenyangan, int mood) {
         this.kekenyangan = kekenyangan - 10;
         this.mood = mood - 10;
+        waktu.doAksi(30);
     }
 
     public void doOlahraga (int kesehatan, int kekenyangan, int mood) {
+
         this.kesehatan = kesehatan + 5;
         this.kekenyangan = kekenyangan - 5;
         this.mood = mood + 10;
-
+        waktu.doAksi(20);
         if (mood > 100) {
             this.mood = 100;
         }
@@ -52,7 +55,7 @@ public class Sim {
     public void doTidur (int mood, int kesehatan) {
         this.mood = mood + 30;
         this.kesehatan = kesehatan + 20;
-        
+        waktu.doAksi(240);
         if (mood > 100) {
             this.mood = 100;
         }
@@ -81,6 +84,7 @@ public class Sim {
         if (mood > 100) {
             this.mood = 100;
         }
+        waktu.doAksi(30);
     }
 
     public void doBuangAir (int mood, int kekenyangan) {
@@ -90,16 +94,17 @@ public class Sim {
         if (mood > 100) {
             this.mood = 100;
         }
+        waktu.doAksi(10);
     }
 
     public void upgradeRumah (int uang) {
-
+        waktu.doAksi(18);
     }
 
     public void doMandi (int mood, int kesehatan) {
         this.mood = mood + 10;
         this.kesehatan = kesehatan + 10;
-
+        waktu.doAksi(60);
         if (mood > 100) {
             this.mood = 100;
         }
@@ -112,7 +117,7 @@ public class Sim {
     public void doMainGitar (int mood, int kekenyangan) {
         this.mood = mood + 10;
         this.kekenyangan = kekenyangan - 5;
-
+        waktu.doAksi(30);
         if (mood > 100) {
             this.mood = 100;
         }
@@ -121,7 +126,8 @@ public class Sim {
     public void doMenyapu (int kesehatan, int mood) {
         this.kesehatan = kesehatan + 5;
         this.mood = mood + 5;
-    
+        waktu.doAksi(722);
+        // waktu.printWaktu();
         if (mood > 100) {
             this.mood = 100;
         }
@@ -134,7 +140,7 @@ public class Sim {
     public void doMenonton (int mood, int kekenyangan) {
         this.mood = mood + 15;
         this.kekenyangan = kekenyangan - 5;
-    
+        waktu.doAksi(20);
         if (mood > 100) {
             this.mood = 100;
         }
@@ -143,7 +149,7 @@ public class Sim {
     public void doIbadah (int mood, int kesehatan) {
         this.mood = mood + 20;
         this.kesehatan = kesehatan + 10;
-
+        waktu.doAksi(20);
         if (mood > 100) {
             this.mood = 100;
         }
@@ -156,7 +162,7 @@ public class Sim {
     public void doBaca (int mood, int kekenyangan) {
         this.mood = mood + 10;
         this.kekenyangan = kekenyangan - 5;
-
+        waktu.doAksi(30);
         if (mood > 100) {
             this.mood = 100;
         }
@@ -164,7 +170,7 @@ public class Sim {
 
     public void doGantiBaju (int mood) {
         this.mood = mood + 15;
-
+        waktu.doAksi(5);
         if (mood > 100) {
             this.mood = 100;
         }
