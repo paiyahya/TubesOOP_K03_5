@@ -25,11 +25,6 @@ public class Main {
         }
         System.out.println("Masukkan posisi y rumah: ");
         int y = input.nextInt();
-        while (y > 64) {
-            System.out.println("Posisi y tidak valid");
-            System.out.println("Masukkan posisi y rumah: ");
-            y = input.nextInt();
-        }
         Rumah rumah = new Rumah(x, y);
         world.tambahRumah(nama, rumah);
         Barang barang = new Barang(0);
@@ -118,75 +113,188 @@ public class Main {
                         if (nomor1.equals("Kasur Single")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(0));
                             System.out.println("Apakah anda ingin tidur? (y/n)");
-                            sim.doTidur(sim.getKesehatan(), sim.getMood());
-                            nextLine();
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doTidur(sim.getKesehatan(), sim.getMood());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
                         }
                         else if (nomor1.equals("Kasur Queen Size")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(1));
                             System.out.println("Apakah anda ingin tidur? (y/n)");
-                            sim.doTidur(sim.getKesehatan(), sim.getMood());
-                            nextLine();
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doTidur(sim.getKesehatan(), sim.getMood());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
                         }
                         else if (nomor1.equals("Kasur King Size")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(2));
                             System.out.println("Apakah anda ingin tidur? (y/n)");
-                            sim.doTidur(sim.getKesehatan(), sim.getMood());
-                            nextLine();
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doTidur(sim.getKesehatan(), sim.getMood());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
                         }
                         else if (nomor1.equals("Toilet")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(3));
                             System.out.println("Apakah anda ingin buang air? (y/n)");
-                            sim.doBuangAir(sim.getKesehatan(), sim.getMood());
-                            nextLine();
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doBuangAir(sim.getKesehatan(), sim.getMood());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
                         }
                         else if (nomor1.equals("Kompor Gas")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(4));
                             System.out.println("Apakah anda ingin memasak? (y/n)");
-                            sim.doMasak(sim.getMood());
-                            nextLine();
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doMasak(sim.getMood());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
                         }
                         else if (nomor1.equals("Kompor Listrik")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(5));
                             System.out.println("Apakah anda ingin memasak? (y/n)");
-                            sim.doMasak(sim.getMood());
-                            nextLine();
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doMasak(sim.getMood());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
                         }
                         else if (nomor1.equals("Meja dan Kursi")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(6));
                             System.out.println("Apakah anda ingin makan? (y/n)");
-                            sim.doMakan(sim.getKekenyangan());
-                            nextLine();
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doMakan(sim.getKekenyangan());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
                         }
                         else if (nomor1.equals("Jam")) {
                             System.out.println("Andfa sudah sampai " + barang.getNames(7));
                             System.out.println("Apakah anda ingin melihat waktu? (y/n)");
-                            waktu.printWaktu();
-                            nextLine();
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doLihatWaktu();
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
+                            
                         }
                         else if (nomor1.equals("Treadmill")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(8));
-                            nextLine();
+                            System.out.println("Apakah anda ingin berolahraga? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doOlahraga(sim.getKesehatan(), sim.getKekenyangan(), sim.getMood());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
+                            
                         }
                         else if (nomor1.equals("Gitar")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(9));
-                            nextLine();
+                            System.out.println("Apakah anda ingin bermain gitar? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doMainGitar(sim.getMood(), sim.getKekenyangan());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
+                            
                         }
                         else if (nomor1.equals("Sapu")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(10));
-                            nextLine();
+                            System.out.println("Apakah anda ingin menyapu? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doMenyapu(sim.getMood(), sim.getKekenyangan());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
+                            
+                            
                         }
                         else if (nomor1.equals("Tv")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(11));
-                            nextLine();
+                            System.out.println("Apakah anda ingin menonton TV? (y/n");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doMenonton(sim.getMood(), sim.getKekenyangan());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
+                            
                         }
                         else if (nomor1.equals("Sajadah")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(12));
+                            System.out.println("Apakah anda ingin ibadah? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doIbadah(sim.getMood(), sim.getKesehatan());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
                         }
                         else if (nomor1.equals("Buku")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(13));
+                            System.out.println("Anda sudah sampai rak" + barang.getNames(13));
+                            System.out.println("Apakah anda ingin membaca? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doBaca(sim.getMood(), sim.getKekenyangan());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
                         }
                         else if (nomor1.equals("Baju")) {
                             System.out.println("Anda sudah sampai " + barang.getNames(14));
+                            System.out.println("Apakah anda ingin mengganti baju? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                sim.doGantiBaju(sim.getMood());
+                                nextLine();
+                            }
+                            else {
+                                nextLine();
+                            }
                         }
                     }
                     else if (jawaban.equals("n")) {
@@ -202,12 +310,7 @@ public class Main {
                 }
             }
             else if (nomor.equals(11)) {
-                sim.doMenyapu(sim.getKesehatan(), sim.getMood());
-                waktu.printWaktu();
-                // // waktu.checkTime();
-                // waktu.checkTime();
-                // sim.doTidur(sim.getMood(), sim.getKesehatan());
-                // waktu.checkTime();
+                
             }
             else if (nomor.equals(12)) {
                 System.out.println(""); //arahan permainan

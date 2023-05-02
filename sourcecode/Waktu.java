@@ -33,7 +33,7 @@ public class   Waktu {
             this.time = elapsedTime;
             System.out.println("Waktu habis, lanjut ke hari ke-" + this.day);
         } else {
-            System.out.println("Waktu tersisa: " + getTimeString(this.time));
+            System.out.println("Waktu saat ini: " + getTimeString(this.time));
         }
     }
 

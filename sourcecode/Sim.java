@@ -126,8 +126,7 @@ public class Sim {
     public void doMenyapu (int kesehatan, int mood) {
         this.kesehatan = kesehatan + 5;
         this.mood = mood + 5;
-        waktu.doAksi(722);
-        // waktu.printWaktu();
+        waktu.doAksi(10);
         if (mood > 100) {
             this.mood = 100;
         }
@@ -174,6 +173,10 @@ public class Sim {
         if (mood > 100) {
             this.mood = 100;
         }
+    }
+
+    public void doLihatWaktu() {
+        waktu.printWaktu();
     }
 
        public void changeSim() {
