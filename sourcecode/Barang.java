@@ -152,7 +152,7 @@ public class Barang extends Objek {
                 return i; 
             }
         }
-        
+
         return -1;
     }
 
@@ -189,6 +189,16 @@ public class Barang extends Objek {
         }
     }
 
+    public boolean cekBarang(String barang) {
+        int indeksBarang = namaBarang(barang);
+        if (kuantitasBarang[indeksBarang] > 0) {
+            return true;
+        } else {
+            System.out.println("Barang " + barang + " tidak ada dalam ruangan.");
+            return false;
+        }
+    }
+
     public int getPosisiX() {
         return x;
     }
@@ -211,8 +221,8 @@ public class Barang extends Objek {
         return aksi;
     }
 
-    public static String[] getNames(){
-        return namaBarang;
+    public static String getNames(int idx){
+        return namaBarang[idx];
     }
 
     public static int[] getpanjangs(){
@@ -269,18 +279,20 @@ public class Barang extends Objek {
     //     }
     // }
 
-    public static void main(String[] args) {
-        Barang barang = new Barang(5);
-        barang.getaksi();
-        // barang.interact(null);
-        barang.tambahBarang("Toilet");
-        barang.tambahBarang("Toilet");
-        barang.tambahBarang("Toilet");
-        barang.tambahBarang("Gitar");
-        barang.tambahBarang("Sajadah");
-        barang.barangRuangan("Toilet");
-        barang.barangRuangan("Treadmill");
-        barang.printBarangInventory();
-        barang.printBarangRuangan();
-    }
+    // public static void main(String[] args) {
+    //     Barang barang = new Barang(5);
+    //     barang.getaksi();
+    //     // barang.interact(null);
+    //     barang.tambahBarang("Toilet");
+    //     barang.tambahBarang("Toilet");
+    //     barang.tambahBarang("Toilet");
+    //     barang.tambahBarang("Gitar");
+    //     barang.tambahBarang("Sajadah");
+    //     barang.barangRuangan("Toilet");
+    //     barang.barangRuangan("Treadmill");
+    //     barang.printBarangInventory();
+    //     barang.printBarangRuangan();
+    //     barang.cekBarang("Toilet");
+    //     barang.cekBarang("Buku");
+    // }
 }
