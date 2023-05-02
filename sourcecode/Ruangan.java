@@ -83,7 +83,8 @@ public class Ruangan {
         System.out.print("Masukkan y: ");
         int y = input.nextInt();
         String simbolOBJ = "";
-        if( (x+panjang <= 5) && (y+lebar <= 5) && checkRuangan(x, y, panjang, lebar, posisi) ){
+
+        if( (x+panjang <= 6) && (y+lebar <= 6) && checkRuangan(x, y, panjang, lebar, posisi) ){
             switch (barang) {
                 case "Kasur Single":
                     simbolOBJ = "S";
@@ -144,6 +145,7 @@ public class Ruangan {
             System.out.println("Lokasi tidak valid");
         }
         
+        
     }
 
     public Boolean checkRuangan(int x, int y, int panjang, int lebar, String posisi){
@@ -162,6 +164,7 @@ public class Ruangan {
         Ruangan kamar = new Ruangan("Kamar");
         kamar.mintaInputLokasi(1,4,"Kasur Single", "horizontal");
         kamar.mintaInputLokasi(3, 3, "Meja dan Kursi", "horizontal");
+        kamar.mintaInputLokasi(1, 1, "Sapu", "horizontal");
         kamar.print();
     }
 }
