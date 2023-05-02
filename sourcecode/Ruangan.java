@@ -1,106 +1,167 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class Ruangan {
-    private List<Barang> daftarBarang;
-    private int panjangRuangan;
-    private int lebarRuangan;
-    private String namaRuangan;
+    private String nama;
+    private String[][] matriks;
 
-    public Ruangan(int panjangRuangan, int lebarRuangan, String namaRuangan) {
-        this.panjangRuangan = panjangRuangan;
-        this.lebarRuangan = lebarRuangan;
-        this.daftarBarang = new ArrayList<Barang>();
-        this.namaRuangan = namaRuangan;
-    }
-
-    public int getPanjangRuangan() {
-        return panjangRuangan;
-    }
-
-    public int getLebarRuangan() {
-        return lebarRuangan;
-    }
-
-    public int getPosisiX() {
-        return 0;
-    }
-
-    public int getPosisiY() {
-        return 0;
-    }
-
-    public void setPosisi(int x, int y) {
-    }
-
-    public String getNamaRuangan() {
-        return namaRuangan;
-    }
-
-    public List<Barang> getDaftarBarang() {
-        return daftarBarang;
-    }
-
-    public void setDaftarBarang(List<Barang> daftarBarang) {
-        this.daftarBarang = daftarBarang;
-    }
-
-    public void addObjek(Barang barang) {
-        if (daftarBarang.size() < panjangRuangan * lebarRuangan) {
-            daftarBarang.add(barang);
-        } else {
-            System.out.println("Ruangan penuh!");
+    public Ruangan(String nama) {
+        this.nama = nama;
+        this.matriks = new String[6][6];
+        // mengisi matriks dengan 0 yang menandakan posisi kosong
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                matriks[i][j] = ".";
+            }
         }
     }
 
-    public void removeObjek(Barang barang) {
-        daftarBarang.remove(barang);
-    }
-
-    public void viewRuangan() {
-        for (int i = 0; i < panjangRuangan; i++) {
-            for (int j = 0; j < lebarRuangan; j++) {
-                boolean found = false;
-                for (Barang barang : daftarBarang) {
-                    if (barang.getPosisiX() == i && barang.getPosisiY() == j) {
-                        System.out.print(barang.getNama() + " ");
-                        found = true;
-                        break;
-                    }
-                }
-                if (!found) {
-                    System.out.print("- ");
-                }
+    public void print() {
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                //matriks[i][j] = angka++;
+                System.out.print(String.format("%2s ", matriks[i][j]));
             }
             System.out.println();
         }
+        // for (int i = 0; i < 6; i++) {
+        //     for (int j = 0; j < 6; j++) {
+        //         if (matriks[i][j] == 0) {
+        //             System.out.print(" . ");
+        //         } else {
+        //             System.out.print(String.format("%2d ", matriks[i][j]));
+        //         }
+        //     }
+        //     System.out.println();
+        // }
+    }
+
+    public void tambahObjek(int x, int y, String objek) {
+        if (x < 0 || x >= 6 || y < 0 || y >= 6) {
+            System.out.println("Posisi tidak valid!");
+        } else if (!(this.matriks[x][y].equals("."))) {
+            System.out.println("Posisi sudah terisi!");
+        } else {
+            this.matriks[x][y] = objek;
+        }
+    }
+
+    public void hapusObjek(int x, int y) {
+        if (x < 0 || x >= 6 || y < 0 || y >= 6) {
+            System.out.println("Posisi tidak valid!");
+        } else if (matriks[x][y].equals(".")) {
+            System.out.println("Posisi kosong!");
+        } else {
+            matriks[x][y] = ".";
+        }
+    }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public Ruangan getKoneksi(int arah) {
+        return null;
+    }
+
+    public void setKoneksi(int arah, Ruangan ruanganTerhubung) {
+    }
+
+
+    public void mintaInputLokasi(int panjang, int lebar, String barang, String posisi){
+        Scanner input = new Scanner(System.in);
+        //int inc = 1;
+        // for (int i = 0; i < 6; i++) {
+        //     for (int j = 0; j < 6; j++) {
+        //         System.out.print(String.format("%2d ", inc));
+        //         inc++;
+        //     }
+        //     System.out.print("\n");
+        // }
+        print();
+        System.out.print("Masukkan x: ");
+        int x = input.nextInt();
+        System.out.print("Masukkan y: ");
+        int y = input.nextInt();
+        String simbolOBJ = "";
+        if( (x+panjang <= 5) && (y+lebar <= 5) && checkRuangan(x, y, panjang, lebar, posisi) ){
+            switch (barang) {
+                case "Kasur Single":
+                    simbolOBJ = "S";
+                    break;
+                case "Kasur Queen Size":
+                    simbolOBJ = "Q";
+                    break;
+                case "Kasur King Size":
+                    simbolOBJ = "K";
+                    break;
+                case "Toilet":
+                    simbolOBJ = "W";
+                    break;
+                case "Kompor Gas":
+                    simbolOBJ = "G";
+                    break;
+                case "Kompor Listrik":
+                    simbolOBJ = "L";
+                    break;
+                case "Meja dan Kursi":
+                    simbolOBJ = "M";
+                    break;
+                case "Jam":
+                    simbolOBJ = "J";
+                    break;
+                case "Treadmill":
+                    simbolOBJ = "T";
+                    break;
+                case "Gitar":
+                    simbolOBJ = "G";
+                    break;
+                case "Sapu":
+                    simbolOBJ = "P";
+                    break;
+                case "Tv":
+                    simbolOBJ = "V";
+                    break;
+                case "Sajadah":
+                    simbolOBJ = "D";
+                    break;
+                case "Buku":
+                    simbolOBJ = "B";
+                    break;
+                case "Baju":
+                    simbolOBJ = "U";
+                    break;
+            
+                default:
+                    break;
+            }
+            for(int i =  x; i <  x+panjang; i++){
+                for(int j = y; j < y+lebar; j++){
+                    if(posisi.equals("horizontal")) tambahObjek(i,j , simbolOBJ);
+                    if(posisi.equals("vertikal"))  tambahObjek(j,i , simbolOBJ);
+                }
+            }
+        }else{
+            System.out.println("Lokasi tidak valid");
+        }
+        
+    }
+
+    public Boolean checkRuangan(int x, int y, int panjang, int lebar, String posisi){
+    
+        for(int i =  x; i <  x+panjang; i++){
+            for(int j = y; j < y+lebar; j++){
+                if(posisi.equals("horizontal")) if(!matriks[i][j].equals(("."))) return false;
+                if(posisi.equals("vertikal"))  if(!matriks[j][i].equals(("."))) return false;
+                
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
-        Rumah rumah = new Rumah(100, 100);
-        Ruangan ruangan = new Ruangan(6, 6, "Kamar Utama");
-        ruangan.viewRuangan();
-        Barang barang = new Barang(1);
-        ruangan.addObjek(barang);
-        rumah.tambahRuangan(ruangan, 0, 0);
-        // rumah.viewRumah();
-        Ruangan ruangan2 = new Ruangan(1, 1, "Kamar Tamu");
-        Barang barang2 = new Barang(2);
-        ruangan2.addObjek(barang2);
-        rumah.tambahRuangan(ruangan2, 0, 1);
-        rumah.viewRumah();
-
-    //     ruangan.addObjek();
-    //     World world = new World(64, 64);
-    //     world.tambahRumah("Rumah 1", new Rumah(6, 6));
-    //     world.tambahRumah("Rumah 2", new Rumah(12, 6));
-    //     world.tambahRumah("Rumah 3", new Rumah(18, 6));
-    //     // world.printWorld();
-    //     // world.printRumah();
-    //     // world.cekRumah(null);
-    //     world.hapusRumah("Rumah 1");
-    //     world.tambahRumah("Rumah 4", new Rumah(63, 63));
-    //     world.printWorld();
-    //     world.printRumah();
+        Ruangan kamar = new Ruangan("Kamar");
+        kamar.mintaInputLokasi(1,4,"Kasur Single", "horizontal");
+        kamar.mintaInputLokasi(3, 3, "Meja dan Kursi", "horizontal");
+        kamar.print();
     }
 }

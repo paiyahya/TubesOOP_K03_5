@@ -17,7 +17,7 @@ public class Main {
         int x = input.nextInt();
         System.out.println("Masukkan posisi y rumah: ");
         int y = input.nextInt();
-        Rumah rumah = new Rumah(x, y);
+        Rumah rumah = new Rumah(x, y, namaRumah);
         world.tambahRumah(nama, rumah);
         Barang barang = new Barang(x);
         input.nextLine();
