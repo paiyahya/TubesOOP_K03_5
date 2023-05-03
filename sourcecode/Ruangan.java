@@ -8,6 +8,7 @@ public class Ruangan {
     private List<Barang> daftarBarangRuangan;
     private int panjangRuangan;
     private int lebarRuangan;
+    private ArrayList<Ruangan> ruanganTetangga;
 
 
     public Ruangan(String namaRuangan, int x, int y) {
@@ -201,6 +202,15 @@ public class Ruangan {
          }
         
     }
+
+    public void addRoom(int idx, Ruangan ruangan) {
+        ruanganTetangga.add(idx, ruangan);
+    }
+
+    public ArrayList getRuanganTetangga(){
+        return this.ruanganTetangga;
+    }
+
     public static void main(String[] args) {
         Ruangan ruangan = new Ruangan("Kamar Tidur", 6, 6);
         ruangan.tampilkanRuangan();
