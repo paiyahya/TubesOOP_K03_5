@@ -31,8 +31,15 @@ public class Sim {
 
     }
 
-    public void beliBarang (int uang, Object[] inventory) {
+    public void beliBarang (int uang) {
+        Barang barang = new Barang(0);
+        this.uang = uang - barang.getharga();
+        waktu.doAksi(waktu.getRandomWaktu());
+    }
 
+    public void doBeliMakanan(int uang) {
+        BahanMakanan bahanMakanan = new BahanMakanan(0);
+        this.uang = uang - bahanMakanan.getHarga();
     }
 
     public void doKerja (int kekenyangan, int mood) {
