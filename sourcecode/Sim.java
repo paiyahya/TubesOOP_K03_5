@@ -84,6 +84,46 @@ public class Sim {
         }
     }
 
+    public void doMasakNasiAyam(int mood) {
+        this.mood = mood + 10;
+        waktu.doAksi(24);
+        if (mood > 100) {
+            this.mood = 100;
+        }
+    }
+
+    public void doMasakNasiKari(int mood) {
+        this.mood = mood + 10;
+        waktu.doAksi(45);
+        if (mood > 100) {
+            this.mood = 100;
+        }
+    }
+
+    public void doMasakSususKacang(int mood) {
+        this.mood = mood + 10;
+        waktu.doAksi(8);
+        if (mood > 100) {
+            this.mood = 100;
+        }
+    }
+
+    public void doMasakTumisSayur(int mood) {
+        this.mood = mood + 10;
+        waktu.doAksi(8);
+        if (mood > 100) {
+            this.mood = 100;
+        }
+    }
+
+    public void doMasakBistik(int mood) {
+        this.mood = mood + 10;
+        waktu.doAksi(33);
+        if (mood > 100) {
+            this.mood = 100;
+        }
+    }
+
     public void doBerkunjung (int mood, int kekenyangan) {
         this.mood = mood + 10;
         this.kekenyangan = kekenyangan - 10;

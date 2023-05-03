@@ -185,8 +185,8 @@ public class Main {
                                         if (jawaban3.equals("y")) {
                                             System.out.println("Anda sedang memasak Nasi Ayam");
                                             sim.doMasakNasiAyam(sim.getMood());
-                                            bahanMakanan.useBahanMakanan("Nasi");
-                                            bahanMakanan.useBahanMakanan("Ayam");
+                                            bahanMakanan.kuantitasInventory[0] -= 1;
+                                            bahanMakanan.kuantitasInventory[2] -= 1;
                                             masakan.tambahMakanan("Nasi Ayam");
                                             System.out.println("Anda berhasil memasak Nasi Ayam, silahkan cek inventory");
                                         }
@@ -314,8 +314,8 @@ public class Main {
                                         if (jawaban3.equals("y")) {
                                             System.out.println("Anda sedang memasak Nasi Ayam");
                                             sim.doMasakNasiAyam(sim.getMood());
-                                            bahanMakanan.useBahanMakanan("Nasi");
-                                            bahanMakanan.useBahanMakanan("Ayam");
+                                            bahanMakanan.kuantitasInventory[0] -= 1;
+                                            bahanMakanan.kuantitasInventory[2] -= 1;
                                             masakan.tambahMakanan("Nasi Ayam");
                                             System.out.println("Anda berhasil memasak Nasi Ayam, silahkan cek inventory");
                                         }
