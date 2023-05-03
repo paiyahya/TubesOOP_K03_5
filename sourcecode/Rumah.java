@@ -114,7 +114,7 @@ public class Rumah {
             }
             else
             {
-                System.out.println("Ruangan sudah ada"); //bisa tinggal diganti
+                System.out.println("Sudah terdapat ruangan di lokasi tersebut. Silakan pilih lokasi lain!"); //bisa tinggal diganti
             }
         }
         else if(arah == 2){
