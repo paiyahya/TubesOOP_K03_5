@@ -156,6 +156,43 @@ public class Barang extends Objek {
         return -1;
     }
 
+    public char getSymbol() {
+        switch (this.toString()) {
+            case "Kasur Single":
+                return 'S';
+            case "Kasur Queen Size":
+                return 'Q';
+            case "Kasur King Size":
+                return 'K';
+            case "Toilet":
+                return 'T';
+            case "Kompor Gas":
+                return 'G';
+            case "Kompor Listrik":
+                return 'L';
+            case "Meja dan Kursi":
+                return 'M';
+            case "Jam":
+                return 'J';
+            case "Treadmill":
+                return 'R';
+            case "Gitar":
+                return 'I';
+            case "Sapu":
+                return 'P';
+            case "Tv":
+                return 'V';
+            case "Sajadah":
+                return 'H';
+            case "Buku":
+                return 'B';
+            case "Baju":
+                return 'U';
+            default:
+                return '?';
+        }
+    }
+
     public void tambahBarang(String barang) {
         int indeksBarang = namaBarang(barang);
         kuantitasInventory[indeksBarang] += 1;
