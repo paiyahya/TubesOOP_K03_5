@@ -1,20 +1,22 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Rumah {
     private int x;
     private int y;
+    private int panjangRumah;
+    private int lebarRumah;
     // private Ruangan ruanganUtama;
     private String namaRuangan;
-    private List<Ruangan> listRuanganRumah;
+    private static List<Ruangan> listRuanganRumah;
 
     public Rumah(int x, int y) {
         this.x = x;
         this.y = y;
         this.listRuanganRumah = new ArrayList<>();
+        setDefaultRuangan();
         // Membuat ruangan pertama berukuran 6x6
-        Ruangan ruanganPertama = new Ruangan(6, 6);
-        listRuanganRumah.add(ruanganPertama);
     }
 
     public int getX() {
@@ -28,17 +30,85 @@ public class Rumah {
     public String getNamaRuangan(){
         return namaRuangan;
     }
+
+    public void setPanjangRumah(int panjangRumah){
+        this.panjangRumah = panjangRumah;
+    }
+
+    public void setLebarRumah(int lebarRumah){
+        this.lebarRumah = lebarRumah;
+    }
     
-    public List<Ruangan> getListRuanganRumah() {
+    public int getPanjangRumah() {
+        return panjangRumah;
+    }
+
+    public int getLebarRumah(){
+        return lebarRumah;
+    }
+
+    public static List<Ruangan> getListRuanganRumah() {
         return listRuanganRumah;
     }
 
-    public void tambahRuangan(String namaRuangan, int x, int y) {
-        // Menambahkan ruangan baru ke dalam listRuanganRumah
-        listRuanganRumah.add(namaRuangan);
-        Ruangan ruangan = new Ruangan("Kamar Tidur", 6, 6);
+    // public void tambahRuangan(String namaRuangan, int x, int y) {
+    //     // Menambahkan ruangan baru ke dalam listRuanganRumah
+    //     Ruangan ruangan = new Ruangan(namaRuangan, 6, 6);
+    //     listRuanganRumah.add(ruangan);
+    // }
 
+    public static void printListRuanganRumah(){
+        int i = 1;
+        
+        System.out.println("Daftar ruangan yang ada di rumah: ");
+         for(Ruangan ruangan : listRuanganRumah){
+            System.out.println(i+". "+ruangan.getNamaRuangan());
+            i++;
+         }
     }
+
+    public static void setRuangan(){
+        String namaRuangan;
+        System.out.print("Masukkan nama ruangan : ");
+        Scanner scan2 = new Scanner(System.in);
+        namaRuangan = scan2.nextLine();
+        Ruangan ruanganPertama = new Ruangan(namaRuangan,6, 6);
+        getListRuanganRumah().add(ruanganPertama);
+    }
+
+    public void setDefaultRuangan(){
+        Ruangan ruanganPertama = new Ruangan("Kamar",6, 6);
+        getListRuanganRumah().add(ruanganPertama);
+    }
+
+    public void PilihRuangan(){
+        int pilihan;
+        System.out.print("Pilih ruangan yang ingin diakses : ");
+        Scanner scan3 = new Scanner(System.in);
+        pilihan = scan3.nextInt();
+        getListRuanganRumah().get(pilihan-1).tampilkanRuangan();
+    }
+
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Masukkan X: ");
+        int x = scan.nextInt();
+        System.out.print("Masukkan Y: ");
+        int y = scan.nextInt();
+        Rumah rumah = new Rumah(x, y);
+        setRuangan();
+        // Ruangan ruangan = new Ruangan("Kamar Tidur", 6, 6);
+        // getListRuanganRumah().add(ruangan);
+        rumah.printListRuanganRumah();
+        rumah.PilihRuangan();
+        // ruangan.tambahBarang("Kasur Single");
+        // ruangan.tampilkanRuangan();
+        // ruangan.tambahBarang("Meja dan Kursi");
+        // ruangan.tampilkanRuangan();
+        // ruangan.tambahBarang("Jam");
+        // ruangan.tampilkanRuangan();
+        // ruangan.printBarangRuangan();
+    } 
 }
 // import java.util.ArrayList;
 // import java.util.List;

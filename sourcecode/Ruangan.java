@@ -114,35 +114,60 @@ public class Ruangan {
 
         //input lokasi
         Scanner scan = new Scanner(System.in);
-        System.out.print("Masukkan X: ");
-        int x = scan.nextInt();
-        System.out.print("Masukkan Y: ");
-        int y = scan.nextInt();
-        System.out.print("Masukan Posisi `Horizontal` / `Vertikal` : ");
-        String posisi = scan.next();
-
-        if (posisi.equalsIgnoreCase("Horizontal")) {
-            int temp = panjang;
-            panjang = lebar;
-            lebar = temp;
-        }
-
+        int x = 0; 
+        int y = 0;
+        String posisi = "";
+        Boolean input = false;
+        do {
+            try {
+                Boolean tabrakan = false;
+                System.out.print("Masukkan posisi (x,y): ");
+                String lokasi = scan.nextLine();
+                String[] lokasiSplit = lokasi.split(",");
+                x = Integer.parseInt(lokasiSplit[0]);
+                y = Integer.parseInt(lokasiSplit[1]);
+                System.out.print("Masukkan posisi (Horizontal/Vertikal): ");
+                posisi = scan.nextLine();
+                // if (posisi.equalsIgnoreCase("Horizontal") || posisi.equalsIgnoreCase("Vertikal")) {
+                //     input = true;
+                // } else {
+                //     input = false;
+                //     System.out.println("Input posisi tidak valid!");
+                // }
+    
+                if (posisi.equalsIgnoreCase("Horizontal")) {
+                    int temp = panjang;
+                    panjang = lebar;
+                    lebar = temp;
+                }
+                
+                // pengecekan apakah posisi valid
+                if (x < 0 || x + panjang > 6 || y < 0 || y + lebar > 6) {
+                    System.out.println("Input lokasi tidak valid!");
+                    continue;
+                }
         
-        // pengecekan apakah posisi valid
-        if (x < 0 || x + panjang > 6 || y < 0 || y + lebar > 6) {
-            System.out.println("Input lokasi tidak valid!");
-            return false;
-        }
+                // pengecekan tabrakan dengan barang lain
+                for (int i = x; i < x + panjang; i++) {
+                    for (int j = y; j < y + lebar; j++) {
+                        if (matriksRuangan[i][j] != '-') {
+                            tabrakan = true;
+                        }
+                    }
+                }
 
-        // pengecekan tabrakan dengan barang lain
-        for (int i = x; i < x + panjang; i++) {
-            for (int j = y; j < y + lebar; j++) {
-                if (matriksRuangan[i][j] != '-') {
+                if (tabrakan) {
                     System.out.println("Barang tidak dapat diletakkan pada posisi berikut. Silakan coba lagi!");
-                    return false;
+                }
+
+                if ((x >= 0 && x + panjang <= 6) && (y >= 0 && y + lebar <= 6) && !tabrakan) {
+                    input = true;
                 }
             }
-        }
+            catch (IndexOutOfBoundsException e) {
+                System.out.println("Indeks tidak valid");
+            }
+        } while (!input);
         
         // menambahkan barang ke matriks ruangan
         for (int i = x; i < x + panjang; i++) {
