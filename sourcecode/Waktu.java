@@ -1,4 +1,5 @@
 import java.util.concurrent.TimeUnit;
+import java.util.Random;
 
 public class   Waktu {
     private int day;
@@ -50,4 +51,17 @@ public class   Waktu {
         int minutes = time % 60;
         return String.format("%02d:%02d", hours, minutes);
     }
+    public int getRandomWaktu() {
+        Random random = new Random(System.currentTimeMillis());
+        int[] durations = {30, 60, 90, 120, 150};
+        int index = random.nextInt(durations.length);
+        return durations[index];
+    }
+
+    // public static void main(String[] args) {
+    //     Waktu waktu = new Waktu();
+    //     waktu.printWaktu();
+    //     waktu.doAksi(waktu.getRandomWaktu());
+    //     waktu.printWaktu();
+    // }
 }

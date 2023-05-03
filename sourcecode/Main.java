@@ -1,6 +1,13 @@
 import java.util.Scanner;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class Main {
+    public static void nextLine() {
+        System.out.println("Press enter to continue...");
+        Scanner input = new Scanner(System.in);
+        input.nextLine();
+    }
     public static void main(String[] args) {
         // Waktu waktu = new Waktu();
         // waktu.startGame();
@@ -9,7 +16,6 @@ public class Main {
         System.out.println("Masukkan nama sim: ");
         Scanner input = new Scanner(System.in);
         Waktu waktu = new Waktu();
-        String jalan = input.next();
         String nama = input.nextLine();
         sim.setNama(nama);
         // world.tambahRumah(null, null);
@@ -116,6 +122,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doTidur(sim.getKesehatan(), sim.getMood());
+                                System.out.println("Anda sudah selesai tidur");
                                 nextLine();
                             }
                             else {
@@ -128,6 +135,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doTidur(sim.getKesehatan(), sim.getMood());
+                                System.out.println("Anda sudah selesai tidur");
                                 nextLine();
                             }
                             else {
@@ -140,6 +148,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doTidur(sim.getKesehatan(), sim.getMood());
+                                System.out.println("Anda sudah selesai tidur");
                                 nextLine();
                             }
                             else {
@@ -152,6 +161,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doBuangAir(sim.getKesehatan(), sim.getMood());
+                                System.out.println("Anda sudah selesai buang air");
                                 nextLine();
                             }
                             else {
@@ -164,6 +174,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doMasak(sim.getMood());
+                                System.out.println("Anda sudah selesai memasak");
                                 nextLine();
                             }
                             else {
@@ -176,6 +187,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doMasak(sim.getMood());
+                                System.out.println("Anda sudah selesai memasak");
                                 nextLine();
                             }
                             else {
@@ -188,6 +200,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doMakan(sim.getKekenyangan());
+                                System.out.println("Anda sudah selesai makan");
                                 nextLine();
                             }
                             else {
@@ -213,6 +226,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doOlahraga(sim.getKesehatan(), sim.getKekenyangan(), sim.getMood());
+                                System.out.println("Anda sudah selesai berolahraga");
                                 nextLine();
                             }
                             else {
@@ -226,6 +240,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doMainGitar(sim.getMood(), sim.getKekenyangan());
+                                System.out.println("Anda sudah selesai bermain gitar");
                                 nextLine();
                             }
                             else {
@@ -239,6 +254,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doMenyapu(sim.getMood(), sim.getKekenyangan());
+                                System.out.println("Anda sudah selesai menyapu");
                                 nextLine();
                             }
                             else {
@@ -253,6 +269,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doMenonton(sim.getMood(), sim.getKekenyangan());
+                                System.out.println("Anda sudah selesai menonton");
                                 nextLine();
                             }
                             else {
@@ -266,6 +283,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doIbadah(sim.getMood(), sim.getKesehatan());
+                                System.out.println("Anda sudah selesai beribadah");
                                 nextLine();
                             }
                             else {
@@ -278,6 +296,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doBaca(sim.getMood(), sim.getKekenyangan());
+                                System.out.println("Anda sudah selesai membaca");
                                 nextLine();
                             }
                             else {
@@ -290,6 +309,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 sim.doGantiBaju(sim.getMood());
+                                System.out.println("Anda sudah selesai mengganti baju");
                                 nextLine();
                             }
                             else {
@@ -298,7 +318,6 @@ public class Main {
                         }
                     }
                     else if (jawaban.equals("n")) {
-                        System.out.println("Anda tidak sudah sampai objek tersebut");
                         nextLine();
                     }
                     else {
@@ -310,7 +329,472 @@ public class Main {
                 }
             }
             else if (nomor.equals(11)) {
-                
+                System.out.println("Pilihan aksi yang dapat dilakukan: ");
+                System.out.println("1. Bekerja");
+                System.out.println("2. Berkunjung ke rumah teman");
+                System.out.println("3. Beli barang");
+                Integer pilihan = input.nextInt();
+                if (pilihan.equals(1)) {
+                    System.out.println("Anda sedang bekerja");
+                    sim.doKerja(sim.getKekenyangan(), sim.getMood());
+                    nextLine();
+                }
+                else if (pilihan.equals(2)) {
+                    System.out.println("Anda sedang berkunjung ke rumah teman");
+                    sim.doBerkunjung(sim.getMood(), sim.getKekenyangan());
+                    nextLine();
+                }
+                else if (pilihan.equals(3)) {
+                    System.out.println("Pilihan barang yang dapat dibeli: ");
+                    System.out.println("1. Bahan makanan");
+                    System.out.println("2. Toilet");
+                    System.out.println("3. Jam");
+                    System.out.println("4. Treadmill");
+                    System.out.println("5. Gitar");
+                    System.out.println("6. Sapu");
+                    System.out.println("7. Tv");
+                    System.out.println("8. Sajadah");
+                    System.out.println("9. Buku");
+                    System.out.println("10. Baju");
+                    System.out.println("11. Kasur Single");
+                    System.out.println("12. Kasur Queen Size");
+                    System.out.println("13. Kasur King Size");
+                    System.out.println("14. Kompor Gas");
+                    System.out.println("15. Kompor Listrik");
+                    System.out.println("16. Meja dan Kursi");
+                    Integer pilihan2 = input.nextInt();
+                    if (pilihan2.equals(1)) {
+                        System.out.println("Pilihan makanan yang dapat dibeli: ");
+                        System.out.println("1. Nasi");
+                        System.out.println("2. Kentang");
+                        System.out.println("3. Ayam");
+                        System.out.println("4. Sapi");
+                        System.out.println("5. Wortel");
+                        System.out.println("6. Bayam");
+                        System.out.println("7. Kacang");
+                        System.out.println("8. Susu");
+                        Integer pilihan3 = input.nextInt();
+                        if (pilihan3.equals(1)) {
+                            System.out.println("Apakah anda ingin membeli nasi? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                System.out.println("Makanan anda sedang diantar, harap menunggu");
+                                sim.doBeliMakanan(sim.getUang());
+                                bahanMakanan.tambahBahanMakanan("Nasi");
+                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
+                                nextLine();
+                            }
+                            else if (jawaban1.equals("n")) {
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Input tidak valid");
+                                nextLine();
+                            }
+                        }
+                        else if (pilihan3.equals(2)) {
+                            System.out.println("Apakah anda ingin membeli kentang? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                System.out.println("Makanan anda sedang diantar, harap menunggu");
+                                sim.doBeliMakanan(sim.getUang());
+                                bahanMakanan.tambahBahanMakanan("Kentang");
+                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
+                                nextLine();
+                            }
+                            else if (jawaban1.equals("n")) {
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Input tidak valid");
+                                nextLine();
+                            }
+                        }
+                        else if (pilihan3.equals(3)) {
+                            System.out.println("Apakah anda ingin membeli ayam? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                System.out.println("Makanan anda sedang diantar, harap menunggu");
+                                sim.doBeliMakanan(sim.getUang());
+                                bahanMakanan.tambahBahanMakanan("Ayam");
+                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
+                                nextLine();
+                            }
+                            else if (jawaban1.equals("n")) {
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Input tidak valid");
+                                nextLine();
+                            }
+                        }
+                        else if (pilihan3.equals(4)) {
+                            System.out.println("Apakah anda ingin membeli sapi? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                System.out.println("Makanan anda sedang diantar, harap menunggu");
+                                sim.doBeliMakanan(sim.getUang());
+                                bahanMakanan.tambahBahanMakanan("Sapi");
+                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
+                                nextLine();
+                            }
+                            else if (jawaban1.equals("n")) {
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Input tidak valid");
+                                nextLine();
+                            }
+                        }
+                        else if (pilihan3.equals(5)) {
+                            System.out.println("Apakah anda ingin membeli wortel? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                System.out.println("Makanan anda sedang diantar, harap menunggu");
+                                sim.doBeliMakanan(sim.getUang());
+                                bahanMakanan.tambahBahanMakanan("Wortel");
+                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
+                                nextLine();
+                            }
+                            else if (jawaban1.equals("n")) {
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Input tidak valid");
+                                nextLine();
+                            }
+                        }
+                        else if (pilihan3.equals(6)) {
+                            System.out.println("Apakah anda ingin membeli bayam? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                System.out.println("Makanan anda sedang diantar, harap menunggu");
+                                sim.doBeliMakanan(sim.getUang());
+                                bahanMakanan.tambahBahanMakanan("Bayam");
+                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
+                                nextLine();
+                            }
+                            else if (jawaban1.equals("n")) {
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Input tidak valid");
+                                nextLine();
+                            }
+                        }
+                        else if (pilihan3.equals(7)) {
+                            System.out.println("Apakah anda ingin membeli kacang? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                System.out.println("Makanan anda sedang diantar, harap menunggu");
+                                sim.doBeliMakanan(sim.getUang());
+                                bahanMakanan.tambahBahanMakanan("Kacang");
+                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
+                                nextLine();
+                            }
+                            else if (jawaban1.equals("n")) {
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Input tidak valid");
+                                nextLine();
+                            }
+                        }
+                        else if (pilihan3.equals(8)) {
+                            System.out.println("Apakah anda ingin membeli susu? (y/n)");
+                            String jawaban1 = input.next();
+                            if (jawaban1.equals("y")) {
+                                System.out.println("Makanan anda sedang diantar, harap menunggu");
+                                sim.doBeliMakanan(sim.getUang());
+                                bahanMakanan.tambahBahanMakanan("Susu");
+                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
+                                nextLine();
+                            }
+                            else if (jawaban1.equals("n")) {
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Input tidak valid");
+                                nextLine();
+                            }
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(2)) {
+                        System.out.println("Apakah anda ingin membeli toilet?(y/n)");
+                        String jawaban2 = input.next();
+                        if (jawaban2.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Toilet");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban2.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(3)) {
+                        System.out.println("Apakah anda ingin membeli jam?(y/n)");
+                        String jawaban3 = input.next();
+                        if (jawaban3.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Jam");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban3.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(4)) {
+                        System.out.println("Apakah anda ingin membeli treadmill?(y/n)");
+                        String jawaban4 = input.next();
+                        if (jawaban4.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Treadmill");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban4.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(5)){
+                        System.out.println("Apakah anda ingin membeli gitar?(y/n)");
+                        String jawaban5 = input.next();
+                        if (jawaban5.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Gitar");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban5.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(6)) {
+                        System.out.println("Apakah anda ingin membeli sapu?(y/n)");
+                        String jawaban6 = input.next();
+                        if (jawaban6.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Sapu");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban6.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(7)) {
+                        System.out.println("Apakah anda ingin membeli tv?(y/n)");
+                        String jawaban7 = input.next();
+                        if (jawaban7.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Tv");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban7.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(8)){
+                        System.out.println("Apakah anda ingin membeli sajadah?(y/n)");
+                        String jawaban8 = input.next();
+                        if (jawaban8.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Sajadah");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban8.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(9)) {
+                        System.out.println("Apakah anda ingin membeli buku?(y/n)");
+                        String jawaban9 = input.next();
+                        if (jawaban9.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Buku");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban9.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(10)) {
+                        System.out.println("Apakah anda ingin membeli baju?(y/n)");
+                        String jawaban10 = input.next();
+                        if (jawaban10.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Baju");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban10.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(11)){
+                        System.out.println("Apakah anda ingin membeli kasur single?(y/n)");
+                        String jawaban11 = input.next();
+                        if (jawaban11.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Kasur Single");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban11.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(12)) {
+                        System.out.println("Apakah anda ingin membeli kasur queen size?(y/n)");
+                        String jawaban12 = input.next();
+                        if (jawaban12.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Kasur Queen Size");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban12.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(13)) {
+                        System.out.println("Apakah anda ingin membeli kasur king size?(y/n)");
+                        String jawaban13 = input.next();
+                        if (jawaban13.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Kasur King Size");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban13.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                            nextLine();
+                        }
+                    }
+                    else if (pilihan2.equals(14)) {
+                        System.out.println("Apakah anda ingin membeli kompor gas?(y/n)");
+                        String jawaban14 = input.next();
+                        if (jawaban14.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Kompor Gas");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban14.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                        }
+                    }
+                    else if (pilihan2.equals(15)) {
+                        System.out.println("Apakah anda ingin membeli kompor listrik?(y/n)");
+                        String jawaban15 = input.next();
+                        if (jawaban15.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Kompor Listrik");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban15.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                        }
+                    }
+                    else if (pilihan2.equals(16)) {
+                        System.out.println("Apakah anda ingin membeli meja dan kursi?(y/n)");
+                        String jawaban16 = input.next();
+                        if (jawaban16.equals("y")) {
+                            System.out.println("Barang anda sedang diantar, harap menunggu");
+                            sim.beliBarang(sim.getUang());
+                            barang.tambahBarang("Meja dan Kursi");
+                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
+                            nextLine();
+                        }
+                        else if (jawaban16.equals("n")) {
+                            nextLine();
+                        }
+                        else {
+                            System.out.println("Input tidak valid");
+                        }
+                    }
+                    else {
+                        System.out.println("Input tidak valid");
+                        nextLine();
+                    }
+                }
             }
             else if (nomor.equals(12)) {
                 System.out.println(""); //arahan permainan
@@ -318,11 +802,12 @@ public class Main {
             } 
             else if (nomor.equals(13)) {
                 System.out.println("Apakah Anda yakin ingin keluar? (y/n)");
-                if (input.next().equals("y")) {
+                String jawaban = input.next();
+                if (jawaban.equals("y")) {
                     System.out.println("Terima kasih telah bermain");
                     break;
                 }
-                else if (input.nextLine().equals("n")) {
+                else if (jawaban.equals("n")) {
                     nextLine();
                     continue;
                 }
@@ -336,10 +821,5 @@ public class Main {
                 nextLine();
             }
         }
-    }
-    public static void nextLine() {
-        System.out.println("Press enter to continue...");
-        Scanner input = new Scanner(System.in);
-        input.nextLine();
     }
 }
