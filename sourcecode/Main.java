@@ -35,6 +35,7 @@ public class Main {
         world.tambahRumah(nama, rumah);
         Barang barang = new Barang(0);
         BahanMakanan bahanMakanan = new BahanMakanan(0);
+        Masakan masakan = new Masakan(0);
         nextLine();
 
         while(!sim.isSimDead()) { 
@@ -61,6 +62,7 @@ public class Main {
                 System.out.println("Mood anda: " + sim.getMood());
                 System.out.println("Pekerjaan anda: " + sim.getPekerjaan());
                 System.out.println("Status anda: " + sim.getAksi());
+                System.out.println("Uang anda: " + sim.getUang());
                 nextLine();
             }
             else if (nomor.equals(2)) {
@@ -71,15 +73,8 @@ public class Main {
             }
             else if (nomor.equals(3)) {
                 System.out.println("Inventory anda: ");
-                bahanMakanan.tambahBahanMakanan("Wortel");
-                bahanMakanan.tambahBahanMakanan("Wortel");
-                bahanMakanan.tambahBahanMakanan("Wortel");
-                bahanMakanan.tambahBahanMakanan("Bayam");
-                bahanMakanan.tambahBahanMakanan("Kacang");
-                barang.tambahBarang("Toilet");
-                barang.tambahBarang("Toilet");
-                barang.tambahBarang("Toilet");
                 bahanMakanan.printBahanMakanan();
+                masakan.printMakanan();
                 barang.printBarangInventory();
                 nextLine();
             }
@@ -173,9 +168,128 @@ public class Main {
                             System.out.println("Apakah anda ingin memasak? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doMasak(sim.getMood());
-                                System.out.println("Anda sudah selesai memasak");
-                                nextLine();
+                                System.out.println("Berikut bahan makanan yang kamu punya :\n");
+                                bahanMakanan.printBahanMakanan();
+                                barang.printBarangInventory();
+                                System.out.println("Masakan apa yang ingin anda masak?");
+                                System.out.println("1. Nasi Ayam");
+                                System.out.println("2. Nasi Kari");
+                                System.out.println("3. Susu Kacang");
+                                System.out.println("4. Tumis Sayur");
+                                System.out.println("5. Bistik");
+                                Integer jawaban2 = input.nextInt();
+                                if (jawaban2.equals(1)){
+                                    if (bahanMakanan.kuantitasInventory[0] > 0 && bahanMakanan.kuantitasInventory[2] > 0) {
+                                        System.out.println("Apakah anda ingin memasak Nasi Ayam? (y/n)");
+                                        String jawaban3 = input.next();
+                                        if (jawaban3.equals("y")) {
+                                            System.out.println("Anda sedang memasak Nasi Ayam");
+                                            sim.doMasakNasiAyam(sim.getMood());
+                                            bahanMakanan.useBahanMakanan("Nasi");
+                                            bahanMakanan.useBahanMakanan("Ayam");
+                                            masakan.tambahMakanan("Nasi Ayam");
+                                            System.out.println("Anda berhasil memasak Nasi Ayam, silahkan cek inventory");
+                                        }
+                                        else {
+                                            System.out.println("Anda tidak jadi memasak");
+                                            nextLine();
+                                        }
+                                    }
+                                    else {
+                                        System.out.println("Bahan makanan tidak cukup");
+                                        nextLine();
+                                    }
+                                }
+                                else if (jawaban2.equals(2)){
+                                    if (bahanMakanan.kuantitasInventory[0] > 0 && bahanMakanan.kuantitasInventory[1] > 0 && bahanMakanan.kuantitasInventory[3] > 0 && bahanMakanan.kuantitasInventory[4] > 0) {
+                                        System.out.println("Apakah anda ingin memasak Nasi Kari? (y/n)");
+                                        String jawaban3 = input.next();
+                                        if (jawaban3.equals("y")) {
+                                            System.out.println("Anda sedang memasak Nasi Kari");
+                                            sim.doMasakNasiKari(sim.getMood());
+                                            bahanMakanan.kuantitasInventory[0] -= 1;
+                                            bahanMakanan.kuantitasInventory[1] -= 1;
+                                            bahanMakanan.kuantitasInventory[3] -= 1;
+                                            bahanMakanan.kuantitasInventory[4] -= 1;
+                                            masakan.tambahMakanan("Nasi Kari");
+                                            System.out.println("Anda berhasil memasak Nasi Kari, silahkan cek inventory");
+                                        }
+                                        else {
+                                            System.out.println("Anda tidak jadi memasak");
+                                            nextLine();
+                                        }
+                                    }
+                                    else {
+                                        System.out.println("Bahan makanan tidak cukup");
+                                        nextLine();
+                                    }
+                                }
+                                else if (jawaban2.equals(3)){
+                                    if (bahanMakanan.kuantitasInventory[6] > 0 && bahanMakanan.kuantitasInventory[7] > 0 ) {
+                                        System.out.println("Apakah anda ingin memasak Susu Kacang? (y/n)");
+                                        String jawaban3 = input.next();
+                                        if (jawaban3.equals("y")) {
+                                            System.out.println("Anda sedang memasak Susu Kacang");
+                                            sim.doMasakSususKacang(sim.getMood());
+                                            bahanMakanan.kuantitasInventory[6]--;
+                                            bahanMakanan.kuantitasInventory[7]--;
+                                            masakan.tambahMakanan("Susus Kacang");
+                                            System.out.println("Anda berhasil memasak Susu Kacang, silahkan cek inventory");
+                                        }
+                                        else {
+                                            System.out.println("Anda tidak jadi memasak");
+                                            nextLine();
+                                        }
+                                    }
+                                    else {
+                                        System.out.println("Bahan makanan tidak cukup");
+                                        nextLine();
+                                    }
+                                }
+                                else if (jawaban2.equals(4)){
+                                    if (bahanMakanan.kuantitasInventory[4] > 0 && bahanMakanan.kuantitasInventory[5] > 0) {
+                                        System.out.println("Apakah anda ingin memasak Tumis Sayur? (y/n)");
+                                        String jawaban3 = input.next();
+                                        if (jawaban3.equals("y")) {
+                                            System.out.println("Anda sedang memasak Tumis Sayur");
+                                            sim.doMasakTumisSayur(sim.getMood());
+                                            bahanMakanan.kuantitasInventory[4] -= 1;
+                                            bahanMakanan.kuantitasInventory[5] -= 1;
+                                            masakan.tambahMakanan("Tumis Sayur");
+                                            System.out.println("Anda berhasil memasak Nasi Kari, silahkan cek inventory");
+                                        }
+                                        else {
+                                            System.out.println("Anda tidak jadi memasak");
+                                            nextLine();
+                                        }
+                                    }
+                                    else {
+                                        System.out.println("Bahan makanan tidak cukup");
+                                        nextLine();
+                                    }
+                                }
+                                else if (jawaban2.equals(5)){
+                                    if (bahanMakanan.kuantitasInventory[1] > 0 && bahanMakanan.kuantitasInventory[3] > 0) {
+                                        System.out.println("Apakah anda ingin memasak Bistik? (y/n)");
+                                        String jawaban3 = input.next();
+                                        if (jawaban3.equals("y")) {
+                                            System.out.println("Anda sedang memasak Bistik");
+                                            sim.doMasakBistik(sim.getMood());
+                                            bahanMakanan.kuantitasInventory[1] -= 1;
+                                            bahanMakanan.kuantitasInventory[3] -= 1;
+                                            masakan.tambahMakanan("Bistik");
+                                            System.out.println("Anda berhasil memasak Bistik, silahkan cek inventory");
+                                        }
+                                        else {
+                                            System.out.println("Anda tidak jadi memasak");
+                                            nextLine();
+                                        }
+                                    }
+                                    else {
+                                        System.out.println("Bahan makanan tidak cukup");
+                                        nextLine();
+                                    }
+                                }
                             }
                             else {
                                 nextLine();
@@ -186,9 +300,125 @@ public class Main {
                             System.out.println("Apakah anda ingin memasak? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doMasak(sim.getMood());
-                                System.out.println("Anda sudah selesai memasak");
-                                nextLine();
+                                System.out.println("Masakan apa yang ingin anda masak?");
+                                System.out.println("1. Nasi Ayam");
+                                System.out.println("2. Nasi Kari");
+                                System.out.println("3. Susu Kacang");
+                                System.out.println("4. Tumis Sayur");
+                                System.out.println("5. Bistik");
+                                Integer jawaban2 = input.nextInt();
+                                if (jawaban2.equals(1)){
+                                    if (bahanMakanan.kuantitasInventory[0] > 0 && bahanMakanan.kuantitasInventory[2] > 0) {
+                                        System.out.println("Apakah anda ingin memasak Nasi Ayam? (y/n)");
+                                        String jawaban3 = input.next();
+                                        if (jawaban3.equals("y")) {
+                                            System.out.println("Anda sedang memasak Nasi Ayam");
+                                            sim.doMasakNasiAyam(sim.getMood());
+                                            bahanMakanan.useBahanMakanan("Nasi");
+                                            bahanMakanan.useBahanMakanan("Ayam");
+                                            masakan.tambahMakanan("Nasi Ayam");
+                                            System.out.println("Anda berhasil memasak Nasi Ayam, silahkan cek inventory");
+                                        }
+                                        else {
+                                            System.out.println("Anda tidak jadi memasak");
+                                            nextLine();
+                                        }
+                                    }
+                                    else {
+                                        System.out.println("Bahan makanan tidak cukup");
+                                        nextLine();
+                                    }
+                                }
+                                else if (jawaban2.equals(2)){
+                                    if (bahanMakanan.kuantitasInventory[0] > 0 && bahanMakanan.kuantitasInventory[1] > 0 && bahanMakanan.kuantitasInventory[3] > 0 && bahanMakanan.kuantitasInventory[4] > 0) {
+                                        System.out.println("Apakah anda ingin memasak Nasi Kari? (y/n)");
+                                        String jawaban3 = input.next();
+                                        if (jawaban3.equals("y")) {
+                                            System.out.println("Anda sedang memasak Nasi Kari");
+                                            sim.doMasakNasiKari(sim.getMood());
+                                            bahanMakanan.kuantitasInventory[0] -= 1;
+                                            bahanMakanan.kuantitasInventory[1] -= 1;
+                                            bahanMakanan.kuantitasInventory[3] -= 1;
+                                            bahanMakanan.kuantitasInventory[4] -= 1;
+                                            masakan.tambahMakanan("Nasi Kari");
+                                            System.out.println("Anda berhasil memasak Nasi Kari, silahkan cek inventory");
+                                        }
+                                        else {
+                                            System.out.println("Anda tidak jadi memasak");
+                                            nextLine();
+                                        }
+                                    }
+                                    else {
+                                        System.out.println("Bahan makanan tidak cukup");
+                                        nextLine();
+                                    }
+                                }
+                                else if (jawaban2.equals(3)){
+                                    if (bahanMakanan.kuantitasInventory[6] > 0 && bahanMakanan.kuantitasInventory[7] > 0 ) {
+                                        System.out.println("Apakah anda ingin memasak Susu Kacang? (y/n)");
+                                        String jawaban3 = input.next();
+                                        if (jawaban3.equals("y")) {
+                                            System.out.println("Anda sedang memasak Susu Kacang");
+                                            sim.doMasakSususKacang(sim.getMood());
+                                            bahanMakanan.kuantitasInventory[6]--;
+                                            bahanMakanan.kuantitasInventory[7]--;
+                                            masakan.tambahMakanan("Susus Kacang");
+                                            System.out.println("Anda berhasil memasak Susu Kacang, silahkan cek inventory");
+                                        }
+                                        else {
+                                            System.out.println("Anda tidak jadi memasak");
+                                            nextLine();
+                                        }
+                                    }
+                                    else {
+                                        System.out.println("Bahan makanan tidak cukup");
+                                        nextLine();
+                                    }
+                                }
+                                else if (jawaban2.equals(4)){
+                                    if (bahanMakanan.kuantitasInventory[4] > 0 && bahanMakanan.kuantitasInventory[5] > 0) {
+                                        System.out.println("Apakah anda ingin memasak Tumis Sayur? (y/n)");
+                                        String jawaban3 = input.next();
+                                        if (jawaban3.equals("y")) {
+                                            System.out.println("Anda sedang memasak Tumis Sayur");
+                                            sim.doMasakTumisSayur(sim.getMood());
+                                            bahanMakanan.kuantitasInventory[4] -= 1;
+                                            bahanMakanan.kuantitasInventory[5] -= 1;
+                                            masakan.tambahMakanan("Tumis Sayur");
+                                            System.out.println("Anda berhasil memasak Nasi Kari, silahkan cek inventory");
+                                        }
+                                        else {
+                                            System.out.println("Anda tidak jadi memasak");
+                                            nextLine();
+                                        }
+                                    }
+                                    else {
+                                        System.out.println("Bahan makanan tidak cukup");
+                                        nextLine();
+                                    }
+                                }
+                                else if (jawaban2.equals(5)){
+                                    if (bahanMakanan.kuantitasInventory[1] > 0 && bahanMakanan.kuantitasInventory[3] > 0) {
+                                        System.out.println("Apakah anda ingin memasak Bistik? (y/n)");
+                                        String jawaban3 = input.next();
+                                        if (jawaban3.equals("y")) {
+                                            System.out.println("Anda sedang memasak Bistik");
+                                            sim.doMasakBistik(sim.getMood());
+                                            bahanMakanan.kuantitasInventory[1] -= 1;
+                                            bahanMakanan.kuantitasInventory[3] -= 1;
+                                            masakan.tambahMakanan("Bistik");
+                                            System.out.println("Anda berhasil memasak Bistik, silahkan cek inventory");
+                                        }
+                                        else {
+                                            System.out.println("Anda tidak jadi memasak");
+                                            nextLine();
+                                        }
+                                    }
+                                    else {
+                                        System.out.println("Bahan makanan tidak cukup");
+                                        nextLine();
+                                    }
+                                }
                             }
                             else {
                                 nextLine();
