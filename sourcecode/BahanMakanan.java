@@ -33,7 +33,7 @@ public class BahanMakanan extends Objek {
             1
     };
 
-    private static int[] kuantitasInventory =
+    static int[] kuantitasInventory =
     {
         0,
         0,

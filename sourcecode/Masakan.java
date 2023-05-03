@@ -4,10 +4,60 @@ public class Masakan extends Objek {
     private ArrayList<BahanMakanan> bahanMakanan;
     private int kekenyangan;
 
-    public Masakan(String namaMakanan, ArrayList<BahanMakanan> bahanMakanan) {
-        super(namaMakanan); // Memanggil konstruktor superclass Objek
-        this.bahanMakanan = bahanMakanan;
-        this.kekenyangan = hitungKekenyangan(bahanMakanan);
+    private static String[] namaMakanan = {
+        "Nasi Ayam", 
+        "Nasi Kari",
+        "Susu Kacang",
+        "Tumis Sayur",
+        "Bistik"
+    };
+
+    private static int[] kekenyangans = {
+            5,
+            4,
+            8,
+            15,
+            2
+    };
+
+    public static int[] kuantitasInventory =
+    {
+        0,
+        0,
+        0,
+        0,
+        0
+    };
+
+    public Masakan(int index) {
+        super(namaMakanan[index]);
+        kekenyangan = kekenyangans[index];
+    }
+
+    private int namaMasakan(String namaMakanan)
+    {
+        String[] daftarNamaBahanMakanan = {"Nasi Ayam", "Nasi Kari", "Susu Kacang", "Tumis Sayur", "Bistik"};
+        for (int i = 0; i < daftarNamaBahanMakanan.length; i++){
+            System.out.println("namaMakanan: " + i + " " + namaMakanan);
+            if (daftarNamaBahanMakanan[i].equals(namaMakanan)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public void tambahMakanan (String namaMakanan)
+    {   
+        System.out.println("namaMakanan 1: " + namaMakanan);
+        int indeksMakanan = namaMasakan(namaMakanan);
+        kuantitasInventory[indeksMakanan] += 1;
+    }
+
+    public void useMakanan (String namaMakanan)
+    {   
+        System.out.println("namaMakanan 1: " + namaMakanan);
+        int indeksMakanan = namaMasakan(namaMakanan);
+        kuantitasInventory[indeksMakanan]--;
     }
 
     private int hitungKekenyangan(ArrayList<BahanMakanan> bahanMakanan) {
@@ -50,6 +100,17 @@ public class Masakan extends Objek {
             }
         }
         System.out.println(", Kekenyangan: " + kekenyangan);
+    }
+
+    public void printMakanan()
+    {
+        // System.out.println("Daftar Bahan Makanan yang dimiliki:");
+        for (int i = 0; i < kuantitasInventory.length; i++){
+            if (kuantitasInventory[i] > 0)
+            {
+                System.out.println(namaMakanan[i] + " " + kuantitasInventory[i] + " buah");
+            }
+        }
     }
 
     // public static void main(String[] args) {
