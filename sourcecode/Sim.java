@@ -40,6 +40,7 @@ public class Sim {
     public void doBeliMakanan(int uang) {
         BahanMakanan bahanMakanan = new BahanMakanan(0);
         this.uang = uang - bahanMakanan.getHarga();
+        waktu.doAksi(waktu.getRandomWaktu());
     }
 
     public void doKerja (int kekenyangan, int mood) {

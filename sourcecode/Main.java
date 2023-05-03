@@ -112,7 +112,7 @@ public class Main {
                         System.out.println("Anda sedang berjalan menuju tersebut");
                         // String[] names = barang.getNames();
                         if (nomor1.equals("Kasur Single")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(0));
+                            System.out.println("Anda sudah sampai " + barang.getName(0));
                             System.out.println("Apakah anda ingin tidur? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -125,7 +125,7 @@ public class Main {
                             }
                         }
                         else if (nomor1.equals("Kasur Queen Size")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(1));
+                            System.out.println("Anda sudah sampai " + barang.getName(1));
                             System.out.println("Apakah anda ingin tidur? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -138,7 +138,7 @@ public class Main {
                             }
                         }
                         else if (nomor1.equals("Kasur King Size")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(2));
+                            System.out.println("Anda sudah sampai " + barang.getName(2));
                             System.out.println("Apakah anda ingin tidur? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -151,7 +151,7 @@ public class Main {
                             }
                         }
                         else if (nomor1.equals("Toilet")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(3));
+                            System.out.println("Anda sudah sampai " + barang.getName(3));
                             System.out.println("Apakah anda ingin buang air? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -164,7 +164,7 @@ public class Main {
                             }
                         }
                         else if (nomor1.equals("Kompor Gas")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(4));
+                            System.out.println("Anda sudah sampai " + barang.getName(4));
                             System.out.println("Apakah anda ingin memasak? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -296,7 +296,7 @@ public class Main {
                             }
                         }
                         else if (nomor1.equals("Kompor Listrik")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(5));
+                            System.out.println("Anda sudah sampai " + barang.getName(5));
                             System.out.println("Apakah anda ingin memasak? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -425,7 +425,7 @@ public class Main {
                             }
                         }
                         else if (nomor1.equals("Meja dan Kursi")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(6));
+                            System.out.println("Anda sudah sampai " + barang.getName(6));
                             System.out.println("Apakah anda ingin makan? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -438,7 +438,7 @@ public class Main {
                             }
                         }
                         else if (nomor1.equals("Jam")) {
-                            System.out.println("Andfa sudah sampai " + barang.getNames(7));
+                            System.out.println("Anda sudah sampai " + barang.getName(7));
                             System.out.println("Apakah anda ingin melihat waktu? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -451,7 +451,7 @@ public class Main {
                             
                         }
                         else if (nomor1.equals("Treadmill")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(8));
+                            System.out.println("Anda sudah sampai " + barang.getName(8));
                             System.out.println("Apakah anda ingin berolahraga? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -465,7 +465,7 @@ public class Main {
                             
                         }
                         else if (nomor1.equals("Gitar")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(9));
+                            System.out.println("Anda sudah sampai " + barang.getName(9));
                             System.out.println("Apakah anda ingin bermain gitar? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -479,7 +479,7 @@ public class Main {
                             
                         }
                         else if (nomor1.equals("Sapu")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(10));
+                            System.out.println("Anda sudah sampai " + barang.getName(10));
                             System.out.println("Apakah anda ingin menyapu? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -494,7 +494,7 @@ public class Main {
                             
                         }
                         else if (nomor1.equals("Tv")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(11));
+                            System.out.println("Anda sudah sampai " + barang.getName(11));
                             System.out.println("Apakah anda ingin menonton TV? (y/n");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -508,7 +508,7 @@ public class Main {
                             
                         }
                         else if (nomor1.equals("Sajadah")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(12));
+                            System.out.println("Anda sudah sampai " + barang.getName(12));
                             System.out.println("Apakah anda ingin ibadah? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -521,7 +521,7 @@ public class Main {
                             }
                         }
                         else if (nomor1.equals("Buku")) {
-                            System.out.println("Anda sudah sampai rak" + barang.getNames(13));
+                            System.out.println("Anda sudah sampai rak" + barang.getName(13));
                             System.out.println("Apakah anda ingin membaca? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
@@ -534,7 +534,7 @@ public class Main {
                             }
                         }
                         else if (nomor1.equals("Baju")) {
-                            System.out.println("Anda sudah sampai " + barang.getNames(14));
+                            System.out.println("Anda sudah sampai " + barang.getName(14));
                             System.out.println("Apakah anda ingin mengganti baju? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
