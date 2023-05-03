@@ -156,8 +156,8 @@ public class Barang extends Objek {
         return -1;
     }
 
-    public char getSymbol() {
-        switch (this.toString()) {
+    public char getSymbol(String barang) {
+        switch (barang) {
             case "Kasur Single":
                 return 'S';
             case "Kasur Queen Size":
@@ -258,9 +258,13 @@ public class Barang extends Objek {
         return aksi;
     }
 
-    public static String getNames(int idx){
+    public String getName(int idx) {
         return namaBarang[idx];
     }
+
+    // public static String getNames(int idx){
+    //     return namaBarang[idx];
+    // }
 
     public static int[] getpanjangs(){
         return panjangs;
@@ -276,6 +280,10 @@ public class Barang extends Objek {
 
     public static String[] getaksis(){
         return aksis;
+    }
+
+    public int getNames(int i) {
+        return 0;
     }
     
     // public void interact(SIM SIM){
