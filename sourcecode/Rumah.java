@@ -89,15 +89,102 @@ public class Rumah {
         getListRuanganRumah().get(pilihan-1).tampilkanRuangan();
     }
 
+    public void tambahRuangan(Sim sim){
+        Scanner scan = new Scanner(System.in);
+
+        //Minta input patokan ruangan
+        for(int i = 0; i < listRuanganRumah.size(); i++)
+        {
+            System.out.println("%d. " + listRuanganRumah.get(i).getNamaRuangan());
+            //perlu buat method untuk dapetin nama dari ruangan patokan, kayaknya bukan getNamaRuangan(), nanti tinggal diganti aja
+        }
+        System.out.println("Masukkan patokan ruangan: ");
+        int patokan = scan.nextInt();
+        Ruangan rPatokan = listRuanganRumah.get(patokan-1);
+        System.out.print("Masukkan arah ruangan yang ingin dibuat: ");
+        System.out.println("1. Atas");
+        System.out.println("2. Bawah");
+        System.out.println("3. Kanan");
+        System.out.println("4. Kiri");
+        int arah = scan.nextInt();
+        if(arah == 1){
+           if(rPatokan.getRuanganTetangga().get(0) == null)
+           {
+                System.out.print("Masukkan nama ruangan: ");
+                String namaRuangan = scan.nextLine();
+                Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
+                rPatokan.addRoom(0, ruanganBaru);
+                ruanganBaru.addRoom(0, rPatokan);
+           }
+           else
+            {
+                System.out.println("Ruangan sudah ada");
+            }
+        }
+        else if(arah == 2){
+            if(rPatokan.getRuanganTetangga().get(1) == null)
+            {
+                System.out.print("Masukkan nama ruangan: ");
+                String namaRuangan = scan.nextLine();
+                Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
+                rPatokan.addRoom(1, ruanganBaru);
+                ruanganBaru.addRoom(1, rPatokan);
+            }
+            else
+            {
+                System.out.println("Ruangan sudah ada");
+            }
+        }
+        if(arah == 3){
+            if(rPatokan.getRuanganTetangga().get(2) == null)
+            {
+                System.out.print("Masukkan nama ruangan: ");
+                String namaRuangan = scan.nextLine();
+                Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
+                rPatokan.addRoom(2, ruanganBaru);
+                ruanganBaru.addRoom(2, rPatokan);
+            }
+            else
+            {
+                System.out.println("Ruangan sudah ada");
+            }
+           
+        }
+        if(arah == 4){
+            if(rPatokan.getRuanganTetangga().get(3) == null)
+            {
+                System.out.print("Masukkan nama ruangan: ");
+                String namaRuangan = scan.nextLine();
+                Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
+                rPatokan.addRoom(3, ruanganBaru);
+                ruanganBaru.addRoom(3, rPatokan);
+            }
+            else
+            {
+                System.out.println("Ruangan sudah ada");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.print("Masukkan X: ");
         int x = scan.nextInt();
         System.out.print("Masukkan Y: ");
         int y = scan.nextInt();
+        // while(x < 6 || y < 6)
+        // {
+        //     System.out.println("Rumah terlalu kecil! Masukkan kembali x dan y");
+        //     System.out.print("Masukkan X: ");
+        //     x = scan.nextInt();
+        //     System.out.print("Masukkan Y: ");
+        //     y = scan.nextInt();
+        // }
         Rumah rumah = new Rumah(x, y);
         setRuangan();
-        // Ruangan ruangan = new Ruangan("Kamar Tidur", 6, 6);
+        rumah.printListRuanganRumah();
+        setRuangan();
+        Ruangan ruangan = new Ruangan("Kamar Tidur", 6, 6);
         // getListRuanganRumah().add(ruangan);
         rumah.printListRuanganRumah();
         rumah.PilihRuangan();
@@ -110,76 +197,3 @@ public class Rumah {
         // ruangan.printBarangRuangan();
     } 
 }
-// import java.util.ArrayList;
-// import java.util.List;
-
-// public class Rumah {
-//     private int x;
-//     private int y;
-//     private Ruangan ruanganUtama;
-//     private String namaRuangan;
-//     private List<Ruangan> listRuanganRumah;
-
-//     public Rumah(int x, int y) {
-//         this.x = x;
-//         this.y = y;
-//         this.ruanganUtama = new Ruangan(namaRuangan, x, y);
-//         this.listRuanganRumah = new ArrayList<>();
-//         listRuanganRumah.add(ruanganUtama);
-//     }
-
-//     public int getX() {
-//         return x;
-//     }
-
-//     public int getY() {
-//         return y;
-//     }
-
-//     public String getNamaRuangan(){
-//         return namaRuangan;
-//     }
-
-//     public List<Ruangan> getListRuanganRumah() {
-//         return listRuanganRumah;
-//     }
-
-//     public void tambahRuangan(Ruangan ruanganBaru) {
-//         // Sambungkan ruangan baru dengan ruangan utama
-//         ruanganUtama.sambungkanRuangan(ruanganBaru);
-//         // Tambahkan ruangan baru ke list ruangan rumah
-//         listRuanganRumah.add(ruanganBaru);
-//         // Gantikan ruangan utama dengan ruangan baru
-//         ruanganUtama = ruanganBaru;
-//     }
-
-//     public static void main(String[] args) {
-//         // World world = new World(64, 64);
-    
-//         // Membuat beberapa rumah
-//         Rumah rumah1 = new Rumah(6, 6);
-//         // Rumah rumah2 = new Rumah(12, 6);
-//         // Rumah rumah3 = new Rumah(18, 6);
-    
-//             // Menambahkan rumah ke world
-//         // world.tambahRumah("Rumah 1", rumah1);
-//         // world.tambahRumah("Rumah 2", rumah2);
-//         // world.tambahRumah("Rumah 3", rumah3);
-    
-//             // Menampilkan informasi rumah dan world
-//         // System.out.println("Informasi Rumah di World:");
-//         // world.printRumah();
-//         // System.out.println();
-
-    
-//             // Menambahkan ruangan ke rumah1
-//         rumah1.tambahRuangan(new Ruangan("Kamar Tidur", 6, 6));
-//         rumah1.tambahRuangan(new Ruangan("Kamar Mandi", 6, 6));
-                
-//                 // Menampilkan informasi tentang rumah1 dan ruangan yang ada di dalamnya
-//         System.out.println("Informasi Ruangan di Rumah 1:");
-//         for (Ruangan ruangan : rumah1.getListRuanganRumah()) {
-//             System.out.println("Ruangan: " + ruangan.getNamaRuangan() + " Ukuran: " + ruangan.getPanjangRuangan() + "x" + ruangan.getLebarRuangan());
-//             }
-//         }
-//     }

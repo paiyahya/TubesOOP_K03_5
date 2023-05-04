@@ -32,7 +32,9 @@ public class Main {
         System.out.println("Masukkan posisi y rumah: ");
         int y = input.nextInt();
         Rumah rumah = new Rumah(x, y);
-        world.tambahRumah(nama, rumah);
+        world.tambahRumah(namaRumah, rumah);
+        sim.setRuangan((rumah.getListRuanganRumah().get(0)));
+        sim.setRumah(rumah);
         Barang barang = new Barang(0);
         BahanMakanan bahanMakanan = new BahanMakanan(0);
         Masakan masakan = new Masakan(0);
@@ -68,8 +70,9 @@ public class Main {
             else if (nomor.equals(2)) {
                 world.printWorld();
                 world.printRumah();
-                System.out.println("Saat ini "+ sim.getNama() + " berada dalam " + namaRumah + " Pada koordinat " + rumah.getX() + "," + rumah.getY());
+                System.out.println("Saat ini "+ sim.getNama() + " berada dalam " + world.getDaftarRumah() + " pada ruangan " + sim.getRuangan().getNamaRuangan());
                 nextLine();
+                // System.out.println("Saat ini " + sim.getNama() + " berada di ruangan " + sim.getRuangan().getNamaRuangan());
             }
             else if (nomor.equals(3)) {
                 System.out.println("Inventory anda: ");
