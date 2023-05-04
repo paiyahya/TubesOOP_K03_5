@@ -107,8 +107,8 @@ public class Ruangan {
         //     return false;
         //}
         
-        int panjang = barang.getpanjang();
-        int lebar = barang.getlebar();
+        int panjang = 0;
+        int lebar = 0;
 
         // pengecekan posisi (horizontal/vertikal)
         
@@ -137,15 +137,11 @@ public class Ruangan {
                 // }
     
                 if (posisi.equalsIgnoreCase("Horizontal")) {
-                    int temp = panjang;
-                    panjang = lebar;
-                    lebar = temp;
-                }
-
-                if (posisi.equalsIgnoreCase("Vertikal")){
-                    int temp = panjang;
-                    panjang = lebar;
-                    lebar = temp;
+                    panjang = barang.getlebar();
+                    lebar = barang.getpanjang();
+                } else if (posisi.equalsIgnoreCase("Vertikal")){
+                    panjang = barang.getpanjang();
+                    lebar = barang.getlebar();
                 }
                 
                 // pengecekan apakah posisi valid
@@ -219,6 +215,8 @@ public class Ruangan {
 
     public static void main(String[] args) {
         Ruangan ruangan = new Ruangan("Kamar Tidur", 6, 6);
+        ruangan.tampilkanRuangan();
+        ruangan.tambahBarang("Kasur Single");
         ruangan.tampilkanRuangan();
         ruangan.tambahBarang("Kasur Single");
         ruangan.tampilkanRuangan();
