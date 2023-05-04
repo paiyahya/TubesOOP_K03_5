@@ -89,7 +89,7 @@ public class Rumah {
         getListRuanganRumah().get(pilihan-1).tampilkanRuangan();
     }
 
-    public void tambahRuangan(Sim sim){
+    public void tambahRuangan(){
         Scanner scan = new Scanner(System.in);
 
         //Minta input patokan ruangan
