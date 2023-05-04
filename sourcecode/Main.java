@@ -173,7 +173,7 @@ public class Main {
                             System.out.println("Apakah anda ingin tidur? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doTidur(sim.getKesehatan(), sim.getMood());
+                                currentSim.doTidur(currentSim.getKesehatan(), currentSim.getMood());
                                 System.out.println("Anda sudah selesai tidur");
                                 nextLine();
                             }
@@ -186,7 +186,7 @@ public class Main {
                             System.out.println("Apakah anda ingin tidur? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doTidur(sim.getKesehatan(), sim.getMood());
+                                currentSim.doTidur(currentSim.getKesehatan(), currentSim.getMood());
                                 System.out.println("Anda sudah selesai tidur");
                                 nextLine();
                             }
@@ -199,7 +199,7 @@ public class Main {
                             System.out.println("Apakah anda ingin tidur? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doTidur(sim.getKesehatan(), sim.getMood());
+                                currentSim.doTidur(currentSim.getKesehatan(), currentSim.getMood());
                                 System.out.println("Anda sudah selesai tidur");
                                 nextLine();
                             }
@@ -212,7 +212,7 @@ public class Main {
                             System.out.println("Apakah anda ingin buang air? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doBuangAir(sim.getKesehatan(), sim.getMood());
+                                currentSim.doBuangAir(currentSim.getKesehatan(), currentSim.getMood());
                                 System.out.println("Anda sudah selesai buang air");
                                 nextLine();
                             }
@@ -241,7 +241,7 @@ public class Main {
                                         String jawaban3 = input.next();
                                         if (jawaban3.equals("y")) {
                                             System.out.println("Anda sedang memasak Nasi Ayam");
-                                            sim.doMasakNasiAyam(sim.getMood());
+                                            currentSim.doMasakNasiAyam(currentSim.getMood());
                                             bahanMakanan.kuantitasInventory[0] -= 1;
                                             bahanMakanan.kuantitasInventory[2] -= 1;
                                             masakan.tambahMakanan("Nasi Ayam");
@@ -263,7 +263,7 @@ public class Main {
                                         String jawaban3 = input.next();
                                         if (jawaban3.equals("y")) {
                                             System.out.println("Anda sedang memasak Nasi Kari");
-                                            sim.doMasakNasiKari(sim.getMood());
+                                            currentSim.doMasakNasiKari(currentSim.getMood());
                                             bahanMakanan.kuantitasInventory[0] -= 1;
                                             bahanMakanan.kuantitasInventory[1] -= 1;
                                             bahanMakanan.kuantitasInventory[3] -= 1;
@@ -287,7 +287,7 @@ public class Main {
                                         String jawaban3 = input.next();
                                         if (jawaban3.equals("y")) {
                                             System.out.println("Anda sedang memasak Susu Kacang");
-                                            sim.doMasakSususKacang(sim.getMood());
+                                            currentSim.doMasakSususKacang(currentSim.getMood());
                                             bahanMakanan.kuantitasInventory[6] =- 1;
                                             bahanMakanan.kuantitasInventory[7] =- 1;
                                             masakan.tambahMakanan("Susu Kacang");
@@ -309,7 +309,7 @@ public class Main {
                                         String jawaban3 = input.next();
                                         if (jawaban3.equals("y")) {
                                             System.out.println("Anda sedang memasak Tumis Sayur");
-                                            sim.doMasakTumisSayur(sim.getMood());
+                                            currentSim.doMasakTumisSayur(currentSim.getMood());
                                             bahanMakanan.kuantitasInventory[4] -= 1;
                                             bahanMakanan.kuantitasInventory[5] -= 1;
                                             masakan.tambahMakanan("Tumis Sayur");
@@ -331,7 +331,7 @@ public class Main {
                                         String jawaban3 = input.next();
                                         if (jawaban3.equals("y")) {
                                             System.out.println("Anda sedang memasak Bistik");
-                                            sim.doMasakBistik(sim.getMood());
+                                            currentSim.doMasakBistik(currentSim.getMood());
                                             bahanMakanan.kuantitasInventory[1] -= 1;
                                             bahanMakanan.kuantitasInventory[3] -= 1;
                                             masakan.tambahMakanan("Bistik");
@@ -370,7 +370,7 @@ public class Main {
                                         String jawaban3 = input.next();
                                         if (jawaban3.equals("y")) {
                                             System.out.println("Anda sedang memasak Nasi Ayam");
-                                            sim.doMasakNasiAyam(sim.getMood());
+                                            currentSim.doMasakNasiAyam(currentSim.getMood());
                                             bahanMakanan.kuantitasInventory[0] -= 1;
                                             bahanMakanan.kuantitasInventory[2] -= 1;
                                             masakan.tambahMakanan("Nasi Ayam");
@@ -392,7 +392,7 @@ public class Main {
                                         String jawaban3 = input.next();
                                         if (jawaban3.equals("y")) {
                                             System.out.println("Anda sedang memasak Nasi Kari");
-                                            sim.doMasakNasiKari(sim.getMood());
+                                            currentSim.doMasakNasiKari(currentSim.getMood());
                                             bahanMakanan.kuantitasInventory[0] -= 1;
                                             bahanMakanan.kuantitasInventory[1] -= 1;
                                             bahanMakanan.kuantitasInventory[3] -= 1;
@@ -416,7 +416,7 @@ public class Main {
                                         String jawaban3 = input.next();
                                         if (jawaban3.equals("y")) {
                                             System.out.println("Anda sedang memasak Susu Kacang");
-                                            sim.doMasakSususKacang(sim.getMood());
+                                            currentSim.doMasakSususKacang(currentSim.getMood());
                                             bahanMakanan.kuantitasInventory[6]--;
                                             bahanMakanan.kuantitasInventory[7]--;
                                             masakan.tambahMakanan("Susus Kacang");
@@ -438,7 +438,7 @@ public class Main {
                                         String jawaban3 = input.next();
                                         if (jawaban3.equals("y")) {
                                             System.out.println("Anda sedang memasak Tumis Sayur");
-                                            sim.doMasakTumisSayur(sim.getMood());
+                                            currentSim.doMasakTumisSayur(currentSim.getMood());
                                             bahanMakanan.kuantitasInventory[4] -= 1;
                                             bahanMakanan.kuantitasInventory[5] -= 1;
                                             masakan.tambahMakanan("Tumis Sayur");
@@ -460,7 +460,7 @@ public class Main {
                                         String jawaban3 = input.next();
                                         if (jawaban3.equals("y")) {
                                             System.out.println("Anda sedang memasak Bistik");
-                                            sim.doMasakBistik(sim.getMood());
+                                            currentSim.doMasakBistik(currentSim.getMood());
                                             bahanMakanan.kuantitasInventory[1] -= 1;
                                             bahanMakanan.kuantitasInventory[3] -= 1;
                                             masakan.tambahMakanan("Bistik");
@@ -493,79 +493,79 @@ public class Main {
                                 String jawaban2 = input.nextLine();
                                 if (jawaban2.equals("Nasi Kari")) {
                                     masakan.cekMasakan("Nasi Kari");
-                                    sim.doMakan("Nasi Kari");
+                                    currentSim.doMakan("Nasi Kari");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Nasi Ayam")) {
-                                    sim.doMakan("Nasi Ayam");
+                                    currentSim.doMakan("Nasi Ayam");
                                     masakan.cekMasakan("Nasi Ayam");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Susu Kacang")) {
-                                    sim.doMakan("Susu Kacang");
+                                    currentSim.doMakan("Susu Kacang");
                                     masakan.cekMasakan("Susu Kacang");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Tumis Sayur")) {
                                     masakan.cekMasakan("Tumis Sayur");
-                                    sim.doMakan("Tumis Sayur");
+                                    currentSim.doMakan("Tumis Sayur");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Bistik")) {
                                     masakan.cekMasakan("Bistik");
-                                    sim.doMakan("Bistik");
+                                    currentSim.doMakan("Bistik");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Nasi")) {
                                     bahanMakanan.cekBahan("Nasi");
-                                    sim.doMakan("Nasi");
+                                    currentSim.doMakan("Nasi");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Kentang")) {
                                     bahanMakanan.cekBahan("Kentang");
-                                    sim.doMakan("Kentang");
+                                    currentSim.doMakan("Kentang");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Ayam")) {
                                     bahanMakanan.cekBahan("Ayam");
-                                    sim.doMakan("Ayam");
+                                    currentSim.doMakan("Ayam");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Sapi")) {
                                     bahanMakanan.cekBahan("Sapi");
-                                    sim.doMakan("Sapi");
+                                    currentSim.doMakan("Sapi");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Kacang")) {
                                     bahanMakanan.cekBahan("Kacang");
-                                    sim.doMakan("Kacang");
+                                    currentSim.doMakan("Kacang");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Susu")) {
                                     bahanMakanan.cekBahan("Susu");
-                                    sim.doMakan("Susu");
+                                    currentSim.doMakan("Susu");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Wortel")) {
                                     bahanMakanan.cekBahan("Wortel");
-                                    sim.doMakan("Wortel");
+                                    currentSim.doMakan("Wortel");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Bayam")) {
                                     bahanMakanan.cekBahan("Bayam");
-                                    sim.doMakan("Bayam");
+                                    currentSim.doMakan("Bayam");
                                     System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
@@ -583,7 +583,7 @@ public class Main {
                             System.out.println("Apakah anda ingin melihat waktu? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doLihatWaktu();
+                                currentSim.doLihatWaktu();
                                 nextLine();
                             }
                             else {
@@ -596,7 +596,7 @@ public class Main {
                             System.out.println("Apakah anda ingin berolahraga? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doOlahraga(sim.getKesehatan(), sim.getKekenyangan(), sim.getMood());
+                                currentSim.doOlahraga(currentSim.getKesehatan(), currentSim.getKekenyangan(), currentSim.getMood());
                                 System.out.println("Anda sudah selesai berolahraga");
                                 nextLine();
                             }
@@ -610,7 +610,7 @@ public class Main {
                             System.out.println("Apakah anda ingin bermain gitar? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doMainGitar(sim.getMood(), sim.getKekenyangan());
+                                currentSim.doMainGitar(currentSim.getMood(), currentSim.getKekenyangan());
                                 System.out.println("Anda sudah selesai bermain gitar");
                                 nextLine();
                             }
@@ -624,7 +624,7 @@ public class Main {
                             System.out.println("Apakah anda ingin menyapu? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doMenyapu(sim.getMood(), sim.getKekenyangan());
+                                currentSim.doMenyapu(currentSim.getMood(), currentSim.getKekenyangan());
                                 System.out.println("Anda sudah selesai menyapu");
                                 nextLine();
                             }
@@ -639,7 +639,7 @@ public class Main {
                             System.out.println("Apakah anda ingin menonton TV? (y/n");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doMenonton(sim.getMood(), sim.getKekenyangan());
+                                currentSim.doMenonton(currentSim.getMood(), currentSim.getKekenyangan());
                                 System.out.println("Anda sudah selesai menonton");
                                 nextLine();
                             }
@@ -653,7 +653,7 @@ public class Main {
                             System.out.println("Apakah anda ingin ibadah? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doIbadah(sim.getMood(), sim.getKesehatan());
+                                currentSim.doIbadah(currentSim.getMood(), currentSim.getKesehatan());
                                 System.out.println("Anda sudah selesai beribadah");
                                 nextLine();
                             }
@@ -666,7 +666,7 @@ public class Main {
                             System.out.println("Apakah anda ingin membaca? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doBaca(sim.getMood(), sim.getKekenyangan());
+                                currentSim.doBaca(currentSim.getMood(), currentSim.getKekenyangan());
                                 System.out.println("Anda sudah selesai membaca");
                                 nextLine();
                             }
@@ -679,7 +679,7 @@ public class Main {
                             System.out.println("Apakah anda ingin mengganti baju? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                sim.doGantiBaju(sim.getMood());
+                                currentSim.doGantiBaju(currentSim.getMood());
                                 System.out.println("Anda sudah selesai mengganti baju");
                                 nextLine();
                             }
@@ -707,12 +707,12 @@ public class Main {
                 Integer pilihan = input.nextInt();
                 if (pilihan.equals(1)) {
                     System.out.println("Anda sedang bekerja");
-                    sim.doKerja(sim.getKekenyangan(), sim.getMood());
+                    currentSim.doKerja(currentSim.getKekenyangan(), currentSim.getMood());
                     nextLine();
                 }
                 else if (pilihan.equals(2)) {
                     System.out.println("Anda sedang berkunjung ke rumah teman");
-                    sim.doBerkunjung(sim.getMood(), sim.getKekenyangan());
+                    currentSim.doBerkunjung(currentSim.getMood(), currentSim.getKekenyangan());
                     nextLine();
                 }
                 else if (pilihan.equals(3)) {
@@ -750,7 +750,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
-                                sim.doBeliMakanan("Nasi");
+                                currentSim.doBeliMakanan("Nasi");
                                 bahanMakanan.tambahBahanMakanan("Nasi");
                                 System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
@@ -768,7 +768,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
-                                sim.doBeliMakanan("Kentang");
+                                currentSim.doBeliMakanan("Kentang");
                                 bahanMakanan.tambahBahanMakanan("Kentang");
                                 System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
@@ -786,7 +786,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
-                                sim.doBeliMakanan("Ayam");
+                                currentSim.doBeliMakanan("Ayam");
                                 bahanMakanan.tambahBahanMakanan("Ayam");
                                 System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
@@ -804,7 +804,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
-                                sim.doBeliMakanan("Sapi");
+                                currentSim.doBeliMakanan("Sapi");
                                 bahanMakanan.tambahBahanMakanan("Sapi");
                                 System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
@@ -822,7 +822,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
-                                sim.doBeliMakanan("Wortel");
+                                currentSim.doBeliMakanan("Wortel");
                                 bahanMakanan.tambahBahanMakanan("Wortel");
                                 System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
@@ -840,7 +840,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
-                                sim.doBeliMakanan("Bayam");
+                                currentSim.doBeliMakanan("Bayam");
                                 bahanMakanan.tambahBahanMakanan("Bayam");
                                 System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
@@ -858,7 +858,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
-                                sim.doBeliMakanan("Kacang");
+                                currentSim.doBeliMakanan("Kacang");
                                 bahanMakanan.tambahBahanMakanan("Kacang");
                                 System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
@@ -876,7 +876,7 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
-                                sim.doBeliMakanan("Susu");
+                                currentSim.doBeliMakanan("Susu");
                                 bahanMakanan.tambahBahanMakanan("Susu");
                                 System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
@@ -899,7 +899,7 @@ public class Main {
                         String jawaban2 = input.next();
                         if (jawaban2.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Toilet");
+                            currentSim.beliBarang("Toilet");
                             barang.tambahBarang("Toilet");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -917,7 +917,7 @@ public class Main {
                         String jawaban3 = input.next();
                         if (jawaban3.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Jam");
+                            currentSim.beliBarang("Jam");
                             barang.tambahBarang("Jam");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -935,7 +935,7 @@ public class Main {
                         String jawaban4 = input.next();
                         if (jawaban4.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Treadmill");
+                            currentSim.beliBarang("Treadmill");
                             barang.tambahBarang("Treadmill");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -953,7 +953,7 @@ public class Main {
                         String jawaban5 = input.next();
                         if (jawaban5.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Gitar");
+                            currentSim.beliBarang("Gitar");
                             barang.tambahBarang("Gitar");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -971,7 +971,7 @@ public class Main {
                         String jawaban6 = input.next();
                         if (jawaban6.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Sapu");
+                            currentSim.beliBarang("Sapu");
                             barang.tambahBarang("Sapu");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -989,7 +989,7 @@ public class Main {
                         String jawaban7 = input.next();
                         if (jawaban7.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Tv");
+                            currentSim.beliBarang("Tv");
                             barang.tambahBarang("Tv");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -1007,7 +1007,7 @@ public class Main {
                         String jawaban8 = input.next();
                         if (jawaban8.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Sajadah");
+                            currentSim.beliBarang("Sajadah");
                             barang.tambahBarang("Sajadah");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -1025,7 +1025,7 @@ public class Main {
                         String jawaban9 = input.next();
                         if (jawaban9.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Buku");
+                            currentSim.beliBarang("Buku");
                             barang.tambahBarang("Buku");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -1043,7 +1043,7 @@ public class Main {
                         String jawaban10 = input.next();
                         if (jawaban10.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Baju");
+                            currentSim.beliBarang("Baju");
                             barang.tambahBarang("Baju");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -1061,7 +1061,7 @@ public class Main {
                         String jawaban11 = input.next();
                         if (jawaban11.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Kasur Single");
+                            currentSim.beliBarang("Kasur Single");
                             barang.tambahBarang("Kasur Single");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -1079,7 +1079,7 @@ public class Main {
                         String jawaban12 = input.next();
                         if (jawaban12.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Kasur Queen Size");
+                            currentSim.beliBarang("Kasur Queen Size");
                             barang.tambahBarang("Kasur Queen Size");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -1097,7 +1097,7 @@ public class Main {
                         String jawaban13 = input.next();
                         if (jawaban13.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Kasur King Size");
+                            currentSim.beliBarang("Kasur King Size");
                             barang.tambahBarang("Kasur King Size");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -1115,7 +1115,7 @@ public class Main {
                         String jawaban14 = input.next();
                         if (jawaban14.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Kompor Gas");
+                            currentSim.beliBarang("Kompor Gas");
                             barang.tambahBarang("Kompor Gas");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -1132,7 +1132,7 @@ public class Main {
                         String jawaban15 = input.next();
                         if (jawaban15.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Kompor Listrik");
+                            currentSim.beliBarang("Kompor Listrik");
                             barang.tambahBarang("Kompor Listrik");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
@@ -1149,7 +1149,7 @@ public class Main {
                         String jawaban16 = input.next();
                         if (jawaban16.equals("y")) {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
-                            sim.beliBarang("Meja dan Kursi");
+                            currentSim.beliBarang("Meja dan Kursi");
                             barang.tambahBarang("Meja dan Kursi");
                             System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
