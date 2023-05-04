@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+import java.util.ArrayList;
 import javax.lang.model.util.ElementScanner14;
 
 public class Main {
@@ -17,7 +17,7 @@ public class Main {
         // Membuat Sim di awal game
         System.out.println("Masukkan nama sim: ");
         String nama = input.nextLine();
-        Sim sim = new Sim((simList.size() + 1),nama, null, 100, 80, 80, "idle", 80, true);
+        Sim sim = new Sim(nama, null, 100, 80, 80, "idle", 80, true);
         // Memasukkan Sim awal ke simList
         simList.add(sim);
         // Mengatur Sim awal menjadi currentSim yang dimainkan
@@ -108,7 +108,7 @@ public class Main {
                 System.out.println("Masukkan nama sim yang ingin ditambah !");           
                 String nama1 = input.nextLine();
                 // Menambahkan Sim baru ke simList
-                simList.add(new Sim((simList.size() + 1),nama1, null, 100, 80, 80, "idle", 80, false));
+                simList.add(new Sim(nama1, null, 100, 80, 80, "idle", 80, false));
                 // Menampilkan daftar objek Sim dalam list
                 System.out.println("\n=== DAFTAR SIM ===");
                 for (Sim s : simList) {
