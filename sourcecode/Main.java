@@ -12,12 +12,18 @@ public class Main {
         // Waktu waktu = new Waktu();
         // waktu.startGame();
         World world = new World(64, 64);
-        Sim sim = new Sim(null, null, 100, 80, 80, "idle", 80);
-        System.out.println("Masukkan nama sim: ");
+        ArrayList<Sim> simList = new ArrayList<Sim>();
         Scanner input = new Scanner(System.in);
-        Waktu waktu = new Waktu();
+        // Membuat Sim di awal game
+        System.out.println("Masukkan nama sim: ");
         String nama = input.nextLine();
-        sim.setNama(nama);
+        Sim sim = new Sim((simList.size() + 1),nama, null, 100, 80, 80, "idle", 80, true);
+        // Memasukkan Sim awal ke simList
+        simList.add(sim);
+        // Mengatur Sim awal menjadi currentSim yang dimainkan
+        Sim currentSim = sim;
+        // Waktu
+        Waktu waktu = new Waktu();
         // world.tambahRumah(null, null);
         System.out.println("Masukkan nama rumah: ");
         String namaRumah = input.nextLine();
@@ -41,7 +47,7 @@ public class Main {
         nextLine();
 
         while(!sim.isSimDead()) { 
-            System.out.println("Silahkan pilih aksi yang ingin dijalankan: ");
+            System.out.println("\n=== DAFTAR MENU ===");
             System.out.println("1. View Sim info");
             System.out.println("2. View Current Location");
             System.out.println("3. View Inventory");
@@ -55,22 +61,25 @@ public class Main {
             System.out.println("11. Action");
             System.out.println("12. Help");
             System.out.println("13. Exit");
+            System.out.println("Silahkan pilih aksi yang ingin dijalankan: ");
 
             Integer nomor = input.nextInt();
             if (nomor.equals(1)) {
-                System.out.println("Nama SIM: " + sim.getNama());
-                System.out.println("Kekenyangan anda: " + sim.getKekenyangan());
-                System.out.println("Kesehatan anda: " + sim.getKesehatan());
-                System.out.println("Mood anda: " + sim.getMood());
-                System.out.println("Pekerjaan anda: " + sim.getPekerjaan());
-                System.out.println("Status anda: " + sim.getAksi());
-                System.out.println("Uang anda: " + sim.getUang());
+                System.out.println("\n=== PROFIL SIM ===");
+                System.out.println("Nama SIM: " + currentSim.getNama());
+                System.out.println("Kekenyangan anda: " + currentSim.getKekenyangan());
+                System.out.println("Kesehatan anda: " + currentSim.getKesehatan());
+                System.out.println("Mood anda: " + currentSim.getMood());
+                System.out.println("Uang anda: " + currentSim.getUang());
+                System.out.println("Pekerjaan anda: " + currentSim.getPekerjaan());
+                System.out.println("Status anda: " + currentSim.getAksi());
+                System.out.println("Uang anda: " + currentSim.getUang());
                 nextLine();
             }
             else if (nomor.equals(2)) {
                 world.printWorld();
                 world.printRumah();
-                System.out.println("Saat ini "+ sim.getNama() + " berada dalam " + world.getDaftarRumah() + " pada ruangan " + sim.getRuangan().getNamaRuangan());
+                System.out.println("Saat ini "+ currentSim.getNama() + " berada dalam " + world.getDaftarRumah() + " pada ruangan " + sim.getRuangan().getNamaRuangan());
                 nextLine();
                 // System.out.println("Saat ini " + sim.getNama() + " berada di ruangan " + sim.getRuangan().getNamaRuangan());
             }
@@ -93,9 +102,52 @@ public class Main {
                 nextLine();
             }
             else if (nomor.equals(7)) {
+                // Menerima input nama Sim yang ingin ditambah
+                int i = 1;   
+                String trash = input.nextLine();
+                System.out.println("Masukkan nama sim yang ingin ditambah !");           
+                String nama1 = input.nextLine();
+                // Menambahkan Sim baru ke simList
+                simList.add(new Sim((simList.size() + 1),nama1, null, 100, 80, 80, "idle", 80, false));
+                // Menampilkan daftar objek Sim dalam list
+                System.out.println("\n=== DAFTAR SIM ===");
+                for (Sim s : simList) {
+                    System.out.println(i + ". " + s.getNama());
+                    i++;
+                }
                 nextLine();
             }
             else if (nomor.equals(8)) {
+                // Menampilkan daftar objek Sim dalam list
+                int i = 1;
+                System.out.println("\n=== DAFTAR SIM ===");
+                for (Sim s : simList) {
+                    System.out.println(i + ". " + s.getNama());
+                    i++;
+                }
+                // Menerima input nama Sim yang ingin dimainkan
+                System.out.println("Masukkan nama sim yang ingin dimainkan !");
+                String trash = input.nextLine();
+                String namaMain = input.nextLine();
+                boolean isExist = false;
+                while (!isExist){
+                    for (Sim si : simList) {
+                        if (si.getNama().equals(namaMain)) {
+                            si.setNowPlaying(true);
+                            currentSim = si; // Mengganti currentSim yang aktif menjadi Sim yang ingin dimainkan
+                            isExist = true;
+                        } else {
+                            si.setNowPlaying(false);
+                        }
+                    }
+                    if (!isExist){ // Kondisi apabila nama yang diinput tidak ada dalam simList
+                        System.out.println("Nama Sim yang diinput tidak ada dalam List Sim, Input nama lain!");
+                        namaMain = input.nextLine();
+                    }
+                }
+                // Menampilkan Sim yang sekarang aktif (sedang dimainkan)
+                System.out.println("Sim yang aktif sekarang : " + namaMain + "\n");
+                // scanner.close();
                 nextLine();
             }
             else if (nomor.equals(9)) {
