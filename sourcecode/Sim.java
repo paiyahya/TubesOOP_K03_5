@@ -12,7 +12,7 @@ public class Sim {
     private Rumah currentRumah;
     private boolean NowPlaying;
 
-    public Sim (String namaLengkap, String pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood) {
+    public Sim (String namaLengkap, String pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood, boolean NowPlaying) {
         this.namaLengkap = namaLengkap;
         this.pekerjaan = pekerjaan;
         this.uang = 100;
@@ -20,7 +20,7 @@ public class Sim {
         this.kesehatan = 80;
         this.status = status;
         this.mood = 80;  
-        this.NowPlaying = false;
+        this.NowPlaying = NowPlaying;
     }
 
     public void setRuangan(Ruangan ruangan)
