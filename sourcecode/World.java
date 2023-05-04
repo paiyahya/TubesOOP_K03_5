@@ -2,7 +2,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-
 public class World {
     private static final int panjang = 64;
     private static final int lebar = 64;
@@ -65,17 +64,17 @@ public class World {
         }
     }
 
-    public static void main(String[] args) {
-        World world = new World(64, 64);
-        world.tambahRumah("Rumah 1", new Rumah(6, 6));
-        world.tambahRumah("Rumah 2", new Rumah(12, 6));
-        world.tambahRumah("Rumah 3", new Rumah(18, 6));
-        world.printWorld();
-        world.printRumah();
-        // world.cekRumah(null);
-        world.hapusRumah("Rumah 1");
-        world.tambahRumah("Rumah 4", new Rumah(64, 64));
-        world.printWorld();
-        world.printRumah();
-    }
+    // public static void main(String[] args) {
+    //     World world = new World(64, 64);
+    //     world.tambahRumah("Rumah 1", new Rumah(6, 6));
+    //     world.tambahRumah("Rumah 2", new Rumah(12, 6));
+    //     world.tambahRumah("Rumah 3", new Rumah(18, 6));
+    //     world.printWorld();
+    //     world.printRumah();
+    //     // world.cekRumah(null);
+    //     world.hapusRumah("Rumah 1");
+    //     world.tambahRumah("Rumah 4", new Rumah(64, 64));
+    //     world.printWorld();
+    //     world.printRumah();
+    // }
 }
