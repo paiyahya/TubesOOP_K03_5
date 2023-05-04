@@ -10,6 +10,7 @@ public class Sim {
     private static Waktu waktu = new Waktu();
     private Ruangan currentRoom;
     private Rumah currentRumah;
+    private boolean NowPlaying;
 
     public Sim (String namaLengkap, String pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood) {
         this.namaLengkap = namaLengkap;
@@ -18,7 +19,8 @@ public class Sim {
         this.kekenyangan = 80;
         this.kesehatan = 80;
         this.status = status;
-        this.mood = 80;    
+        this.mood = 80;  
+        this.NowPlaying = false;
     }
 
     public void setRuangan(Ruangan ruangan)
@@ -307,5 +309,11 @@ public class Sim {
     }
     public String getPekerjaan() {
         return pekerjaan;
+    }
+    public boolean isNowPlaying() {
+        return NowPlaying;   
+    }
+    public void setNowPlaying(boolean NowPlaying) {
+        this.NowPlaying = NowPlaying;
     }
 }
