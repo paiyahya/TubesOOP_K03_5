@@ -108,61 +108,72 @@ public class Rumah {
         System.out.println("4. Kiri");
         int arah = scan.nextInt();
         if(arah == 1){
-           if(rPatokan.getRuanganTetangga().get(0) == null)
-           {
-                System.out.print("Masukkan nama ruangan: ");
-                String namaRuangan = scan.nextLine();
-                Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
-                rPatokan.addRoom(0, ruanganBaru);
-                ruanganBaru.addRoom(0, rPatokan);
-           }
-           else
-            {
-                System.out.println("Ruangan sudah ada");
+            try{
+                if(rPatokan.getRuanganTetangga().get(0) == null)
+                {
+                    System.out.print("Masukkan nama ruangan: ");
+                    String namaRuangan = scan.nextLine();
+                    Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
+                    rPatokan.addRoom(0, ruanganBaru);
+                    ruanganBaru.addRoom(0, rPatokan);
+                }
+                else
+                {
+                    System.out.println("Ruangan sudah ada");
+                }
             }
+            catch (NullPointerException e){}
         }
         else if(arah == 2){
-            if(rPatokan.getRuanganTetangga().get(1) == null)
-            {
-                System.out.print("Masukkan nama ruangan: ");
-                String namaRuangan = scan.nextLine();
-                Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
-                rPatokan.addRoom(1, ruanganBaru);
-                ruanganBaru.addRoom(1, rPatokan);
+            try{
+                    if(rPatokan.getRuanganTetangga().get(1) == null)
+                {
+                    System.out.print("Masukkan nama ruangan: ");
+                    String namaRuangan = scan.nextLine();
+                    Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
+                    rPatokan.addRoom(1, ruanganBaru);
+                    ruanganBaru.addRoom(1, rPatokan);
+                }
+                else
+                {
+                    System.out.println("Ruangan sudah ada");
+                }
             }
-            else
-            {
-                System.out.println("Ruangan sudah ada");
-            }
+            catch (NullPointerException e){}
         }
         if(arah == 3){
-            if(rPatokan.getRuanganTetangga().get(2) == null)
-            {
-                System.out.print("Masukkan nama ruangan: ");
-                String namaRuangan = scan.nextLine();
-                Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
-                rPatokan.addRoom(2, ruanganBaru);
-                ruanganBaru.addRoom(2, rPatokan);
+            try{
+                if(rPatokan.getRuanganTetangga().get(2) == null)
+                {
+                    System.out.print("Masukkan nama ruangan: ");
+                    String namaRuangan = scan.nextLine();
+                    Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
+                    rPatokan.addRoom(2, ruanganBaru);
+                    ruanganBaru.addRoom(2, rPatokan);
+                }
+                else
+                {
+                    System.out.println("Ruangan sudah ada");
+                }
             }
-            else
-            {
-                System.out.println("Ruangan sudah ada");
-            }
-           
+            catch (NullPointerException e){}
         }
         if(arah == 4){
-            if(rPatokan.getRuanganTetangga().get(3) == null)
-            {
-                System.out.print("Masukkan nama ruangan: ");
-                String namaRuangan = scan.nextLine();
-                Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
-                rPatokan.addRoom(3, ruanganBaru);
-                ruanganBaru.addRoom(3, rPatokan);
+            try{
+                if(rPatokan.getRuanganTetangga().get(3) == null)
+                {
+                    System.out.print("Masukkan nama ruangan: ");
+                    String namaRuangan = scan.nextLine();
+                    Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
+                    rPatokan.addRoom(3, ruanganBaru);
+                    ruanganBaru.addRoom(3, rPatokan);
+                }
+                else
+                {
+                    System.out.println("Ruangan sudah ada");
+                }
             }
-            else
-            {
-                System.out.println("Ruangan sudah ada");
-            }
+            catch (NullPointerException e){}
         }
     }
 
