@@ -9,6 +9,7 @@ public class Sim {
     private Object[] inventory;
     private static Waktu waktu = new Waktu();
     private Ruangan currentRoom;
+    private Rumah currentRumah;
 
     public Sim (String namaLengkap, String pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood) {
         this.namaLengkap = namaLengkap;
@@ -27,6 +28,14 @@ public class Sim {
 
     public Ruangan getRuangan(){
         return currentRoom;
+    }
+
+    public void setRumah(Rumah rumah){
+        this.currentRumah = rumah;
+    }
+
+    public Rumah getRumah(){
+        return currentRumah;
     }
     
     public boolean isSimDead (){
