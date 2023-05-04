@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Sim {
     private String namaLengkap;
     private String pekerjaan;
@@ -193,8 +195,18 @@ public class Sim {
         waktu.doAksi(10);
     }
 
-    public void upgradeRumah (int uang) {
-        waktu.doAksi(18);
+    public void upgradeRumah () {
+        Rumah rumah = new Rumah(0,0);
+        System.out.println("Apakah anda ingin upgrade rumah?(y/n)");
+        Scanner input = new Scanner(System.in);
+        if (input.nextLine().equals("y")) {
+            // rumah.setDefaultRuangan();
+            rumah.printListRuanganRumah();
+            rumah.tambahRuangan();
+            rumah.setRuangan();
+        }
+        waktu.doAksi(1);
+        rumah.printListRuanganRumah();
     }
 
     public void doMandi (int mood, int kesehatan) {

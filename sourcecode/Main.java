@@ -93,6 +93,7 @@ public class Main {
                 nextLine();
             }
             else if (nomor.equals(4)) {
+                sim.upgradeRumah();
                 nextLine();
             }
             else if (nomor.equals(5)) {

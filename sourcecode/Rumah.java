@@ -93,11 +93,11 @@ public class Rumah {
         Scanner scan = new Scanner(System.in);
 
         //Minta input patokan ruangan
-        for(int i = 0; i < listRuanganRumah.size(); i++)
-        {
-            System.out.println("%d. " + listRuanganRumah.get(i).getNamaRuangan());
-            //perlu buat method untuk dapetin nama dari ruangan patokan, kayaknya bukan getNamaRuangan(), nanti tinggal diganti aja
-        }
+        // for(int i = 0; i < listRuanganRumah.size(); i++)
+        // {
+        //     System.out.println(listRuanganRumah.get(i).getNamaRuangan());
+        //     //perlu buat method untuk dapetin nama dari ruangan patokan, kayaknya bukan getNamaRuangan(), nanti tinggal diganti aja
+        // }
         System.out.println("Masukkan patokan ruangan: ");
         int patokan = scan.nextInt();
         Ruangan rPatokan = listRuanganRumah.get(patokan-1);
@@ -111,8 +111,7 @@ public class Rumah {
             try{
                 if(rPatokan.getRuanganTetangga().get(0) == null)
                 {
-                    System.out.print("Masukkan nama ruangan: ");
-                    String namaRuangan = scan.nextLine();
+                    setRuangan();
                     Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
                     rPatokan.addRoom(0, ruanganBaru);
                     ruanganBaru.addRoom(0, rPatokan);
@@ -128,8 +127,7 @@ public class Rumah {
             try{
                     if(rPatokan.getRuanganTetangga().get(1) == null)
                 {
-                    System.out.print("Masukkan nama ruangan: ");
-                    String namaRuangan = scan.nextLine();
+                    setRuangan();
                     Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
                     rPatokan.addRoom(1, ruanganBaru);
                     ruanganBaru.addRoom(1, rPatokan);
@@ -145,8 +143,7 @@ public class Rumah {
             try{
                 if(rPatokan.getRuanganTetangga().get(2) == null)
                 {
-                    System.out.print("Masukkan nama ruangan: ");
-                    String namaRuangan = scan.nextLine();
+                    setRuangan();
                     Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
                     rPatokan.addRoom(2, ruanganBaru);
                     ruanganBaru.addRoom(2, rPatokan);
@@ -162,8 +159,7 @@ public class Rumah {
             try{
                 if(rPatokan.getRuanganTetangga().get(3) == null)
                 {
-                    System.out.print("Masukkan nama ruangan: ");
-                    String namaRuangan = scan.nextLine();
+                    setRuangan();
                     Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
                     rPatokan.addRoom(3, ruanganBaru);
                     ruanganBaru.addRoom(3, rPatokan);
@@ -192,6 +188,8 @@ public class Rumah {
         //     y = scan.nextInt();
         // }
         Rumah rumah = new Rumah(x, y);
+        // rumah.setDefaultRuangan();
+        // rumah.printListRuanganRumah();
         setRuangan();
         rumah.printListRuanganRumah();
         setRuangan();
