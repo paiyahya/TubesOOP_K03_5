@@ -31,16 +31,33 @@ public class Sim {
 
     }
 
-    public void beliBarang (int uang) {
+    public void beliBarang (String namabarang) {
         Barang barang = new Barang(0);
-        this.uang = uang - barang.getharga();
-        waktu.doAksi(waktu.getRandomWaktu());
+        int idx = barang.namaBarang(namabarang);
+        if(idx != -1) {
+            if (getUang() >= barang.hargas[idx]){
+                this.uang = getUang() - barang.hargas[idx];
+                waktu.doAksi(waktu.getRandomWaktu());
+            }
+            else {
+                System.out.println("Uang tidak cukup");
+
+            }
+        }
     }
 
-    public void doBeliMakanan(int uang) {
+    public void doBeliMakanan(String namaMakanan) {
         BahanMakanan bahanMakanan = new BahanMakanan(0);
-        this.uang = uang - bahanMakanan.getHarga();
-        waktu.doAksi(waktu.getRandomWaktu());
+        int idx = bahanMakanan.namaBahanMakanan(namaMakanan);
+        if(idx != -1) {
+            if (getUang() >= bahanMakanan.hargas[idx]) {
+                this.uang = getUang() - bahanMakanan.hargas[idx];
+                waktu.doAksi(waktu.getRandomWaktu());
+            }
+            else {
+                System.out.println("Uang tidak cukup");
+            }
+        }
     }
 
     public void doKerja (int kekenyangan, int mood) {
@@ -73,8 +90,18 @@ public class Sim {
         }
     }
 
-    public void doMakan (int kekenyangan) {
-
+    public void doMakan (String namaMakanan) {
+        waktu.doAksi(30);
+        Masakan masakan = new Masakan(0);
+        BahanMakanan bahanMakanan = new BahanMakanan(0);
+        int idx = masakan.namaMasakan(namaMakanan);
+        int idx2 = bahanMakanan.namaBahanMakanan(namaMakanan);
+        if(idx != -1) {
+            this.kekenyangan = getKekenyangan() + masakan.kekenyangans[idx];
+        }
+        else if (idx2 != -1) {
+            this.kekenyangan = getKekenyangan() + bahanMakanan.kekenyangans[idx2];
+        }
     }
 
     public void doMasak (int mood) {

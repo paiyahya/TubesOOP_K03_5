@@ -30,6 +30,7 @@ public class   Waktu {
 
         if (this.time >= 720) {
             // waktu sudah habis, lanjut ke hari berikutnya
+            this.day = 1;
             this.day++;
             this.time = elapsedTime;
             System.out.println("Waktu habis, lanjut ke hari ke-" + this.day);

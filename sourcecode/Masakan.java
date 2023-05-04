@@ -12,7 +12,7 @@ public class Masakan extends Objek {
         "Bistik"
     };
 
-    private static int[] kekenyangans = {
+    public static int[] kekenyangans = {
             5,
             4,
             8,
@@ -29,16 +29,26 @@ public class Masakan extends Objek {
         0
     };
 
+    public boolean cekMasakan(String masakan) {
+        int indeksBarang = namaMasakan(masakan);
+        if (kuantitasInventory[indeksBarang] > 0) {
+            return true;
+        } else {
+            System.out.println("Barang " + masakan + " tidak ada dalam inventory.");
+            return false;
+        }
+    }
+
     public Masakan(int index) {
         super(namaMakanan[index]);
         kekenyangan = kekenyangans[index];
     }
 
-    private int namaMasakan(String namaMakanan)
+    public int namaMasakan(String namaMakanan)
     {
         String[] daftarNamaBahanMakanan = {"Nasi Ayam", "Nasi Kari", "Susu Kacang", "Tumis Sayur", "Bistik"};
         for (int i = 0; i < daftarNamaBahanMakanan.length; i++){
-            System.out.println("namaMakanan: " + i + " " + namaMakanan);
+            // System.out.println("namaMakanan: " + i + " " + namaMakanan);
             if (daftarNamaBahanMakanan[i].equals(namaMakanan)){
                 return i;
             }
@@ -62,8 +72,9 @@ public class Masakan extends Objek {
 
     private int hitungKekenyangan(ArrayList<BahanMakanan> bahanMakanan) {
         int totalKekenyangan = 0;
+        Sim sim = new Sim(nama, nama, totalKekenyangan, totalKekenyangan, totalKekenyangan, nama, totalKekenyangan);
         for (BahanMakanan bahan : bahanMakanan) {
-            totalKekenyangan += bahan.getKekenyangan();
+            totalKekenyangan += sim.getKekenyangan();
         }
         // Pengganda untuk menyesuaikan kekenyangan
         double pengganda = 0.8;

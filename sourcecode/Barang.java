@@ -56,7 +56,7 @@ public class Barang extends Objek {
         1,
         1
     };
-    private static int[] hargas =
+    public static int[] hargas =
     {
         50,
         100,
@@ -145,7 +145,7 @@ public class Barang extends Objek {
         aksi = aksis[index];
     }
 
-    private int namaBarang(String barang) {
+    public int namaBarang(String barang) {
         String[] daftarNamaBarang = {"Kasur Single", "Kasur Queen Size", "Kasur King Size", "Toilet", "Kompor Gas", "Kompor Listrik", "Meja dan Kursi", "Jam", "Treadmill", "Gitar", "Sapu", "Tv", "Sajadah", "Buku", "Baju"};
         for (int i = 0; i < daftarNamaBarang.length; i++) {
             if (daftarNamaBarang[i].equals(barang)) {

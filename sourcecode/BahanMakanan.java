@@ -12,7 +12,7 @@ public class BahanMakanan extends Objek {
             "Kacang",
             "Susu"
     };
-    private static int[] hargas = {
+    public static int[] hargas = {
             5,
             3,
             10,
@@ -22,7 +22,7 @@ public class BahanMakanan extends Objek {
             2,
             2
     };
-    private static int[] kekenyangans = {
+    public static int[] kekenyangans = {
             5,
             4,
             8,
@@ -54,7 +54,17 @@ public class BahanMakanan extends Objek {
         kekenyangan = kekenyangans[index];
     }
 
-    private int namaBahanMakanan(String bahanMakanan)
+    public boolean cekBahan(String makanan) {
+        int indeksBarang = namaBahanMakanan(makanan);
+        if (kuantitasInventory[indeksBarang] > 0) {
+            return true;
+        } else {
+            System.out.println("Barang " + makanan + " tidak ada dalam ruangan.");
+            return false;
+        }
+    }
+
+    public int namaBahanMakanan(String bahanMakanan)
     {
         String[] daftarNamaBahanMakanan = {"Nasi", "Kentang", "Ayam", "Sapi", "Wortel", "Bayam", "Kacang", "Susu"};
         for (int i = 0; i < daftarNamaBahanMakanan.length; i++){
@@ -97,9 +107,17 @@ public class BahanMakanan extends Objek {
         return harga;
     }
 
-    public int getKekenyangan() {
-        return kekenyangan;
+    public int getHarga(int index) {
+        return hargas[index];
     }
+
+    public int getKekenyangan(int index) {
+        return kekenyangans[index];
+    }
+
+    // public int getKekenyangan() {
+    //     return kekenyangan;
+    // }
 
 //    public static ArrayList<BahanMakanan> inisialisasiBahanMakanan() {
 //        ArrayList<BahanMakanan> listBahanMakanan = new ArrayList<>();
