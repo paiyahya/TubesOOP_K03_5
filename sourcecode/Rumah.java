@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Rumah {
+    private String namarumah;
     private int x;
     private int y;
     private int panjangRumah;
@@ -11,12 +12,17 @@ public class Rumah {
     private String namaRuangan;
     private static List<Ruangan> listRuanganRumah;
 
-    public Rumah(int x, int y) {
+    public Rumah(String namarumah, int x, int y) {
+        this.namarumah = namarumah;
         this.x = x;
         this.y = y;
         this.listRuanganRumah = new ArrayList<>();
         setDefaultRuangan();
         // Membuat ruangan pertama berukuran 6x6
+    }
+
+    public String getNamarumah() {
+        return namarumah;
     }
 
     public int getX() {
@@ -93,11 +99,11 @@ public class Rumah {
         Scanner scan = new Scanner(System.in);
 
         //Minta input patokan ruangan
-        // for(int i = 0; i < listRuanganRumah.size(); i++)
-        // {
-        //     System.out.println(listRuanganRumah.get(i).getNamaRuangan());
-        //     //perlu buat method untuk dapetin nama dari ruangan patokan, kayaknya bukan getNamaRuangan(), nanti tinggal diganti aja
-        // }
+        for(int i = 0; i < listRuanganRumah.size(); i++)
+        {
+            System.out.println("%d. " + listRuanganRumah.get(i).getNamaRuangan());
+            //perlu buat method untuk dapetin nama dari ruangan patokan, kayaknya bukan getNamaRuangan(), nanti tinggal diganti aja
+        }
         System.out.println("Masukkan patokan ruangan: ");
         int patokan = scan.nextInt();
         Ruangan rPatokan = listRuanganRumah.get(patokan-1);
@@ -108,101 +114,92 @@ public class Rumah {
         System.out.println("4. Kiri");
         int arah = scan.nextInt();
         if(arah == 1){
-            try{
-                if(rPatokan.getRuanganTetangga().get(0) == null)
-                {
-                    setRuangan();
-                    Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
-                    rPatokan.addRoom(0, ruanganBaru);
-                    ruanganBaru.addRoom(0, rPatokan);
-                }
-                else
-                {
-                    System.out.println("Ruangan sudah ada");
-                }
+           if(rPatokan.getRuanganTetangga().get(0) == null)
+           {
+                System.out.print("Masukkan nama ruangan: ");
+                String namaRuangan = scan.nextLine();
+                Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
+                rPatokan.addRoom(0, ruanganBaru);
+                ruanganBaru.addRoom(0, rPatokan);
+           }
+           else
+            {
+                System.out.println("Ruangan sudah ada");
             }
-            catch (NullPointerException e){}
         }
         else if(arah == 2){
-            try{
-                    if(rPatokan.getRuanganTetangga().get(1) == null)
-                {
-                    setRuangan();
-                    Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
-                    rPatokan.addRoom(1, ruanganBaru);
-                    ruanganBaru.addRoom(1, rPatokan);
-                }
-                else
-                {
-                    System.out.println("Ruangan sudah ada");
-                }
+            if(rPatokan.getRuanganTetangga().get(1) == null)
+            {
+                System.out.print("Masukkan nama ruangan: ");
+                String namaRuangan = scan.nextLine();
+                Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
+                rPatokan.addRoom(1, ruanganBaru);
+                ruanganBaru.addRoom(1, rPatokan);
             }
-            catch (NullPointerException e){}
+            else
+            {
+                System.out.println("Ruangan sudah ada");
+            }
         }
         if(arah == 3){
-            try{
-                if(rPatokan.getRuanganTetangga().get(2) == null)
-                {
-                    setRuangan();
-                    Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
-                    rPatokan.addRoom(2, ruanganBaru);
-                    ruanganBaru.addRoom(2, rPatokan);
-                }
-                else
-                {
-                    System.out.println("Ruangan sudah ada");
-                }
+            if(rPatokan.getRuanganTetangga().get(2) == null)
+            {
+                System.out.print("Masukkan nama ruangan: ");
+                String namaRuangan = scan.nextLine();
+                Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
+                rPatokan.addRoom(2, ruanganBaru);
+                ruanganBaru.addRoom(2, rPatokan);
             }
-            catch (NullPointerException e){}
+            else
+            {
+                System.out.println("Ruangan sudah ada");
+            }
+           
         }
         if(arah == 4){
-            try{
-                if(rPatokan.getRuanganTetangga().get(3) == null)
-                {
-                    setRuangan();
-                    Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
-                    rPatokan.addRoom(3, ruanganBaru);
-                    ruanganBaru.addRoom(3, rPatokan);
-                }
-                else
-                {
-                    System.out.println("Ruangan sudah ada");
-                }
+            if(rPatokan.getRuanganTetangga().get(3) == null)
+            {
+                System.out.print("Masukkan nama ruangan: ");
+                String namaRuangan = scan.nextLine();
+                Ruangan ruanganBaru = new Ruangan(namaRuangan, 6, 6);
+                rPatokan.addRoom(3, ruanganBaru);
+                ruanganBaru.addRoom(3, rPatokan);
             }
-            catch (NullPointerException e){}
+            else
+            {
+                System.out.println("Ruangan sudah ada");
+            }
         }
     }
 
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Masukkan X: ");
-        int x = scan.nextInt();
-        System.out.print("Masukkan Y: ");
-        int y = scan.nextInt();
-        // while(x < 6 || y < 6)
-        // {
-        //     System.out.println("Rumah terlalu kecil! Masukkan kembali x dan y");
-        //     System.out.print("Masukkan X: ");
-        //     x = scan.nextInt();
-        //     System.out.print("Masukkan Y: ");
-        //     y = scan.nextInt();
-        // }
-        Rumah rumah = new Rumah(x, y);
-        // rumah.setDefaultRuangan();
-        // rumah.printListRuanganRumah();
-        setRuangan();
-        rumah.printListRuanganRumah();
-        setRuangan();
-        Ruangan ruangan = new Ruangan("Kamar Tidur", 6, 6);
-        // getListRuanganRumah().add(ruangan);
-        rumah.printListRuanganRumah();
-        rumah.PilihRuangan();
-        // ruangan.tambahBarang("Kasur Single");
-        // ruangan.tampilkanRuangan();
-        // ruangan.tambahBarang("Meja dan Kursi");
-        // ruangan.tampilkanRuangan();
-        // ruangan.tambahBarang("Jam");
-        // ruangan.tampilkanRuangan();
-        // ruangan.printBarangRuangan();
-    } 
+    // public static void main(String[] args) {
+    //     Scanner scan = new Scanner(System.in);
+    //     System.out.print("Masukkan X: ");
+    //     int x = scan.nextInt();
+    //     System.out.print("Masukkan Y: ");
+    //     int y = scan.nextInt();
+    //     // while(x < 6 || y < 6)
+    //     // {
+    //     //     System.out.println("Rumah terlalu kecil! Masukkan kembali x dan y");
+    //     //     System.out.print("Masukkan X: ");
+    //     //     x = scan.nextInt();
+    //     //     System.out.print("Masukkan Y: ");
+    //     //     y = scan.nextInt();
+    //     // }
+    //     Rumah rumah = new Rumah(namarumah, x, y);
+    //     setRuangan();
+    //     rumah.printListRuanganRumah();
+    //     setRuangan();
+    //     Ruangan ruangan = new Ruangan("Kamar Tidur", 6, 6);
+    //     // getListRuanganRumah().add(ruangan);
+    //     rumah.printListRuanganRumah();
+    //     rumah.PilihRuangan();
+    //     // ruangan.tambahBarang("Kasur Single");
+    //     // ruangan.tampilkanRuangan();
+    //     // ruangan.tambahBarang("Meja dan Kursi");
+    //     // ruangan.tampilkanRuangan();
+    //     // ruangan.tambahBarang("Jam");
+    //     // ruangan.tampilkanRuangan();
+    //     // ruangan.printBarangRuangan();
+    // } 
 }
