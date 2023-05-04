@@ -70,16 +70,16 @@ public class Masakan extends Objek {
         kuantitasInventory[indeksMakanan]--;
     }
 
-    private int hitungKekenyangan(ArrayList<BahanMakanan> bahanMakanan) {
-        int totalKekenyangan = 0;
-        Sim sim = new Sim(nama, nama, totalKekenyangan, totalKekenyangan, totalKekenyangan, nama, totalKekenyangan);
-        for (BahanMakanan bahan : bahanMakanan) {
-            totalKekenyangan += sim.getKekenyangan();
-        }
-        // Pengganda untuk menyesuaikan kekenyangan
-        double pengganda = 0.8;
-        return (int) Math.round(totalKekenyangan * pengganda);
-    }
+//     private int hitungKekenyangan(ArrayList<BahanMakanan> bahanMakanan) {
+//         int totalKekenyangan = 0;
+//         Sim sim = new Sim(nama, nama, totalKekenyangan, totalKekenyangan, totalKekenyangan, nama, totalKekenyangan);
+//         for (BahanMakanan bahan : bahanMakanan) {
+//             totalKekenyangan += sim.getKekenyangan();
+//         }
+//         // Pengganda untuk menyesuaikan kekenyangan
+//         double pengganda = 0.8;
+//         return (int) Math.round(totalKekenyangan * pengganda);
+//     }
     
     public String getNamaMakanan() {
         return getNama();
@@ -97,10 +97,10 @@ public class Masakan extends Objek {
         this.nama = namaMakanan;
     }
 
-    public void setBahanMakanan(ArrayList<BahanMakanan> bahanMakanan) {
-        this.bahanMakanan = bahanMakanan;
-        this.kekenyangan = hitungKekenyangan(bahanMakanan);
-    }
+//     public void setBahanMakanan(ArrayList<BahanMakanan> bahanMakanan) {
+//         this.bahanMakanan = bahanMakanan;
+//         this.kekenyangan = hitungKekenyangan(bahanMakanan);
+//     }
 
     public void showJenisMakanan() {
         System.out.print("Nama Masakan: " + getNamaMakanan() + ", Bahan: ");
