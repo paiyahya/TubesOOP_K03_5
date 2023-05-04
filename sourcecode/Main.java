@@ -748,10 +748,20 @@ public class Main {
                     System.out.println("Masukkan nama rumah yang ingin anda kunjungi!");
                     String trash = input.nextLine();
                     String rumahkunjung = input.nextLine();
-                    for (Rumah r : rumahList) {
-                        if (r.getNamarumah().equals(rumahkunjung)) {
-                            Rumah currentRumah = r;
-                    currentSim.setRumah(r);
+                    boolean isExist = false;
+                    while (!isExist){
+                        for (Rumah r : rumahList) {
+                            if (r.getNamarumah().equals(rumahkunjung)) {
+                                Rumah currentRumah = r;
+                                currentSim.setRumah(r);
+                                isExist = true;
+                            }
+                        }
+                        if (!isExist){
+                            System.out.println("Nama Rumah yang ingin dikunjungi tidak tersedia, silahkan input ulang!");
+                            rumahkunjung = input.nextLine();
+                        }
+                    }
                     System.out.println("Anda sedang berkunjung ke rumah teman (" + rumahkunjung + ")");
                     currentSim.doBerkunjung(currentSim.getMood(), currentSim.getKekenyangan());
                     nextLine();
