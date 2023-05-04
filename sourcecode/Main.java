@@ -12,7 +12,10 @@ public class Main {
         // Waktu waktu = new Waktu();
         // waktu.startGame();
         World world = new World(64, 64);
+        // Membuat ArrayList untuk simList dan rumahList
         ArrayList<Sim> simList = new ArrayList<Sim>();
+        ArrayList<Rumah> rumahList = new ArrayList<Rumah>();
+        // Scanner
         Scanner input = new Scanner(System.in);
         // Membuat Sim di awal game
         System.out.println("Masukkan nama sim: ");
@@ -37,10 +40,12 @@ public class Main {
         }
         System.out.println("Masukkan posisi y rumah: ");
         int y = input.nextInt();
-        Rumah rumah = new Rumah(x, y);
+        Rumah rumah = new Rumah(namaRumah, x, y);
         world.tambahRumah(namaRumah, rumah);
         sim.setRuangan((rumah.getListRuanganRumah().get(0)));
         sim.setRumah(rumah);
+        rumahList.add(rumah);
+        // Barang, bahanMakanan, dan Masakan baru
         Barang barang = new Barang(0);
         BahanMakanan bahanMakanan = new BahanMakanan(0);
         Masakan masakan = new Masakan(0);
@@ -79,7 +84,7 @@ public class Main {
             else if (nomor.equals(2)) {
                 world.printWorld();
                 world.printRumah();
-                System.out.println("Saat ini "+ currentSim.getNama() + " berada dalam " + world.getDaftarRumah() + " pada ruangan " + sim.getRuangan().getNamaRuangan());
+                System.out.println("Saat ini "+ currentSim.getNama() + " berada dalam " + currentSim.getRumah().getNamarumah() + " pada ruangan " + currentSim.getRuangan().getNamaRuangan());
                 nextLine();
                 // System.out.println("Saat ini " + sim.getNama() + " berada di ruangan " + sim.getRuangan().getNamaRuangan());
             }
@@ -110,6 +115,28 @@ public class Main {
                 String nama1 = input.nextLine();
                 // Menambahkan Sim baru ke simList
                 simList.add(new Sim(nama1, null, 100, 80, 80, "idle", 80, false));
+                // Menambah Rumah baru untuk Sim baru
+                System.out.println("Masukkan nama rumah: ");
+                String namaRumah1 = input.nextLine();
+                // world.tambahRumah(nama, null);
+                System.out.println("Masukkan posisi x rumah: ");
+                int x1 = input.nextInt();
+                while (x1 > 64) {
+                    System.out.println("Posisi x tidak valid");
+                    System.out.println("Masukkan posisi x rumah: ");
+                    x = input.nextInt();
+                }
+                System.out.println("Masukkan posisi y rumah: ");
+                int y1 = input.nextInt();
+                Rumah rumah1 = new Rumah(namaRumah1, x1, y1);
+                world.tambahRumah(namaRumah1, rumah1);
+                for (Sim si : simList) {
+                    if (si.getNama().equals(nama1)) {
+                        si.setRuangan((rumah1.getListRuanganRumah().get(0)));
+                        si.setRumah(rumah1);
+                        rumahList.add(rumah1);
+                    }
+                }
                 // Menampilkan daftar objek Sim dalam list
                 System.out.println("\n=== DAFTAR SIM ===");
                 for (Sim s : simList) {
@@ -712,7 +739,20 @@ public class Main {
                     nextLine();
                 }
                 else if (pilihan.equals(2)) {
-                    System.out.println("Anda sedang berkunjung ke rumah teman");
+                    int i = 1;
+                    System.out.println("\n=== DAFTAR RUMAH ===");
+                    for (Rumah r : rumahList) {
+                        System.out.println(i + ". " + r.getNamarumah());
+                        i++;
+                    }
+                    System.out.println("Masukkan nama rumah yang ingin anda kunjungi!");
+                    String trash = input.nextLine();
+                    String rumahkunjung = input.nextLine();
+                    for (Rumah r : rumahList) {
+                        if (r.getNamarumah().equals(rumahkunjung)) {
+                            Rumah currentRumah = r;
+                    currentSim.setRumah(r);
+                    System.out.println("Anda sedang berkunjung ke rumah teman (" + rumahkunjung + ")");
                     currentSim.doBerkunjung(currentSim.getMood(), currentSim.getKekenyangan());
                     nextLine();
                 }
