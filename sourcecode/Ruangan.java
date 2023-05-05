@@ -24,9 +24,6 @@ public class Ruangan {
 
 	}
 
-	public Ruangan(int i, int j) {
-	}
-
 	public int getPosisiX() {
         return 0;
     }
@@ -101,16 +98,9 @@ public class Ruangan {
         }
         Barang barang = new Barang(index);
         
-
-        // if (index == -1) {
-        //     System.out.println("Nama barang tidak ditemukan!");
-        //     return false;
-        //}
         
         int panjang = 0;
         int lebar = 0;
-
-        // pengecekan posisi (horizontal/vertikal)
         
 
         //input lokasi
@@ -129,12 +119,7 @@ public class Ruangan {
                 y = Integer.parseInt(lokasiSplit[1]);
                 System.out.print("Masukkan posisi (Horizontal/Vertikal): ");
                 posisi = scan.nextLine();
-                // if (posisi.equalsIgnoreCase("Horizontal") || posisi.equalsIgnoreCase("Vertikal")) {
-                //     input = true;
-                // } else {
-                //     input = false;
-                //     System.out.println("Input posisi tidak valid!");
-                // }
+        
     
                 if (posisi.equalsIgnoreCase("Horizontal")) {
                     panjang = barang.getlebar();
