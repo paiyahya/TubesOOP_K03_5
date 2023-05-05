@@ -1,67 +1,85 @@
+import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
-public class Pekerjaan {
-    public static void main(String[] args) {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Masukkan jumlah sim: ");
-            final int jumlahSims = scanner.nextInt();
-            // Inisialisasi nilai konstanta
-            final int jumlahPekerjaan = 5;
-            final int waktuKerja = 720; // 12 jam kerja
+public class Pekerjaan{
+    public String [] pekerjaan;
+    private static String [] namaPekerjaan =
+    {
+        "Badut Sulap",
+        "Koki",
+        "Polisi",
+        "Programmer",
+        "Dokter",
+        "Penulis",
+        "Arsitek",
+        "Barista",
+        "Wartawan",
+        "Hakim"
+    };
+    private static int [] gajis = {
+        15,
+        30,
+        35,
+        45,
+        50,
+        30,
+        40,
+        20,
+        40,
+        45
+    };
 
-            // Inisialisasi data pekerjaan
-            String[] jobs = {"Badut Sulap", "Koki", "Polisi", "Programmer", "Dokter"};
-            int[] gajiHarian = {15, 30, 35, 45, 50};
-            int[] waktuganti = {-1, -1, -1, -1, -1};
-            String[] Pekerjaan = new String[jumlahSims];
-            int[] gajiSim = new int[jumlahSims];
-            int[] gantiHari = new int[jumlahSims];
+    public Pekerjaan(){
+        this.pekerjaan = new String [1];
+        this.pekerjaan[0] = getRandomPekerjaan();
+    }
 
-            // Inisialisasi pekerjaan acak untuk setiap sim
-            Random random = new Random();
-            for (int i = 0; i < jumlahSims; i++) {
-                int jobIndex = random.nextInt(jumlahPekerjaan);
-                Pekerjaan[i] = jobs[jobIndex];
-                gajiSim[i] = gajiHarian[jobIndex];
-            }
-
-            // Simulasi pekerjaan
-            for (int minute = 1; minute <= waktuKerja; minute++) {
-                for (int i = 0; i < jumlahSims; i++) {
-                    // Jika sim bisa mengganti pekerjaan, lakukan penggantian pekerjaan
-                    if (gantiHari[i] == -1 && minute >= 720) {
-                        int currentJobIndex = -1;
-                        for (int j = 0; j < jumlahPekerjaan; j++) {
-                            if (Pekerjaan[i].equals(jobs[j])) {
-                                currentJobIndex = j;
-                                break;
-                            }
-                        }
-                        int newJobIndex = random.nextInt(jumlahPekerjaan);
-                        while (newJobIndex == currentJobIndex) {
-                            newJobIndex = random.nextInt(jumlahPekerjaan);
-                        }
-                        int newJobSalary = gajiHarian[newJobIndex];
-                        int changeCost = newJobSalary / 2;
-                        if (gajiSim[i] >= changeCost) {
-                            Pekerjaan[i] = jobs[newJobIndex];
-                            gajiSim[i] = newJobSalary;
-                            gantiHari[i] = minute / 1440 + 1; // Jumlah hari + 1
-                        }
-                    }
-                    // Jika sim tidak bisa mengganti pekerjaan, kurangi hari sebelum bisa mengganti pekerjaan
-                    else if (gantiHari[i] != -1) {
-                        gantiHari[i]--;
-                    }
-                }
-            }
-
-            // Output hasil pekerjaan
-            for (int i = 0; i < jumlahSims; i++) {
-                System.out.println("Sim " + (i + 1) + " bekerja sebagai" + Pekerjaan[i] + " dengan gaji " + gajiSim[i]);
-            }
+    public String getPekerjaan(){
+        return pekerjaan[0];
+    }
+    public int getGaji(){
+        int index = getIndexPekerjaan(pekerjaan[0]);
+        return gajis[index];
+    }
+    public void setGantiPekerjaan (String pekerjaanBaru){
+        int index = getIndexPekerjaan(pekerjaanBaru);
+        if (index != -1){
+            pekerjaan[0] = pekerjaanBaru;
+        } else {
+            System.out.println("Pekerjaan tidak tersedia");
         }
     }
-}
 
+    String getRandomPekerjaan(){
+        int randomIndex = (int) (Math.random() * namaPekerjaan.length);
+        return namaPekerjaan[randomIndex];
+    }
+
+    public void printPekerjaan() {
+        System.out.println("pekerjaan: " + getPekerjaan());
+    }
+
+    public void printGaji() {
+        System.out.println("Gaji: " + getGaji());
+    }
+    
+    private int getIndexPekerjaan(String pekerjaan){
+        for( int i = 0; i < namaPekerjaan.length; i++){
+            if (namaPekerjaan[i].equals(pekerjaan)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+
+    //public static void main (String[] args) {
+      //  Pekerjaan pekerjaan = new Pekerjaan();
+        //pekerjaan.getRandomPekerjaan();
+        //pekerjaan.printPekerjaan();
+        //pekerjaan.printGaji();
+        //pekerjaan.setGantiPekerjaan("Arsitek")
+        //pekerjaan.printPekerjaan();
+        //pekerjaan.printGaji();
+    //}
+}

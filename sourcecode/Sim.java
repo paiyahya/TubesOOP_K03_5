@@ -3,7 +3,7 @@ import java.util.Set;
 
 public class Sim {
     private String namaLengkap;
-    private String pekerjaan;
+    Pekerjaan pekerjaan;
     private int uang;
     private int kekenyangan;
     private int kesehatan;
@@ -15,7 +15,7 @@ public class Sim {
     private Rumah currentRumah;
     private boolean NowPlaying;
 
-    public Sim (String namaLengkap, String pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood, boolean NowPlaying) {
+    public Sim (String namaLengkap, Pekerjaan pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood, boolean NowPlaying) {
         this.namaLengkap = namaLengkap;
         this.pekerjaan = pekerjaan;
         this.uang = 100;
@@ -352,7 +352,7 @@ public class Sim {
         this.namaLengkap = namaLengkap;
     }
     
-    public void setPekerjaan(String pekerjaan) {
+    public void setPekerjaan(Pekerjaan pekerjaan) {
         this.pekerjaan = pekerjaan;
     }
     
@@ -371,7 +371,7 @@ public class Sim {
     public int getUang() {
         return uang;
     }
-    public String getPekerjaan() {
+    public Pekerjaan getPekerjaan() {
         return pekerjaan;
     }
     public boolean isNowPlaying() {

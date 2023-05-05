@@ -20,7 +20,13 @@ public class Main {
         // Membuat Sim di awal game
         System.out.println("Masukkan nama sim: ");
         String nama = input.nextLine();
-        Sim sim = new Sim(nama, null, 100, 80, 80, "idle", 80, true);
+        
+        Pekerjaan pekerjaan = new Pekerjaan();
+        pekerjaan.getRandomPekerjaan();
+        pekerjaan.printPekerjaan();
+        pekerjaan.printGaji();
+
+        Sim sim = new Sim(nama, pekerjaan, 100, 80, 80, "idle", 80, true);
         // Memasukkan Sim awal ke simList
         simList.add(sim);
         // Mengatur Sim awal menjadi currentSim yang dimainkan
@@ -78,7 +84,7 @@ public class Main {
                 System.out.println("Kesehatan anda: " + currentSim.getKesehatan());
                 System.out.println("Mood anda: " + currentSim.getMood());
                 System.out.println("Uang anda: " + currentSim.getUang());
-                System.out.println("Pekerjaan anda: " + currentSim.getPekerjaan());
+                System.out.println("Pekerjaan anda: " + currentSim.pekerjaan.getPekerjaan());
                 System.out.println("Status anda: " + currentSim.getAksi());
                 System.out.println("Uang anda: " + currentSim.getUang());
                 nextLine();
