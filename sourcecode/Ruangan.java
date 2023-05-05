@@ -24,14 +24,6 @@ public class Ruangan {
 
 	}
 
-	public int getPosisiX() {
-        return 0;
-    }
-
-    public int getPosisiY() {
-        return 0;
-    }
-
     public String getNamaRuangan(){
         return namaRuangan;
     }
