@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import javax.lang.model.util.ElementScanner14;
 
 public class Main {
+
     public static void nextLine() {
         System.out.println("Press enter to continue...");
         Scanner input = new Scanner(System.in);
@@ -12,14 +13,25 @@ public class Main {
         // Waktu waktu = new Waktu();
         // waktu.startGame();
         World world = new World(64, 64);
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Masukkan X: ");
+        int x = scan.nextInt();
+        System.out.print("Masukkan Y: ");
+        int y = scan.nextInt();
+        System.out.println("Masukkan nama rumah: ");
+        Scanner input = new Scanner(System.in);
+        String namaRumah = input.nextLine();
+        Rumah rumah = new Rumah(namaRumah, x,y);
+        
+        
         // Membuat ArrayList untuk simList dan rumahList
         ArrayList<Sim> simList = new ArrayList<Sim>();
         ArrayList<Rumah> rumahList = new ArrayList<Rumah>();
         // Scanner
-        Scanner input = new Scanner(System.in);
+        Scanner input2 = new Scanner(System.in);
         // Membuat Sim di awal game
         System.out.println("Masukkan nama sim: ");
-        String nama = input.nextLine();
+        String nama = input2.nextLine();
         Sim sim = new Sim(nama, null, 100, 80, 80, "idle", 80, true);
         // Memasukkan Sim awal ke simList
         simList.add(sim);
@@ -28,19 +40,19 @@ public class Main {
         // Waktu
         Waktu waktu = new Waktu();
         // world.tambahRumah(null, null);
-        System.out.println("Masukkan nama rumah: ");
-        String namaRumah = input.nextLine();
-        // world.tambahRumah(nama, null);
-        System.out.println("Masukkan posisi x rumah: ");
-        int x = input.nextInt();
-        while (x > 64) {
-            System.out.println("Posisi x tidak valid");
-            System.out.println("Masukkan posisi x rumah: ");
-            x = input.nextInt();
-        }
-        System.out.println("Masukkan posisi y rumah: ");
-        int y = input.nextInt();
-        Rumah rumah = new Rumah(namaRumah, x, y);
+        // System.out.println("Masukkan nama rumah: ");
+        // String namaRumah = input.nextLine();
+        // // world.tambahRumah(nama, null);
+        // System.out.println("Masukkan posisi x rumah: ");
+        // int x = input.nextInt();
+        // while (x > 64) {
+        //     System.out.println("Posisi x tidak valid");
+        //     System.out.println("Masukkan posisi x rumah: ");
+        //     x = input.nextInt();
+        // }
+        // System.out.println("Masukkan posisi y rumah: ");
+        // int y = input.nextInt();
+        // Rumah rumah = new Rumah(namaRumah, x, y);
         world.tambahRumah(namaRumah, rumah);
         sim.setRuangan((rumah.getListRuanganRumah().get(0)));
         sim.setRumah(rumah);
