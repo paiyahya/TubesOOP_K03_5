@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Set;
 
 public class Sim {
     private String namaLengkap;
@@ -6,7 +7,7 @@ public class Sim {
     private int uang;
     private int kekenyangan;
     private int kesehatan;
-    private String status;
+    public String status;
     private int mood;
     private Object[] inventory;
     private static Waktu waktu = new Waktu();
@@ -50,9 +51,14 @@ public class Sim {
         }
     }
 
-    public void removeBarang (Object[] inventory) {
-
-    }
+    // public boolean isIdle() {
+    //     if (this.status == "idle") {
+    //         return true;
+    //     } else {
+    //         System.out.println("Anda sedang melakukan kegiatan lain");
+    //         return false;
+    //     }
+    // }
 
     public void beliBarang (String namabarang) {
         Barang barang = new Barang(0);
@@ -60,7 +66,10 @@ public class Sim {
         if(idx != -1) {
             if (getUang() >= barang.hargas[idx]){
                 this.uang = getUang() - barang.hargas[idx];
-                waktu.doAksi(waktu.getRandomWaktu());
+                waktu.doAksi(waktu.getRandomWaktu(), waktu);
+                // waktuBeliBarang = waktu.getRandomWaktu();
+                // System.out.println("Waktu tunggu barang: " + waktuBeliBarang + " detik");
+                // setBeliBarang(true);
             }
             else {
                 System.out.println("Uang tidak cukup");
@@ -75,7 +84,9 @@ public class Sim {
         if(idx != -1) {
             if (getUang() >= bahanMakanan.hargas[idx]) {
                 this.uang = getUang() - bahanMakanan.hargas[idx];
-                waktu.doAksi(waktu.getRandomWaktu());
+                waktu.doAksi(waktu.getRandomWaktu(), waktu);
+                // waktuBeliBarang = waktu.getRandomWaktu();
+                // setBeliBarang(true);
             }
             else {
                 System.out.println("Uang tidak cukup");
@@ -86,7 +97,10 @@ public class Sim {
     public void doKerja (int kekenyangan, int mood) {
         this.kekenyangan = kekenyangan - 10;
         this.mood = mood - 10;
-        waktu.doAksi(30);
+        this.status = "Sedang bekerja";
+        waktu.doAksi1(30, waktu);
+        System.out.println("Anda sudah selesai bekerja");
+        this.status = "idle";
     }
 
     public void doOlahraga (int kesehatan, int kekenyangan, int mood) {
@@ -94,7 +108,10 @@ public class Sim {
         this.kesehatan = kesehatan + 5;
         this.kekenyangan = kekenyangan - 5;
         this.mood = mood + 10;
-        waktu.doAksi(20);
+        waktu.doAksi1(20, waktu);
+        this.status = "Sedang olahraga";
+        System.out.println("Anda sudah selesai olahraga");
+        this.status = "idle";
         if (mood > 100) {
             this.mood = 100;
         }
@@ -103,7 +120,10 @@ public class Sim {
     public void doTidur (int mood, int kesehatan) {
         this.mood = mood + 30;
         this.kesehatan = kesehatan + 20;
-        waktu.doAksi(240);
+        this.status = "Sedang tidur";
+        waktu.doAksi1(240, waktu);
+        System.out.println("Anda sudah selesai tidur");
+        this.status = "idle";
         if (mood > 100) {
             this.mood = 100;
         }
@@ -114,7 +134,10 @@ public class Sim {
     }
 
     public void doMakan (String namaMakanan) {
-        waktu.doAksi(30);
+        this.status = "Sedang makan";
+        waktu.doAksi1(30, waktu);
+        System.out.println("Anda sudah selesai makan");
+        this.status = "idle";
         Masakan masakan = new Masakan(0);
         BahanMakanan bahanMakanan = new BahanMakanan(0);
         int idx = masakan.namaMasakan(namaMakanan);
@@ -127,17 +150,11 @@ public class Sim {
         }
     }
 
-    public void doMasak (int mood) {
-        this.mood = mood + 10;
-
-        if (mood > 100) {
-            this.mood = 100;
-        }
-    }
-
     public void doMasakNasiAyam(int mood) {
         this.mood = mood + 10;
-        waktu.doAksi(24);
+        this.status = "Sedang memasak";
+        waktu.doAksi1(24, waktu);
+        this.status = "idle";
         if (mood > 100) {
             this.mood = 100;
         }
@@ -145,7 +162,9 @@ public class Sim {
 
     public void doMasakNasiKari(int mood) {
         this.mood = mood + 10;
-        waktu.doAksi(45);
+        this.status = "Sedang memasak";
+        waktu.doAksi1(45, waktu);
+        this.status = "idle";
         if (mood > 100) {
             this.mood = 100;
         }
@@ -153,7 +172,9 @@ public class Sim {
 
     public void doMasakSususKacang(int mood) {
         this.mood = mood + 10;
-        waktu.doAksi(8);
+        this.status = "Sedang memasak";
+        waktu.doAksi1(8, waktu);
+        this.status = "idle";
         if (mood > 100) {
             this.mood = 100;
         }
@@ -161,7 +182,9 @@ public class Sim {
 
     public void doMasakTumisSayur(int mood) {
         this.mood = mood + 10;
-        waktu.doAksi(8);
+        this.status = "Sedang memasak";
+        waktu.doAksi1(8, waktu);
+        this.status = "idle";
         if (mood > 100) {
             this.mood = 100;
         }
@@ -169,30 +192,36 @@ public class Sim {
 
     public void doMasakBistik(int mood) {
         this.mood = mood + 10;
-        waktu.doAksi(33);
+        this.status = "Sedang memasak";
+        waktu.doAksi1(33, waktu);
+        this.status = "idle";
         if (mood > 100) {
             this.mood = 100;
         }
     }
 
     public void doBerkunjung (int mood, int kekenyangan) {
+        this.status = "Sedang berkunjung";
+        waktu.doAksi1(30, waktu);
+        System.out.println("Anda sudah selesai berkunjung");
+        this.status = "idle";
         this.mood = mood + 10;
         this.kekenyangan = kekenyangan - 10;
-    
         if (mood > 100) {
             this.mood = 100;
         }
-        waktu.doAksi(30);
     }
 
     public void doBuangAir (int mood, int kekenyangan) {
+        this.status = "Sedang buang air";
+        waktu.doAksi1(10, waktu);
+        System.out.println("Anda sudah selesai buang air");
+        this.status = "idle";
         this.kekenyangan = kekenyangan - 20;
         this.mood = mood + 10;
-
         if (mood > 100) {
             this.mood = 100;
         }
-        waktu.doAksi(10);
     }
 
     public void upgradeRumah () {
@@ -210,9 +239,12 @@ public class Sim {
     }
 
     public void doMandi (int mood, int kesehatan) {
+        this.status = "Sedang mandi";
+        waktu.doAksi1(60, waktu);
+        System.out.println("Anda sudah selesai mandi");
+        this.status = "idle";
         this.mood = mood + 10;
         this.kesehatan = kesehatan + 10;
-        waktu.doAksi(60);
         if (mood > 100) {
             this.mood = 100;
         }
@@ -223,18 +255,24 @@ public class Sim {
     }
 
     public void doMainGitar (int mood, int kekenyangan) {
+        this.status = "Sedang main gitar";
+        waktu.doAksi1(30, waktu);
+        System.out.println("Anda sudah selesai main gitar");
+        this.status = "idle";
         this.mood = mood + 10;
         this.kekenyangan = kekenyangan - 5;
-        waktu.doAksi(30);
         if (mood > 100) {
             this.mood = 100;
         }
     }
 
     public void doMenyapu (int kesehatan, int mood) {
+        this.status = "Sedang menyapu";
+        waktu.doAksi1(10, waktu);
+        System.out.println("Anda sudah selesai menyapu");
+        this.status = "idle";
         this.kesehatan = kesehatan + 5;
         this.mood = mood + 5;
-        waktu.doAksi(10);
         if (mood > 100) {
             this.mood = 100;
         }
@@ -245,18 +283,24 @@ public class Sim {
     }
 
     public void doMenonton (int mood, int kekenyangan) {
+        this.status = "Sedang menonton";
+        waktu.doAksi1(20, waktu);
+        System.out.println("Anda sudah selesai menonton");
+        this.status = "idle";
         this.mood = mood + 15;
         this.kekenyangan = kekenyangan - 5;
-        waktu.doAksi(20);
         if (mood > 100) {
             this.mood = 100;
         }
     }
 
     public void doIbadah (int mood, int kesehatan) {
+        this.status = "Sedang beribadah";
+        waktu.doAksi1(20, waktu);
+        System.out.println("Anda sudah selesai beribadah");
+        this.status = "idle";
         this.mood = mood + 20;
         this.kesehatan = kesehatan + 10;
-        waktu.doAksi(20);
         if (mood > 100) {
             this.mood = 100;
         }
@@ -267,17 +311,23 @@ public class Sim {
     }
 
     public void doBaca (int mood, int kekenyangan) {
+        this.status = "Sedang membaca";
+        waktu.doAksi1(30, waktu);
+        System.out.println("Anda sudah selesai membaca");
+        this.status = "idle";
         this.mood = mood + 10;
         this.kekenyangan = kekenyangan - 5;
-        waktu.doAksi(30);
         if (mood > 100) {
             this.mood = 100;
         }
     }
 
     public void doGantiBaju (int mood) {
+        this.status = "Sedang mengganti baju";
+        waktu.doAksi1(5, waktu);
+        System.out.println("Anda sudah selesai mengganti baju");
+        this.status = "idle";
         this.mood = mood + 15;
-        waktu.doAksi(5);
         if (mood > 100) {
             this.mood = 100;
         }

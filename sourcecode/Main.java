@@ -68,6 +68,8 @@ public class Main {
             System.out.println("13. Exit");
             System.out.println("Silahkan pilih aksi yang ingin dijalankan: ");
 
+            
+
             Integer nomor = input.nextInt();
             if (nomor.equals(1)) {
                 System.out.println("\n=== PROFIL SIM ===");
@@ -202,7 +204,6 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 currentSim.doTidur(currentSim.getKesehatan(), currentSim.getMood());
-                                System.out.println("Anda sudah selesai tidur");
                                 nextLine();
                             }
                             else {
@@ -215,7 +216,6 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 currentSim.doTidur(currentSim.getKesehatan(), currentSim.getMood());
-                                System.out.println("Anda sudah selesai tidur");
                                 nextLine();
                             }
                             else {
@@ -228,7 +228,6 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 currentSim.doTidur(currentSim.getKesehatan(), currentSim.getMood());
-                                System.out.println("Anda sudah selesai tidur");
                                 nextLine();
                             }
                             else {
@@ -241,7 +240,6 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 currentSim.doBuangAir(currentSim.getKesehatan(), currentSim.getMood());
-                                System.out.println("Anda sudah selesai buang air");
                                 nextLine();
                             }
                             else {
@@ -522,79 +520,66 @@ public class Main {
                                 if (jawaban2.equals("Nasi Kari")) {
                                     masakan.cekMasakan("Nasi Kari");
                                     currentSim.doMakan("Nasi Kari");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Nasi Ayam")) {
                                     currentSim.doMakan("Nasi Ayam");
                                     masakan.cekMasakan("Nasi Ayam");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Susu Kacang")) {
                                     currentSim.doMakan("Susu Kacang");
                                     masakan.cekMasakan("Susu Kacang");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Tumis Sayur")) {
                                     masakan.cekMasakan("Tumis Sayur");
                                     currentSim.doMakan("Tumis Sayur");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Bistik")) {
                                     masakan.cekMasakan("Bistik");
                                     currentSim.doMakan("Bistik");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Nasi")) {
                                     bahanMakanan.cekBahan("Nasi");
                                     currentSim.doMakan("Nasi");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Kentang")) {
                                     bahanMakanan.cekBahan("Kentang");
                                     currentSim.doMakan("Kentang");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Ayam")) {
                                     bahanMakanan.cekBahan("Ayam");
                                     currentSim.doMakan("Ayam");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Sapi")) {
                                     bahanMakanan.cekBahan("Sapi");
                                     currentSim.doMakan("Sapi");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Kacang")) {
                                     bahanMakanan.cekBahan("Kacang");
                                     currentSim.doMakan("Kacang");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Susu")) {
                                     bahanMakanan.cekBahan("Susu");
                                     currentSim.doMakan("Susu");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Wortel")) {
                                     bahanMakanan.cekBahan("Wortel");
                                     currentSim.doMakan("Wortel");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Bayam")) {
                                     bahanMakanan.cekBahan("Bayam");
                                     currentSim.doMakan("Bayam");
-                                    System.out.println("Anda sudah selesai makan");
                                     nextLine();
                                 }
                                 else {
@@ -625,7 +610,6 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 currentSim.doOlahraga(currentSim.getKesehatan(), currentSim.getKekenyangan(), currentSim.getMood());
-                                System.out.println("Anda sudah selesai berolahraga");
                                 nextLine();
                             }
                             else {
@@ -639,7 +623,6 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 currentSim.doMainGitar(currentSim.getMood(), currentSim.getKekenyangan());
-                                System.out.println("Anda sudah selesai bermain gitar");
                                 nextLine();
                             }
                             else {
@@ -653,7 +636,6 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 currentSim.doMenyapu(currentSim.getMood(), currentSim.getKekenyangan());
-                                System.out.println("Anda sudah selesai menyapu");
                                 nextLine();
                             }
                             else {
@@ -668,7 +650,6 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 currentSim.doMenonton(currentSim.getMood(), currentSim.getKekenyangan());
-                                System.out.println("Anda sudah selesai menonton");
                                 nextLine();
                             }
                             else {
@@ -682,7 +663,6 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 currentSim.doIbadah(currentSim.getMood(), currentSim.getKesehatan());
-                                System.out.println("Anda sudah selesai beribadah");
                                 nextLine();
                             }
                             else {
@@ -695,7 +675,6 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 currentSim.doBaca(currentSim.getMood(), currentSim.getKekenyangan());
-                                System.out.println("Anda sudah selesai membaca");
                                 nextLine();
                             }
                             else {
@@ -708,7 +687,6 @@ public class Main {
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
                                 currentSim.doGantiBaju(currentSim.getMood());
-                                System.out.println("Anda sudah selesai mengganti baju");
                                 nextLine();
                             }
                             else {
@@ -803,7 +781,6 @@ public class Main {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Nasi");
                                 bahanMakanan.tambahBahanMakanan("Nasi");
-                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
                             }
                             else if (jawaban1.equals("n")) {
@@ -821,7 +798,6 @@ public class Main {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Kentang");
                                 bahanMakanan.tambahBahanMakanan("Kentang");
-                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
                             }
                             else if (jawaban1.equals("n")) {
@@ -839,7 +815,6 @@ public class Main {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Ayam");
                                 bahanMakanan.tambahBahanMakanan("Ayam");
-                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
                             }
                             else if (jawaban1.equals("n")) {
@@ -857,7 +832,6 @@ public class Main {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Sapi");
                                 bahanMakanan.tambahBahanMakanan("Sapi");
-                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
                             }
                             else if (jawaban1.equals("n")) {
@@ -875,7 +849,6 @@ public class Main {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Wortel");
                                 bahanMakanan.tambahBahanMakanan("Wortel");
-                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
                             }
                             else if (jawaban1.equals("n")) {
@@ -893,7 +866,6 @@ public class Main {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Bayam");
                                 bahanMakanan.tambahBahanMakanan("Bayam");
-                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
                             }
                             else if (jawaban1.equals("n")) {
@@ -911,7 +883,6 @@ public class Main {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Kacang");
                                 bahanMakanan.tambahBahanMakanan("Kacang");
-                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
                             }
                             else if (jawaban1.equals("n")) {
@@ -929,7 +900,6 @@ public class Main {
                                 System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Susu");
                                 bahanMakanan.tambahBahanMakanan("Susu");
-                                System.out.println("Makanan berhasil dibeli dan dimasukkan ke dalam inventory");
                                 nextLine();
                             }
                             else if (jawaban1.equals("n")) {
@@ -952,7 +922,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Toilet");
                             barang.tambahBarang("Toilet");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban2.equals("n")) {
@@ -970,7 +939,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Jam");
                             barang.tambahBarang("Jam");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban3.equals("n")) {
@@ -988,7 +956,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Treadmill");
                             barang.tambahBarang("Treadmill");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban4.equals("n")) {
@@ -1006,7 +973,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Gitar");
                             barang.tambahBarang("Gitar");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban5.equals("n")) {
@@ -1024,7 +990,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Sapu");
                             barang.tambahBarang("Sapu");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban6.equals("n")) {
@@ -1042,7 +1007,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Tv");
                             barang.tambahBarang("Tv");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban7.equals("n")) {
@@ -1060,7 +1024,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Sajadah");
                             barang.tambahBarang("Sajadah");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban8.equals("n")) {
@@ -1078,7 +1041,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Buku");
                             barang.tambahBarang("Buku");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban9.equals("n")) {
@@ -1096,7 +1058,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Baju");
                             barang.tambahBarang("Baju");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban10.equals("n")) {
@@ -1114,7 +1075,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Kasur Single");
                             barang.tambahBarang("Kasur Single");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban11.equals("n")) {
@@ -1132,7 +1092,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Kasur Queen Size");
                             barang.tambahBarang("Kasur Queen Size");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban12.equals("n")) {
@@ -1150,7 +1109,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Kasur King Size");
                             barang.tambahBarang("Kasur King Size");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban13.equals("n")) {
@@ -1168,7 +1126,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Kompor Gas");
                             barang.tambahBarang("Kompor Gas");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban14.equals("n")) {
@@ -1185,7 +1142,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Kompor Listrik");
                             barang.tambahBarang("Kompor Listrik");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban15.equals("n")) {
@@ -1202,7 +1158,6 @@ public class Main {
                             System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Meja dan Kursi");
                             barang.tambahBarang("Meja dan Kursi");
-                            System.out.println("Barang berhasil dibeli dan dimasukkan ke dalam inventory");
                             nextLine();
                         }
                         else if (jawaban16.equals("n")) {
