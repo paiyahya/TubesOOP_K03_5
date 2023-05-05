@@ -778,7 +778,6 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli nasi? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Nasi");
                                 bahanMakanan.tambahBahanMakanan("Nasi");
                                 nextLine();
@@ -795,7 +794,6 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli kentang? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Kentang");
                                 bahanMakanan.tambahBahanMakanan("Kentang");
                                 nextLine();
@@ -812,7 +810,6 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli ayam? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Ayam");
                                 bahanMakanan.tambahBahanMakanan("Ayam");
                                 nextLine();
@@ -829,7 +826,6 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli sapi? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Sapi");
                                 bahanMakanan.tambahBahanMakanan("Sapi");
                                 nextLine();
@@ -846,7 +842,6 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli wortel? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Wortel");
                                 bahanMakanan.tambahBahanMakanan("Wortel");
                                 nextLine();
@@ -863,7 +858,6 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli bayam? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Bayam");
                                 bahanMakanan.tambahBahanMakanan("Bayam");
                                 nextLine();
@@ -880,7 +874,6 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli kacang? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Kacang");
                                 bahanMakanan.tambahBahanMakanan("Kacang");
                                 nextLine();
@@ -897,7 +890,6 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli susu? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                System.out.println("Makanan anda sedang diantar, harap menunggu");
                                 currentSim.doBeliMakanan("Susu");
                                 bahanMakanan.tambahBahanMakanan("Susu");
                                 nextLine();
@@ -919,7 +911,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli toilet?(y/n)");
                         String jawaban2 = input.next();
                         if (jawaban2.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Toilet");
                             barang.tambahBarang("Toilet");
                             nextLine();
@@ -936,7 +927,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli jam?(y/n)");
                         String jawaban3 = input.next();
                         if (jawaban3.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Jam");
                             barang.tambahBarang("Jam");
                             nextLine();
@@ -953,7 +943,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli treadmill?(y/n)");
                         String jawaban4 = input.next();
                         if (jawaban4.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Treadmill");
                             barang.tambahBarang("Treadmill");
                             nextLine();
@@ -970,7 +959,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli gitar?(y/n)");
                         String jawaban5 = input.next();
                         if (jawaban5.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Gitar");
                             barang.tambahBarang("Gitar");
                             nextLine();
@@ -987,7 +975,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli sapu?(y/n)");
                         String jawaban6 = input.next();
                         if (jawaban6.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Sapu");
                             barang.tambahBarang("Sapu");
                             nextLine();
@@ -1004,7 +991,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli tv?(y/n)");
                         String jawaban7 = input.next();
                         if (jawaban7.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Tv");
                             barang.tambahBarang("Tv");
                             nextLine();
@@ -1021,7 +1007,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli sajadah?(y/n)");
                         String jawaban8 = input.next();
                         if (jawaban8.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Sajadah");
                             barang.tambahBarang("Sajadah");
                             nextLine();
@@ -1038,7 +1023,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli buku?(y/n)");
                         String jawaban9 = input.next();
                         if (jawaban9.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Buku");
                             barang.tambahBarang("Buku");
                             nextLine();
@@ -1055,7 +1039,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli baju?(y/n)");
                         String jawaban10 = input.next();
                         if (jawaban10.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Baju");
                             barang.tambahBarang("Baju");
                             nextLine();
@@ -1072,7 +1055,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli kasur single?(y/n)");
                         String jawaban11 = input.next();
                         if (jawaban11.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Kasur Single");
                             barang.tambahBarang("Kasur Single");
                             nextLine();
@@ -1089,7 +1071,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli kasur queen size?(y/n)");
                         String jawaban12 = input.next();
                         if (jawaban12.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Kasur Queen Size");
                             barang.tambahBarang("Kasur Queen Size");
                             nextLine();
@@ -1106,7 +1087,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli kasur king size?(y/n)");
                         String jawaban13 = input.next();
                         if (jawaban13.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Kasur King Size");
                             barang.tambahBarang("Kasur King Size");
                             nextLine();
@@ -1123,7 +1103,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli kompor gas?(y/n)");
                         String jawaban14 = input.next();
                         if (jawaban14.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Kompor Gas");
                             barang.tambahBarang("Kompor Gas");
                             nextLine();
@@ -1139,7 +1118,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli kompor listrik?(y/n)");
                         String jawaban15 = input.next();
                         if (jawaban15.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Kompor Listrik");
                             barang.tambahBarang("Kompor Listrik");
                             nextLine();
@@ -1155,7 +1133,6 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli meja dan kursi?(y/n)");
                         String jawaban16 = input.next();
                         if (jawaban16.equals("y")) {
-                            System.out.println("Barang anda sedang diantar, harap menunggu");
                             currentSim.beliBarang("Meja dan Kursi");
                             barang.tambahBarang("Meja dan Kursi");
                             nextLine();

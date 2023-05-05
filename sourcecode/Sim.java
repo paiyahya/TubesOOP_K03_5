@@ -66,6 +66,7 @@ public class Sim {
         if(idx != -1) {
             if (getUang() >= barang.hargas[idx]){
                 this.uang = getUang() - barang.hargas[idx];
+                System.out.println("Barang anda sedang diantar, harap menunggu");
                 waktu.doAksi(waktu.getRandomWaktu(), waktu);
                 // waktuBeliBarang = waktu.getRandomWaktu();
                 // System.out.println("Waktu tunggu barang: " + waktuBeliBarang + " detik");
@@ -84,6 +85,7 @@ public class Sim {
         if(idx != -1) {
             if (getUang() >= bahanMakanan.hargas[idx]) {
                 this.uang = getUang() - bahanMakanan.hargas[idx];
+                System.out.println("Makanan anda sedang diantar, harap menunggu");
                 waktu.doAksi(waktu.getRandomWaktu(), waktu);
                 // waktuBeliBarang = waktu.getRandomWaktu();
                 // setBeliBarang(true);
