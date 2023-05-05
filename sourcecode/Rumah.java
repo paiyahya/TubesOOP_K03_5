@@ -3,14 +3,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Rumah {
-    private String namarumah;
+    private static String namarumah;
     private int x;
     private int y;
     private int panjangRumah;
     private int lebarRumah;
     // private Ruangan ruanganUtama;
     private String namaRuangan;
-    private static List<Ruangan> listRuanganRumah;
+    private List<Ruangan> listRuanganRumah;
 
     public Rumah(String namarumah, int x, int y) {
         this.namarumah = namarumah;
@@ -53,7 +53,7 @@ public class Rumah {
         return lebarRumah;
     }
 
-    public static List<Ruangan> getListRuanganRumah() {
+    public List<Ruangan> getListRuanganRumah() {
         return listRuanganRumah;
     }
 
@@ -63,7 +63,7 @@ public class Rumah {
     //     listRuanganRumah.add(ruangan);
     // }
 
-    public static void printListRuanganRumah(){
+    public void printListRuanganRumah(){
         int i = 1;
         
         System.out.println("Daftar ruangan yang ada di rumah: ");
@@ -73,7 +73,7 @@ public class Rumah {
          }
     }
 
-    public static void setRuangan(){
+    public void setRuangan(){
         String namaRuangan;
         System.out.print("Masukkan nama ruangan : ");
         Scanner scan2 = new Scanner(System.in);
@@ -93,6 +93,7 @@ public class Rumah {
         Scanner scan3 = new Scanner(System.in);
         pilihan = scan3.nextInt();
         getListRuanganRumah().get(pilihan-1).tampilkanRuangan();
+        System.out.println("Ruangan yang sedang di akses adalah " + getListRuanganRumah().get(pilihan-1).getNamaRuangan());
     }
 
     public void tambahRuangan(){
@@ -172,12 +173,12 @@ public class Rumah {
         }
     }
 
-    // public static void main(String[] args) {
-    //     Scanner scan = new Scanner(System.in);
-    //     System.out.print("Masukkan X: ");
-    //     int x = scan.nextInt();
-    //     System.out.print("Masukkan Y: ");
-    //     int y = scan.nextInt();
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Masukkan X: ");
+        int x = scan.nextInt();
+        System.out.print("Masukkan Y: ");
+        int y = scan.nextInt();
     //     // while(x < 6 || y < 6)
     //     // {
     //     //     System.out.println("Rumah terlalu kecil! Masukkan kembali x dan y");
@@ -186,14 +187,15 @@ public class Rumah {
     //     //     System.out.print("Masukkan Y: ");
     //     //     y = scan.nextInt();
     //     // }
-    //     Rumah rumah = new Rumah(namarumah, x, y);
-    //     setRuangan();
-    //     rumah.printListRuanganRumah();
-    //     setRuangan();
-    //     Ruangan ruangan = new Ruangan("Kamar Tidur", 6, 6);
-    //     // getListRuanganRumah().add(ruangan);
-    //     rumah.printListRuanganRumah();
-    //     rumah.PilihRuangan();
+        Rumah rumah = new Rumah(namarumah, x, y);
+        Rumah rumah2 = new Rumah(namarumah, x, y);
+        // setRuangan();
+        rumah.printListRuanganRumah();
+        Ruangan ruangan = new Ruangan("Kamar Tidur", 6, 6);
+        rumah.setRuangan();
+        // getListRuanganRumah().add(ruangan);
+        rumah.printListRuanganRumah();
+        rumah.PilihRuangan();
     //     // ruangan.tambahBarang("Kasur Single");
     //     // ruangan.tampilkanRuangan();
     //     // ruangan.tambahBarang("Meja dan Kursi");
@@ -201,5 +203,5 @@ public class Rumah {
     //     // ruangan.tambahBarang("Jam");
     //     // ruangan.tampilkanRuangan();
     //     // ruangan.printBarangRuangan();
-    // } 
+    } 
 }
