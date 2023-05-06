@@ -9,14 +9,26 @@ public class Main {
         input.nextLine();
     }
     public static void main(String[] args) {
+        System.out.println("S = I = M = P = L = I = C = I = T = Y = S = I = M = P = L = I = C = I = T = Y = S = I = M = P"); 
+        System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - -");             
+        System.out.println(". . . . . . . .  . . . . . . . . .  WELCOME TO SIMPLICITY . . . . . . . .  . . . . . . . . . ");
+        System.out.println(". . . . . . . .  . . . . . . . . .  WELCOME TO SIMPLICITY . . . . . . . .  . . . . . . . . . ");
+        System.out.println("= = = = S I M P L I C I T Y = = = = = = = = = = = = = = = = = S I M P L I C T Y = = = = = = =");
+        System.out.println("= = = = S I M P L I C I T Y = = = = = = = = = = = = = = = = = S I M P L I C T Y = = = = = = =");
+        System.out.println(". . . . . . . .  . . . . . . . . .  WELCOME TO SIMPLICITY . . . . . . . .  . . . . . . . . .");
+        System.out.println(". . . . . . . .  . . . . . . . . .  WELCOME TO SIMPLICITY . . . . . . . .  . . . . . . . . .");
+        System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - -");       
+        System.out.println("S = I = M = P = L = I = C = I = T = Y = S = I = M = P = L = I = C = I = T = Y = S = I = M = P");       
+        System.out.println("\n\n                              S E L A M A T B E R M A I N\n\n");       
+        // Scanner
+        Scanner input = new Scanner(System.in);
         // Waktu waktu = new Waktu();
         // waktu.startGame();
         World world = new World(64, 64);
         // Membuat ArrayList untuk simList dan rumahList
         ArrayList<Sim> simList = new ArrayList<Sim>();
         ArrayList<Rumah> rumahList = new ArrayList<Rumah>();
-        // Scanner
-        Scanner input = new Scanner(System.in);
+        System.out.println("... Membuat Karakter Awal SIM ...\n");
         // Membuat Sim di awal game
         System.out.println("Masukkan nama sim: ");
         String nama = input.nextLine();
@@ -105,7 +117,7 @@ public class Main {
 
             Integer nomor = input.nextInt();
             if (nomor.equals(1)) {
-                System.out.println("\n=== PROFIL SIM ===");
+                System.out.println("\n=== SIM INFO ===");
                 System.out.println("Nama SIM: " + currentSim.getNama());
                 System.out.println("Kekenyangan anda: " + currentSim.getKekenyangan());
                 System.out.println("Kesehatan anda: " + currentSim.getKesehatan());
@@ -116,6 +128,7 @@ public class Main {
                 nextLine();
             }
             else if (nomor.equals(2)) {
+                System.out.println("\n=== CURRENT LOCATION ===");
                 world.printWorld();
                 world.printRumah();
                 System.out.println("Saat ini "+ currentSim.getNama() + " berada dalam " + currentSim.getRumah().getNamarumah() + " pada ruangan " + currentSim.getRuangan().getNamaRuangan());
@@ -123,6 +136,7 @@ public class Main {
                 // System.out.println("Saat ini " + sim.getNama() + " berada di ruangan " + sim.getRuangan().getNamaRuangan());
             }
             else if (nomor.equals(3)) {
+                System.out.println("\n=== VIEW INVENTORY ===");
                 System.out.println("Inventory anda: ");
                 bahanMakanan.tambahBahanMakanan("Susu");
                 bahanMakanan.tambahBahanMakanan("Kacang");
@@ -132,8 +146,9 @@ public class Main {
                 nextLine();
             }
             else if (nomor.equals(4)) {
+                System.out.println("\n=== UPGRADE HOUSE ===");
                 if (currentSim.getRuangan() == (currentSim.getRumah().getListRuanganRumah().get(0))){
-                    System.out.println("=== DAFTAR RUANGAN DALAM RUMAH ===");
+                    System.out.println("\n=== DAFTAR RUANGAN DALAM RUMAH ===");
                     for(int i = 0; i < currentSim.getRumah().getListRuangan().size(); i++) {
                         System.out.println((i+1) + "." + currentSim.getRumah().getListRuangan().get(i).getNamaRuangan());
                     }
@@ -216,6 +231,7 @@ public class Main {
                 nextLine();
             }
             else if (nomor.equals(5)) {
+                System.out.println("\n=== MOVE ROOM ===");
                 // Menampilkan status keberadaan Sim saat ini
                 System.out.println("Ruangan yang Anda tempati sekarang : " + currentSim.getRuangan().getNamaRuangan() + "\n");
                 // Menampilkan daftar ruangan di dalam Rumah
@@ -245,9 +261,57 @@ public class Main {
                 nextLine();
             }
             else if (nomor.equals(6)) {
+                System.out.println("=== EDIT ROOM ===");
+                System.out.println("1. Membeli Barang Baru");
+                System.out.println("2. Menambahkan atau Memindahkan Barang");
+                System.out.println("Masukkan opsi yang ingin Anda lakukan (dalam angka):");
+                int piledit = input.nextInt();
+                if (piledit == 1){
+                    System.out.println("### Tampilan Ruangan ###");
+                    currentSim.getRuangan().tampilkanRuangan();
+                    System.out.println("Barang yang ingin Anda beli:");
+                    String trash = input.nextLine();
+                    String barangbeli = input.nextLine();
+                    currentSim.beliBarang(barangbeli);
+                } else if (piledit == 2) {
+                    System.out.println("Menambahkan (1) atau Memindahkan (2)?");
+                    int piledit1 = input.nextInt();
+                    if (piledit1 == 1) {
+                        // Menampilkan tampilan ruangan
+                        System.out.println("### Tampilan Ruangan ###");
+                        currentSim.getRuangan().tampilkanRuangan();
+                        // Menerima input barang yang dimiliki
+                        // Menerima input barang yang ingin ditambah ke ruangan
+                        System.out.println("\nBarang apa yang ingin Anda tambahkan?");
+                        String trash = input.nextLine();
+                        String barangEdit = input.nextLine();
+                        currentSim.getRuangan().tambahBarang(barangEdit);
+                        // Menampilkan ruangan dan barang yang ada di ruangan
+                        System.out.println("### Tampilan Ruangan ###");              
+                        currentSim.getRuangan().tampilkanRuangan();
+                        currentSim.getRuangan().printBarangRuangan();
+                    } else if (piledit1 == 2){
+                        System.out.println("### Tampilan Ruangan ###");
+                        currentSim.getRuangan().tampilkanRuangan();
+                        // Menerima input barang yang ingin dipindahkan ke ruangan
+                        System.out.println("\nBarang apa yang ingin Anda pindahkan?");
+                        String trash = input.nextLine();
+                        String barangEdit = input.nextLine();
+                        // Remove barang dari list barang di ruangan
+                        currentSim.getRuangan().removeBarang(barangEdit);
+                        System.out.println("... Pemindahan barang ...");
+                        currentSim.getRuangan().tambahBarang(barangEdit);
+                        // Menampilkan ruangan setelah barang dipindah
+                        System.out.println("### Tampilan Ruangan ###");
+                        currentSim.getRuangan().tampilkanRuangan();
+                        // Menampilkan barang yang ada di ruangan
+                        currentSim.getRuangan().printBarangRuangan();                        
+                    }
+                }
                 nextLine();
             }
             else if (nomor.equals(7)) {
+                System.out.println("\n=== ADD SIM ===");
                 // Menerima input nama Sim yang ingin ditambah
                 int i = 1;   
                 String trash = input.nextLine();
@@ -292,6 +356,7 @@ public class Main {
                 nextLine();
             }
             else if (nomor.equals(8)) {
+                System.out.println("\n=== CHANGE SIM ===");
                 // Menampilkan daftar objek Sim dalam list
                 int i = 1;
                 System.out.println("\n=== DAFTAR SIM ===");
@@ -1433,17 +1498,30 @@ public class Main {
                 }
             }
             else if (nomor.equals(12)) {
-                System.out.println(""); //arahan permainan
+                System.out.println("============================================= HELP ============================================="); //arahan permainan
+                System.out.println("\nSimplicity adalah permainan yang menggambarkan kehidupan sehari-hari.");
+                System.out.println("Permainan ini terdiri dari Sim yang memiliki Rumah. Setiap Rumah memiliki maksimal 5 ruangan.");
+                System.out.println("Setiap ruangan bisa diisi oleh beberapa objek yang bisa dibeli atau sudah dimiliki pada awal permainan");
+                System.out.println("Sim juga bisa makan, berkunjung ke rumah Sim lain, dan aksi lainnya yang cukup bervariatif.");
+                System.out.println("\n**************************************** CARA BERMAIN ****************************************");
+                System.out.println("1. Pemain akan diminta untuk memasukkan nama Sim, Rumah, beserta koordinat Rumah pada awal keberjalanan game");
+                System.out.println("2. Setiap Sim akan memiliki pekerjaan yang akan dipilih secara acak oleh program");
+                System.out.println("3. Setiap Sim memiliki tingkat kesejahteraan (mood, kekenyangan, dan kesehatan) yang diset 80 pada awal permainan");
+                System.out.println("4. Setiap Sim memiliki uang sejumlah 100 pada awal permainan");
+                System.out.println("5. Akan tersedia beberapa menu di dalam game yang akan langsung ditampilkan di awal keberjalanan game");
+                System.out.println("6. Seiring berjalannya aktivitas dan kegiatan lainnya, memungkinkan Sim untuk meninggal dunia dan game akan berakhir");
+                System.out.println("7. Waktu total dalam sehari yaitu 12 menit kehidupan nyata dan waktu akan berkurang untuk beberapa aksi ketika dilakukan");
+                System.out.println("\n======================================= SELAMAT BERMAIN =======================================");
                 nextLine();
             } 
             else if (nomor.equals(13)) {
-                System.out.println("Apakah Anda yakin ingin keluar? (y/n)");
+                System.out.println("Apakah Anda yakin ingin keluar? (YES/NO)");
                 String jawaban = input.next();
-                if (jawaban.equals("y")) {
+                if (jawaban.equals("YES")) {
                     System.out.println("Terima kasih telah bermain");
                     break;
                 }
-                else if (jawaban.equals("n")) {
+                else if (jawaban.equals("NO")) {
                     nextLine();
                     continue;
                 }
