@@ -146,7 +146,13 @@ public class Sim {
         this.jumlahDoKerja = jumlahDoKerja;
     }
 
-
+    public void doPertamaKerja (int kekenyangan, int mood) {
+        this.kekenyangan = kekenyangan - 10;
+        this.mood = mood - 10;
+        this.uang = uang + pekerjaan.getGajiPertama();
+        this.status = "idle";
+    }
+    
     public void doCuti() {
         if (waktuCuti > 0) {
             waktuCuti--;
