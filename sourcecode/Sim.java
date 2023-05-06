@@ -16,6 +16,7 @@ public class Sim {
     private boolean NowPlaying;
     private boolean isBeliBarang;
     private int waktuBeliBarang;
+    private int jumlahDoKerja;
 
     public Sim (String namaLengkap, Pekerjaan pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood, boolean NowPlaying) {
         this.namaLengkap = namaLengkap;
@@ -120,6 +121,10 @@ public class Sim {
         }
     }
 
+    public void countdoKerja() {
+        this.jumlahDoKerja = 0;
+    }
+
     public void doKerja (int kekenyangan, int mood) {
         this.kekenyangan = kekenyangan - 10;
         this.mood = mood - 10;
@@ -129,6 +134,7 @@ public class Sim {
         this.uang = uang + pekerjaan.getGaji();
         System.out.println("Gaji sudah bertambah");
         this.status = "idle";
+        this.jumlahDoKerja++;
     }
 
     public void doOlahraga (int kesehatan, int kekenyangan, int mood) {
@@ -405,5 +411,8 @@ public class Sim {
     }
     public void setNowPlaying(boolean NowPlaying) {
         this.NowPlaying = NowPlaying;
+    }
+    public int getJumlahDoKerja() {
+        return this.jumlahDoKerja;
     }
 }
