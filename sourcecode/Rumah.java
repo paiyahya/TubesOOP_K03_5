@@ -25,9 +25,9 @@ public class Rumah {
         listRuanganRumah.add(ruangan);
     }
 
-    public List<Ruangan> getListRuangan(){
-        return listRuanganRumah;
-    }
+    // public List<Ruangan> getListRuangan(){
+    //     return listRuanganRumah;
+    // }
 
     public String getNamarumah() {
         return namarumah;
