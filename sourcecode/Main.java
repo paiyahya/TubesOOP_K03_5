@@ -832,9 +832,15 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli kentang? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                currentSim.doBeliMakanan("Kentang");
-                                bahanMakanan.tambahBahanMakanan("Kentang");
-                                nextLine();
+                                if(sim.getUang() >= bahanMakanan.hargas[1]) {
+                                    currentSim.doBeliMakanan("Kentang");
+                                    bahanMakanan.tambahBahanMakanan("Kentang");
+                                    nextLine();
+                                }
+                                else {
+                                    System.out.println("Uang anda tidak cukup");
+                                    nextLine();
+                                }
                             }
                             else if (jawaban1.equals("n")) {
                                 nextLine();
@@ -848,9 +854,15 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli ayam? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                currentSim.doBeliMakanan("Ayam");
-                                bahanMakanan.tambahBahanMakanan("Ayam");
-                                nextLine();
+                                if(sim.getUang() >= bahanMakanan.hargas[2]) {
+                                    currentSim.doBeliMakanan("Ayam");
+                                    bahanMakanan.tambahBahanMakanan("Ayam");
+                                    nextLine();
+                                }
+                                else {
+                                    System.out.println("Uang anda tidak cukup");
+                                    nextLine();
+                                }
                             }
                             else if (jawaban1.equals("n")) {
                                 nextLine();
@@ -864,9 +876,15 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli sapi? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                currentSim.doBeliMakanan("Sapi");
-                                bahanMakanan.tambahBahanMakanan("Sapi");
-                                nextLine();
+                                if(sim.getUang() >= bahanMakanan.hargas[3]) {
+                                    currentSim.doBeliMakanan("Sapi");
+                                    bahanMakanan.tambahBahanMakanan("Sapi");
+                                    nextLine();
+                                }
+                                else {
+                                    System.out.println("Uang anda tidak cukup");
+                                    nextLine();
+                                }
                             }
                             else if (jawaban1.equals("n")) {
                                 nextLine();
@@ -880,9 +898,15 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli wortel? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                currentSim.doBeliMakanan("Wortel");
-                                bahanMakanan.tambahBahanMakanan("Wortel");
-                                nextLine();
+                                if(sim.getUang() >= bahanMakanan.hargas[4]) {
+                                    currentSim.doBeliMakanan("Wortel");
+                                    bahanMakanan.tambahBahanMakanan("Wortel");
+                                    nextLine();
+                                }
+                                else {
+                                    System.out.println("Uang anda tidak cukup");
+                                    nextLine();
+                                }
                             }
                             else if (jawaban1.equals("n")) {
                                 nextLine();
@@ -896,9 +920,15 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli bayam? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                currentSim.doBeliMakanan("Bayam");
-                                bahanMakanan.tambahBahanMakanan("Bayam");
-                                nextLine();
+                                if(sim.getUang() >= bahanMakanan.hargas[5]) {
+                                    currentSim.doBeliMakanan("Bayam");
+                                    bahanMakanan.tambahBahanMakanan("Bayam");
+                                    nextLine();
+                                }
+                                else {
+                                    System.out.println("Uang anda tidak cukup");
+                                    nextLine();
+                                }
                             }
                             else if (jawaban1.equals("n")) {
                                 nextLine();
@@ -912,9 +942,15 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli kacang? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                currentSim.doBeliMakanan("Kacang");
-                                bahanMakanan.tambahBahanMakanan("Kacang");
-                                nextLine();
+                                if(sim.getUang() >= bahanMakanan.hargas[6]) {
+                                    currentSim.doBeliMakanan("Kacang");
+                                    bahanMakanan.tambahBahanMakanan("Kacang");
+                                    nextLine();
+                                }
+                                else {
+                                    System.out.println("Uang anda tidak cukup");
+                                    nextLine();
+                                }
                             }
                             else if (jawaban1.equals("n")) {
                                 nextLine();
@@ -928,9 +964,15 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli susu? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                currentSim.doBeliMakanan("Susu");
-                                bahanMakanan.tambahBahanMakanan("Susu");
-                                nextLine();
+                                if(sim.getUang() >= bahanMakanan.hargas[7]) {
+                                    currentSim.doBeliMakanan("Susu");
+                                    bahanMakanan.tambahBahanMakanan("Susu");
+                                    nextLine();
+                                }
+                                else {
+                                    System.out.println("Uang anda tidak cukup");
+                                    nextLine();
+                                }
                             }
                             else if (jawaban1.equals("n")) {
                                 nextLine();
@@ -949,9 +991,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli toilet?(y/n)");
                         String jawaban2 = input.next();
                         if (jawaban2.equals("y")) {
-                            currentSim.beliBarang("Toilet");
-                            barang.tambahBarang("Toilet");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[3]) {
+                                currentSim.beliBarang("Toilet");
+                                barang.tambahBarang("Toilet");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban2.equals("n")) {
                             nextLine();
@@ -965,9 +1013,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli jam?(y/n)");
                         String jawaban3 = input.next();
                         if (jawaban3.equals("y")) {
-                            currentSim.beliBarang("Jam");
-                            barang.tambahBarang("Jam");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[7]) {
+                                currentSim.beliBarang("Jam");
+                                barang.tambahBarang("Jam");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban3.equals("n")) {
                             nextLine();
@@ -981,9 +1035,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli treadmill?(y/n)");
                         String jawaban4 = input.next();
                         if (jawaban4.equals("y")) {
-                            currentSim.beliBarang("Treadmill");
-                            barang.tambahBarang("Treadmill");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[8]) {
+                                currentSim.beliBarang("Treadmill");
+                                barang.tambahBarang("Treadmill");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban4.equals("n")) {
                             nextLine();
@@ -997,9 +1057,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli gitar?(y/n)");
                         String jawaban5 = input.next();
                         if (jawaban5.equals("y")) {
-                            currentSim.beliBarang("Gitar");
-                            barang.tambahBarang("Gitar");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[9]) {
+                                currentSim.beliBarang("Gitar");
+                                barang.tambahBarang("Gitar");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban5.equals("n")) {
                             nextLine();
@@ -1013,9 +1079,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli sapu?(y/n)");
                         String jawaban6 = input.next();
                         if (jawaban6.equals("y")) {
-                            currentSim.beliBarang("Sapu");
-                            barang.tambahBarang("Sapu");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[10]) {
+                                currentSim.beliBarang("Sapu");
+                                barang.tambahBarang("Sapu");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban6.equals("n")) {
                             nextLine();
@@ -1051,9 +1123,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli sajadah?(y/n)");
                         String jawaban8 = input.next();
                         if (jawaban8.equals("y")) {
-                            currentSim.beliBarang("Sajadah");
-                            barang.tambahBarang("Sajadah");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[12]) {
+                                currentSim.beliBarang("Sajadah");
+                                barang.tambahBarang("Sajadah");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban8.equals("n")) {
                             nextLine();
@@ -1067,9 +1145,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli buku?(y/n)");
                         String jawaban9 = input.next();
                         if (jawaban9.equals("y")) {
-                            currentSim.beliBarang("Buku");
-                            barang.tambahBarang("Buku");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[13]) {
+                                currentSim.beliBarang("Buku");
+                                barang.tambahBarang("Buku");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban9.equals("n")) {
                             nextLine();
@@ -1083,9 +1167,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli baju?(y/n)");
                         String jawaban10 = input.next();
                         if (jawaban10.equals("y")) {
-                            currentSim.beliBarang("Baju");
-                            barang.tambahBarang("Baju");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[14]) {
+                                currentSim.beliBarang("Baju");
+                                barang.tambahBarang("Baju");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban10.equals("n")) {
                             nextLine();
@@ -1099,9 +1189,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli kasur single?(y/n)");
                         String jawaban11 = input.next();
                         if (jawaban11.equals("y")) {
-                            currentSim.beliBarang("Kasur Single");
-                            barang.tambahBarang("Kasur Single");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[0]) {
+                                currentSim.beliBarang("Kasur Single");
+                                barang.tambahBarang("Kasur Single");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban11.equals("n")) {
                             nextLine();
@@ -1115,9 +1211,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli kasur queen size?(y/n)");
                         String jawaban12 = input.next();
                         if (jawaban12.equals("y")) {
-                            currentSim.beliBarang("Kasur Queen Size");
-                            barang.tambahBarang("Kasur Queen Size");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[1]) {
+                                currentSim.beliBarang("Kasur Queen Size");
+                                barang.tambahBarang("Kasur Queen Size");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban12.equals("n")) {
                             nextLine();
@@ -1131,9 +1233,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli kasur king size?(y/n)");
                         String jawaban13 = input.next();
                         if (jawaban13.equals("y")) {
-                            currentSim.beliBarang("Kasur King Size");
-                            barang.tambahBarang("Kasur King Size");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[2]) {
+                                currentSim.beliBarang("Kasur King Size");
+                                barang.tambahBarang("Kasur King Size");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban13.equals("n")) {
                             nextLine();
@@ -1147,9 +1255,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli kompor gas?(y/n)");
                         String jawaban14 = input.next();
                         if (jawaban14.equals("y")) {
-                            currentSim.beliBarang("Kompor Gas");
-                            barang.tambahBarang("Kompor Gas");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[4]) {
+                                currentSim.beliBarang("Kompor Gas");
+                                barang.tambahBarang("Kompor Gas");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban14.equals("n")) {
                             nextLine();
@@ -1162,9 +1276,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli kompor listrik?(y/n)");
                         String jawaban15 = input.next();
                         if (jawaban15.equals("y")) {
-                            currentSim.beliBarang("Kompor Listrik");
-                            barang.tambahBarang("Kompor Listrik");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[5]) {
+                                currentSim.beliBarang("Kompor Listrik");
+                                barang.tambahBarang("Kompor Listrik");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban15.equals("n")) {
                             nextLine();
@@ -1177,9 +1297,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli meja dan kursi?(y/n)");
                         String jawaban16 = input.next();
                         if (jawaban16.equals("y")) {
-                            currentSim.beliBarang("Meja dan Kursi");
-                            barang.tambahBarang("Meja dan Kursi");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[6]) {
+                                currentSim.beliBarang("Meja dan Kursi");
+                                barang.tambahBarang("Meja dan Kursi");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban16.equals("n")) {
                             nextLine();
