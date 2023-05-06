@@ -65,6 +65,11 @@ public class Main {
         }
         System.out.println("Masukkan posisi y rumah: ");
         int y = input.nextInt();
+        while (y > 64) {
+            System.out.println("Posisi y tidak valid");
+            System.out.println("Masukkan posisi y rumah: ");
+            y = input.nextInt();
+        }
         Rumah rumah = new Rumah(namaRumah, x, y);
         world.tambahRumah(namaRumah, rumah);
         sim.setRuangan((rumah.getListRuanganRumah().get(0)));
@@ -306,14 +311,31 @@ public class Main {
                 // world.tambahRumah(nama, null);
                 System.out.println("Masukkan posisi x rumah: ");
                 int x1 = input.nextInt();
+                System.out.println("Masukkan posisi y rumah: ");
+                int y1 = input.nextInt();
+                Rumah rumah1 = new Rumah(namaRumah1, x1, y1);
                 while (x1 > 64) {
                     System.out.println("Posisi x tidak valid");
                     System.out.println("Masukkan posisi x rumah: ");
                     x = input.nextInt();
                 }
-                System.out.println("Masukkan posisi y rumah: ");
-                int y1 = input.nextInt();
-                Rumah rumah1 = new Rumah(namaRumah1, x1, y1);
+                if (x1 <= 64){
+                    if (world.cekRumah(rumah1) == false){
+                        System.out.println("Masukkan posisi x rumah: ");
+                        y = input.nextInt();
+                    }
+                }
+                while (y1 > 64) {
+                    System.out.println("Posisi y tidak valid");
+                    System.out.println("Masukkan posisi y rumah: ");
+                    y = input.nextInt();
+                }
+                if (y1 <= 64){
+                    if (world.cekRumah(rumah1) == false){
+                        System.out.println("Masukkan posisi y rumah: ");
+                        y = input.nextInt();
+                    }
+                }
                 world.tambahRumah(namaRumah1, rumah1);
                 for (Sim si : simList) {
                     if (si.getNama().equals(nama1)) {

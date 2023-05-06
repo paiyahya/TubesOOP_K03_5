@@ -28,11 +28,16 @@ public class World {
         daftarRumah.remove(nama);
     }
 
+    
     public boolean cekRumah(Rumah posisi) {
         for (Map.Entry<String, Rumah> entry : daftarRumah.entrySet()) {
-            if (entry.getValue().getX() == posisi.getX() && entry.getValue().getY() == posisi.getY()) {
+            if (entry.getValue().getX() == posisi.getX() || entry.getValue().getY() == posisi.getY()) {
+                System.out.println("Rumah sudah ada di posisi " + posisi.getX() + "," + posisi.getY());
                 // return false if the given position matches the position of any existing house
                 return false;
+            }
+            else {
+                return true;
             }
         }
         // return true if no existing house has the same position as the given position
