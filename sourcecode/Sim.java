@@ -124,8 +124,10 @@ public class Sim {
         this.kekenyangan = kekenyangan - 10;
         this.mood = mood - 10;
         this.status = "Sedang bekerja";
-        waktu.doAksi1(30);
+        waktu.doAksi1(240);
         System.out.println("Anda sudah selesai bekerja");
+        this.uang = uang + pekerjaan.getGaji();
+        System.out.println("Gaji sudah bertambah");
         this.status = "idle";
     }
 
