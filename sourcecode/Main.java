@@ -149,8 +149,8 @@ public class Main {
                 System.out.println("\n=== UPGRADE HOUSE ===");
                 if (currentSim.getRuangan() == (currentSim.getRumah().getListRuanganRumah().get(0))){
                     System.out.println("\n=== DAFTAR RUANGAN DALAM RUMAH ===");
-                    for(int i = 0; i < currentSim.getRumah().getListRuangan().size(); i++) {
-                        System.out.println((i+1) + "." + currentSim.getRumah().getListRuangan().get(i).getNamaRuangan());
+                    for(int i = 0; i < currentSim.getRumah().getListRuanganRumah().size(); i++) {
+                        System.out.println((i+1) + "." + currentSim.getRumah().getListRuanganRumah().get(i).getNamaRuangan());
                     }
                     System.out.println("\nMasukkan nomor arah tambahan ruangan yang ingin dibuat: ");
                     System.out.println("1. Atas");
@@ -170,7 +170,7 @@ public class Main {
                             for (Rumah rum : rumahList) {
                                 if (rum.getNamarumah().equals(currentSim.getRumah().getNamarumah())) {
                                     currentSim.getRuangan().getListRuanganTetangga()[0] = tetangga;
-                                    currentSim.getRumah().getListRuangan().add(tetangga);
+                                    currentSim.getRumah().getListRuanganRumah().add(tetangga);
                                 }
                             }
                         }
@@ -185,7 +185,7 @@ public class Main {
                             for (Rumah rum : rumahList) {
                                 if (rum.getNamarumah().equals(currentSim.getRumah().getNamarumah())) {
                                     currentSim.getRuangan().getListRuanganTetangga()[1] = tetangga;
-                                    currentSim.getRumah().getListRuangan().add(tetangga);
+                                    currentSim.getRumah().getListRuanganRumah().add(tetangga);
                                 }
                             }
                         }
@@ -200,7 +200,7 @@ public class Main {
                             for (Rumah rum : rumahList) {
                                 if (rum.getNamarumah().equals(currentSim.getRumah().getNamarumah())) {
                                     currentSim.getRuangan().getListRuanganTetangga()[2] = tetangga;
-                                    currentSim.getRumah().getListRuangan().add(tetangga);
+                                    currentSim.getRumah().getListRuanganRumah().add(tetangga);
                                 }
                             }
                         }
@@ -215,15 +215,15 @@ public class Main {
                             for (Rumah rum : rumahList) {
                                 if (rum.getNamarumah().equals(currentSim.getRumah().getNamarumah())) {
                                     currentSim.getRuangan().getListRuanganTetangga()[3] = tetangga;
-                                    currentSim.getRumah().getListRuangan().add(tetangga);
+                                    currentSim.getRumah().getListRuanganRumah().add(tetangga);
                                 }
                             }
                         }
                     }
                     // Menampilkan daftar ruangan dalam rumah setelah ditambah
                     System.out.println("\n=== DAFTAR RUANGAN DALAM RUMAH ===");
-                    for(int i = 0; i < currentSim.getRumah().getListRuangan().size(); i++) {
-                        System.out.println((i+1) + "." + currentSim.getRumah().getListRuangan().get(i).getNamaRuangan());
+                    for(int i = 0; i < currentSim.getRumah().getListRuanganRumah().size(); i++) {
+                        System.out.println((i+1) + "." + currentSim.getRumah().getListRuanganRumah().get(i).getNamaRuangan());
                     }
                 } else {
                     System.out.println("Anda harus pindah ke kamar utama terlebih dahulu!");
@@ -236,15 +236,15 @@ public class Main {
                 System.out.println("Ruangan yang Anda tempati sekarang : " + currentSim.getRuangan().getNamaRuangan() + "\n");
                 // Menampilkan daftar ruangan di dalam Rumah
                 System.out.println("=== DAFTAR RUANGAN DALAM RUMAH ===");
-                for(int i = 0; i < currentSim.getRumah().getListRuangan().size(); i++) {
-                    System.out.println((i+1) + "." + currentSim.getRumah().getListRuangan().get(i).getNamaRuangan());
+                for(int i = 0; i < currentSim.getRumah().getListRuanganRumah().size(); i++) {
+                    System.out.println((i+1) + "." + currentSim.getRumah().getListRuanganRumah().get(i).getNamaRuangan());
                 }
                 System.out.println("Ke ruangan apa Anda ingin berpindah?");
                 String trash = input.nextLine();
                 String namaruangpindah = input.nextLine();
                 boolean isExist = false;
                 while (!isExist){
-                    for (Ruangan r : currentSim.getRumah().getListRuangan()) {
+                    for (Ruangan r : currentSim.getRumah().getListRuanganRumah()) {
                         if (r.getNamaRuangan().equals(namaruangpindah)) {
                             currentSim.setRuangan(r); // Mengganti currentSim yang aktif menjadi Sim yang ingin dimainkan
                             isExist = true;
