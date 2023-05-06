@@ -9,6 +9,7 @@ public class Ruangan {
     private int panjangRuangan;
     private int lebarRuangan;
     private ArrayList<Ruangan> ruanganTetangga;
+    private Ruangan[] listRuangantetangga;
 
 
     public Ruangan(String namaRuangan, int x, int y) {
@@ -21,8 +22,16 @@ public class Ruangan {
                 matriksRuangan[i][j] = '-';
             }
         }
-
+        this.listRuangantetangga = new Ruangan [4];
 	}
+
+    public Ruangan[] getListRuanganTetangga() {
+        return listRuangantetangga;
+    }
+
+    public void setNamaruangan(String namaruangan) {
+        this.namaRuangan = namaruangan;
+    }
 
     public String getNamaRuangan(){
         return namaRuangan;
