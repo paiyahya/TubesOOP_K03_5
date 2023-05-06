@@ -226,6 +226,16 @@ public class Barang extends Objek {
         }
     }
 
+    public boolean cekInventory(String barang) {
+        int indeksBarang = namaBarang(barang);
+        if (kuantitasInventory[indeksBarang] > 0) {
+            return true;
+        } else {
+            System.out.println("Barang " + barang + " tidak ada dalam inventory.");
+            return false;
+        }
+    }
+
     public boolean cekBarang(String barang) {
         int indeksBarang = namaBarang(barang);
         if (kuantitasBarang[indeksBarang] > 0) {
