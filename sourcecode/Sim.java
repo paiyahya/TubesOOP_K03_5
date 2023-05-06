@@ -138,6 +138,15 @@ public class Sim {
         this.jumlahDoKerja++;
     }
 
+    public void printjumlahdoKerja(){
+        System.out.println("Anda sudah bekerja " + getJumlahDoKerja() + " kali ");
+    }
+
+    public void setJumlahDoKerja(int jumlahDoKerja) {
+        this.jumlahDoKerja = jumlahDoKerja;
+    }
+
+
     public void doCuti() {
         if (waktuCuti > 0) {
             waktuCuti--;
@@ -424,5 +433,11 @@ public class Sim {
     }
     public int getJumlahDoKerja() {
         return this.jumlahDoKerja;
+    }
+    public int getWaktuCuti() {
+        return waktuCuti;
+    }
+    public void setWaktuCuti(int waktuCuti) {
+        this.waktuCuti = waktuCuti;
     }
 }
