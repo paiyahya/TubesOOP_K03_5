@@ -25,6 +25,10 @@ public class Ruangan {
         this.listRuangantetangga = new Ruangan [4];
 	}
 
+    public List<Barang> getDaftarBarangruangan() {
+        return daftarBarangRuangan;
+    }
+
     public Ruangan[] getListRuanganTetangga() {
         return listRuangantetangga;
     }
@@ -46,7 +50,7 @@ public class Ruangan {
     }
 
     public boolean tambahBarang(String namaBarang) {
-        int index = 999;
+        int index = 0;
         switch (namaBarang) {
             case "Kasur Single":
                 index = 0;
@@ -169,6 +173,19 @@ public class Ruangan {
         daftarBarangRuangan.add(barang);
 
         return true;
+    }
+
+    public void removeBarang (String namabarang) {
+        Barang baranghapus = null;
+        for (Barang b : daftarBarangRuangan){
+            if(b.getNama().equals(namabarang)) {
+                baranghapus = b;
+                break;
+            }
+        }
+        if (baranghapus != null) {
+            daftarBarangRuangan.remove(baranghapus);
+        }
     }
 
     public void tampilkanRuangan() {
