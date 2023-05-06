@@ -33,6 +33,33 @@ public class Main {
         // world.tambahRumah(nama, null);
         System.out.println("Masukkan posisi x rumah: ");
         int x = input.nextInt();
+        Thread threadBeliBarang = new Thread() {
+        int i = 0;
+            public void run() {
+                long startTime = System.nanoTime();
+                long interval = 1000000000; // 1 detik dalam nanodetik
+    
+                while (true) {
+                    long currentTime = System.nanoTime();
+                    long elapsedTime = currentTime - startTime;
+                    if (elapsedTime >= interval && sim.getBeliBarang() && !sim.getStatus().equals("idle")) {
+                        System.out.println("status: "+ sim.getStatus());
+                                
+                        sim.setWaktuBeliBarang(sim.getWaktuBeliBarang() - 1);
+                        System.out.println("\nWaktu yang tersisa untuk barang sampai: " + sim.getWaktuBeliBarang() + " detik");
+                        
+                        if(sim.getWaktuBeliBarang() == 0){
+                            System.out.println("\nBarang telah sampai");
+                        }
+                            startTime = currentTime;
+                    }
+                        
+                }
+            }
+        };
+        threadBeliBarang.start();
+
+ 
         while (x > 64) {
             System.out.println("Posisi x tidak valid");
             System.out.println("Masukkan posisi x rumah: ");
@@ -80,7 +107,6 @@ public class Main {
                 System.out.println("Uang anda: " + currentSim.getUang());
                 System.out.println("Pekerjaan anda: " + currentSim.getPekerjaan());
                 System.out.println("Status anda: " + currentSim.getAksi());
-                System.out.println("Uang anda: " + currentSim.getUang());
                 nextLine();
             }
             else if (nomor.equals(2)) {
@@ -778,9 +804,15 @@ public class Main {
                             System.out.println("Apakah anda ingin membeli nasi? (y/n)");
                             String jawaban1 = input.next();
                             if (jawaban1.equals("y")) {
-                                currentSim.doBeliMakanan("Nasi");
-                                bahanMakanan.tambahBahanMakanan("Nasi");
-                                nextLine();
+                                if(sim.getUang() >= bahanMakanan.hargas[0]) {
+                                    currentSim.doBeliMakanan("Nasi");
+                                    bahanMakanan.tambahBahanMakanan("Nasi");
+                                    nextLine();
+                                }
+                                else {
+                                    System.out.println("Uang anda tidak cukup");
+                                    nextLine();
+                                }
                             }
                             else if (jawaban1.equals("n")) {
                                 nextLine();
@@ -991,9 +1023,15 @@ public class Main {
                         System.out.println("Apakah anda ingin membeli tv?(y/n)");
                         String jawaban7 = input.next();
                         if (jawaban7.equals("y")) {
-                            currentSim.beliBarang("Tv");
-                            barang.tambahBarang("Tv");
-                            nextLine();
+                            if (sim.getUang() >= barang.hargas[11]) {
+                                currentSim.beliBarang("Tv");
+                                barang.tambahBarang("Tv");
+                                nextLine();
+                            }
+                            else {
+                                System.out.println("Uang anda tidak cukup");
+                                nextLine();
+                            }
                         }
                         else if (jawaban7.equals("n")) {
                             nextLine();
