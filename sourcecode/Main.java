@@ -42,8 +42,6 @@ public class Main {
         
         Pekerjaan pekerjaan = new Pekerjaan();
         pekerjaan.getRandomPekerjaan();
-        pekerjaan.printPekerjaan();
-        pekerjaan.printGaji();
 
         Sim sim = new Sim(nama, pekerjaan, 100, 80, 80, "idle", 80, true);
         // Memasukkan Sim awal ke simList
@@ -909,6 +907,39 @@ public class Main {
                 System.out.println("3. Beli barang");
                 Integer pilihan = input.nextInt();
                 if (pilihan.equals(1)) {
+                    if (currentSim.getJumlahDoKerja() > 3){
+                        System.out.println("Apakah anda ingin mengganti pekerjaan? (y/n)");
+                        String pilihkerja = input.next();
+                        if(pilihkerja.equals("y")){
+                            if (currentSim.getWaktuCuti()== 0) {
+                                pekerjaan.printDaftarPekerjaan();
+                                System.out.println("Masukkan nama pekerjaan yang diinginkan : ");
+                                Scanner namaKerja = new Scanner(System.in);
+                                String pekerjaanBaru = namaKerja.nextLine();
+                                pekerjaan.getPekerjaan();
+                                pekerjaan.setGantiPekerjaan(pekerjaanBaru);
+                                pekerjaan.printPekerjaan();
+                                pekerjaan.gajibarupertama();
+                                pekerjaan.printGaji();
+                                currentSim.setJumlahDoKerja(0);
+                                currentSim.setWaktuCuti(12);
+                            }else {
+                                System.out.println("Anda sedang istirahat, silakan tunggu " + currentSim.getWaktuCuti() + " menit lagi. ");
+                                currentSim.doCuti();
+                            }
+                        } else {
+                            System.out.println("Anda sedang bekerja");
+                            currentSim.doKerja(currentSim.getKekenyangan(), currentSim.getMood());
+                            currentSim.setJumlahDoKerja(currentSim.getJumlahDoKerja() + 1);
+                            currentSim.printjumlahdoKerja();
+                        }
+                    } else {
+                        System.out.println("Anda sedang bekerja");
+                        currentSim.doKerja(currentSim.getKekenyangan(), currentSim.getMood());
+                        currentSim.setJumlahDoKerja(currentSim.getJumlahDoKerja());
+                        currentSim.printjumlahdoKerja();
+                        nextLine();
+                    }
                     System.out.println("Anda sedang bekerja");
                     currentSim.doKerja(currentSim.getKekenyangan(), currentSim.getMood());
                     nextLine();
