@@ -69,45 +69,36 @@ public class Waktu {
         
     }
 
-    public void doAksi() {
+    public void doAksi(int x, Waktu waktu) {
         Thread threadBekerja = new Thread() {
             @Override
             public void run() {
-                int randomWaktu = getRandomWaktu();
-                int startTime = getTime1();
-                int endTime = startTime + randomWaktu;
-
-                // Tunggu hingga waktu selesai aksi
-                while (getTime() != randomWaktu) (
-
-                )
-                if(getTime() == randomWaktu){
-                    System.out.println("Barang telah sampai dan dimasukkan ke dalam inventory");
+                int startTime = waktu.getTime1();
+                int endTime = startTime + x;
+                while (waktu.getTime1() < endTime) {
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                        waktu.setTime1(waktu.getTime1() + 1);
+                        // System.out.println("Waktu: " + getTimeString(waktu.getTime() % 720));
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-                // while (getTime1() < endTime) {
-                //     try {
-                //         TimeUnit.SECONDS.sleep(1);
-                //         setTime1(getTime1() + 1);
-                //         // System.out.println("Waktu: " + getTimeString(waktu.getTime() % 720));
-                //     } catch (InterruptedException e) {
-                //         e.printStackTrace();
-                //     }
-                // }
 
                 // Periksa sisa waktu
-                // int elapsedTime = getTime1() - startTime;
+                int elapsedTime = waktu.getTime1() - startTime;
 
-                // if (getTime1() >= 720) {
-                //     // Waktu sudah habis, lanjut ke hari berikutnya
-                //     setDay1(getDay1() + 1);
-                //     setTime1(elapsedTime);
-                //     // System.out.println("Waktu habis, lanjut ke hari ke-" + waktu.getDay());
-                // } else {
-                //     if (getTime() == randomWaktu) {
-                //         System.out.println("Barang telah sampai dan dimasukkan ke dalam inventory");
+                if (waktu.getTime1() >= 720) {
+                    // Waktu sudah habis, lanjut ke hari berikutnya
+                    waktu.setDay1(waktu.getDay1() + 1);
+                    waktu.setTime1(elapsedTime);
+                    // System.out.println("Waktu habis, lanjut ke hari ke-" + waktu.getDay());
+                } else {
+                    if (waktu.getTime1() == x) {
+                        System.out.println("Barang telah sampai dan dimasukkan ke dalam inventory");
 
-                //     }
-                // }
+                    }
+                }
 
                 // Set isIdle to true
                 setIsIdle(true);
@@ -195,4 +186,29 @@ public class Waktu {
         System.out.println("Waktu paket akan sampai " + randomWaktu + " detik");
         return randomWaktu;
     }
+    // Thread threadBeliBarang = new Thread() {
+        // int i = 0;
+        //     public void run() {
+        //         long startTime = System.nanoTime();
+        //         long interval = 1000000000; // 1 detik dalam nanodetik
+    
+        //         while (true) {
+        //             long currentTime = System.nanoTime();
+        //             long elapsedTime = currentTime - startTime;
+        //             if (elapsedTime >= interval && sim.getBeliBarang() && !sim.getStatus().equals("idle")) {
+        //                 System.out.println("status: "+ sim.getStatus());
+                                
+        //                 sim.setWaktuBeliBarang(sim.getWaktuBeliBarang() - 1);
+        //                 System.out.println("\nWaktu yang tersisa untuk barang sampai: " + sim.getWaktuBeliBarang() + " detik");
+                        
+        //                 if(sim.getWaktuBeliBarang() == 0){
+        //                     System.out.println("\nBarang telah sampai");
+        //                 }
+        //                     startTime = currentTime;
+        //             }
+                        
+        //         }
+        //     }
+        // };
+        // threadBeliBarang.start();
 }

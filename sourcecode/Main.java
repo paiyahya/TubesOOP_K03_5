@@ -9,6 +9,13 @@ public class Main {
         input.nextLine();
     }
     public static void main(String[] args) {
+        System.out.println(" ██████╗ ███╗   ██╗███╗   ███╗ ██████╗ ");
+        System.out.println(" ██╔══██╗████╗  ██║████╗ ████║██╔═══██╗");
+        System.out.println(" ██████╔╝██╔██╗ ██║██╔████╔██║██║   ██║");
+        System.out.println(" ██╔══██╗██║╚██╗██║██║╚██╔╝██║██║   ██║");
+        System.out.println(" ██████╔╝██║ ╚████║██║ ╚═╝ ██║╚██████╔╝");
+        System.out.println(" ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝ ");
+        nextLine();
         System.out.println("S = I = M = P = L = I = C = I = T = Y = S = I = M = P = L = I = C = I = T = Y = S = I = M = P"); 
         System.out.println("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - -");             
         System.out.println(". . . . . . . .  . . . . . . . . .  WELCOME TO SIMPLICITY . . . . . . . .  . . . . . . . . . ");
@@ -51,33 +58,6 @@ public class Main {
         // world.tambahRumah(nama, null);
         System.out.println("Masukkan posisi x rumah: ");
         int x = input.nextInt();
-        Thread threadBeliBarang = new Thread() {
-        int i = 0;
-            public void run() {
-                long startTime = System.nanoTime();
-                long interval = 1000000000; // 1 detik dalam nanodetik
-    
-                while (true) {
-                    long currentTime = System.nanoTime();
-                    long elapsedTime = currentTime - startTime;
-                    if (elapsedTime >= interval && sim.getBeliBarang() && !sim.getStatus().equals("idle")) {
-                        System.out.println("status: "+ sim.getStatus());
-                                
-                        sim.setWaktuBeliBarang(sim.getWaktuBeliBarang() - 1);
-                        System.out.println("\nWaktu yang tersisa untuk barang sampai: " + sim.getWaktuBeliBarang() + " detik");
-                        
-                        if(sim.getWaktuBeliBarang() == 0){
-                            System.out.println("\nBarang telah sampai");
-                        }
-                            startTime = currentTime;
-                    }
-                        
-                }
-            }
-        };
-        threadBeliBarang.start();
-
- 
         while (x > 64) {
             System.out.println("Posisi x tidak valid");
             System.out.println("Masukkan posisi x rumah: ");
@@ -112,9 +92,6 @@ public class Main {
             System.out.println("12. Help");
             System.out.println("13. Exit");
             System.out.println("Silahkan pilih aksi yang ingin dijalankan: ");
-
-            
-
             Integer nomor = input.nextInt();
             if (nomor.equals(1)) {
                 System.out.println("\n=== SIM INFO ===");
@@ -138,8 +115,6 @@ public class Main {
             else if (nomor.equals(3)) {
                 System.out.println("\n=== VIEW INVENTORY ===");
                 System.out.println("Inventory anda: ");
-                bahanMakanan.tambahBahanMakanan("Susu");
-                bahanMakanan.tambahBahanMakanan("Kacang");
                 bahanMakanan.printBahanMakanan();
                 masakan.printMakanan();
                 barang.printBarangInventory();
@@ -729,66 +704,79 @@ public class Main {
                                 if (jawaban2.equals("Nasi Kari")) {
                                     masakan.cekMasakan("Nasi Kari");
                                     currentSim.doMakan("Nasi Kari");
+                                    masakan.useMakanan("Nasi Kari");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Nasi Ayam")) {
                                     currentSim.doMakan("Nasi Ayam");
                                     masakan.cekMasakan("Nasi Ayam");
+                                    masakan.useMakanan("Nasi Ayam");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Susu Kacang")) {
                                     currentSim.doMakan("Susu Kacang");
                                     masakan.cekMasakan("Susu Kacang");
+                                    masakan.useMakanan("Susu Kacang");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Tumis Sayur")) {
                                     masakan.cekMasakan("Tumis Sayur");
                                     currentSim.doMakan("Tumis Sayur");
+                                    masakan.useMakanan("Tumis Sayur");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Bistik")) {
                                     masakan.cekMasakan("Bistik");
                                     currentSim.doMakan("Bistik");
+                                    masakan.useMakanan("Bistik");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Nasi")) {
                                     bahanMakanan.cekBahan("Nasi");
                                     currentSim.doMakan("Nasi");
+                                    bahanMakanan.hapusBahanMakanan("Nasi");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Kentang")) {
                                     bahanMakanan.cekBahan("Kentang");
                                     currentSim.doMakan("Kentang");
+                                    bahanMakanan.hapusBahanMakanan("Kentang");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Ayam")) {
                                     bahanMakanan.cekBahan("Ayam");
                                     currentSim.doMakan("Ayam");
+                                    bahanMakanan.hapusBahanMakanan("Ayam");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Sapi")) {
                                     bahanMakanan.cekBahan("Sapi");
                                     currentSim.doMakan("Sapi");
+                                    bahanMakanan.hapusBahanMakanan("Sapi");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Kacang")) {
                                     bahanMakanan.cekBahan("Kacang");
                                     currentSim.doMakan("Kacang");
+                                    bahanMakanan.hapusBahanMakanan("Kacang");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Susu")) {
                                     bahanMakanan.cekBahan("Susu");
                                     currentSim.doMakan("Susu");
+                                    bahanMakanan.hapusBahanMakanan("Susu");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Wortel")) {
                                     bahanMakanan.cekBahan("Wortel");
                                     currentSim.doMakan("Wortel");
+                                    bahanMakanan.hapusBahanMakanan("Wortel");
                                     nextLine();
                                 }
                                 else if (jawaban2.equals("Bayam")) {
                                     bahanMakanan.cekBahan("Bayam");
                                     currentSim.doMakan("Bayam");
+                                    bahanMakanan.hapusBahanMakanan("Bayam");
                                     nextLine();
                                 }
                                 else {

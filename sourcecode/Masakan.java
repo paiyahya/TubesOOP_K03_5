@@ -58,16 +58,16 @@ public class Masakan extends Objek {
 
     public void tambahMakanan (String namaMakanan)
     {   
-        System.out.println("namaMakanan 1: " + namaMakanan);
+        // System.out.println("namaMakanan 1: " + namaMakanan);
         int indeksMakanan = namaMasakan(namaMakanan);
         kuantitasInventory[indeksMakanan] += 1;
     }
 
     public void useMakanan (String namaMakanan)
     {   
-        System.out.println("namaMakanan 1: " + namaMakanan);
+        // System.out.println("namaMakanan 1: " + namaMakanan);
         int indeksMakanan = namaMasakan(namaMakanan);
-        kuantitasInventory[indeksMakanan]--;
+        kuantitasInventory[indeksMakanan]-=1;
     }
 
 //     private int hitungKekenyangan(ArrayList<BahanMakanan> bahanMakanan) {
