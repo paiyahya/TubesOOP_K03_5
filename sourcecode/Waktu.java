@@ -7,6 +7,9 @@ public class Waktu {
     private int day1;
     private int time1;
     private boolean isIdle;
+    private int trackTidur;
+    private int trackToilet;
+    private int trackBarang;
 
     public Waktu() {
         this.isIdle = false;
@@ -55,72 +58,90 @@ public class Waktu {
         this.time1 = time1;
     }
 
-    public void doAksi(int x, Waktu waktu) {
+    public void trackKirimBarang(){
+        getRandomWaktu();
+        if (getTime() == getRandomWaktu()) {
+            System.out.println("Barang sudah diterima");
+        }
+    }
+
+    public void cekTime() {
+        
+    }
+
+    public void doAksi() {
         Thread threadBekerja = new Thread() {
             @Override
             public void run() {
-                int startTime = waktu.getTime1();
-                int endTime = startTime + x;
+                int randomWaktu = getRandomWaktu();
+                int startTime = getTime1();
+                int endTime = startTime + randomWaktu;
 
                 // Tunggu hingga waktu selesai aksi
-                while (waktu.getTime1() < endTime) {
-                    try {
-                        TimeUnit.SECONDS.sleep(1);
-                        waktu.setTime1(waktu.getTime1() + 1);
-                        // System.out.println("Waktu: " + getTimeString(waktu.getTime() % 720));
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
+                while (getTime() != randomWaktu) (
 
-                // Periksa sisa waktu
-                int elapsedTime = waktu.getTime1() - startTime;
-
-                if (waktu.getTime1() >= 720) {
-                    // Waktu sudah habis, lanjut ke hari berikutnya
-                    waktu.setDay1(waktu.getDay1() + 1);
-                    waktu.setTime1(elapsedTime);
-                    // System.out.println("Waktu habis, lanjut ke hari ke-" + waktu.getDay());
-                } else {
+                )
+                if(getTime() == randomWaktu){
                     System.out.println("Barang telah sampai dan dimasukkan ke dalam inventory");
                 }
+                // while (getTime1() < endTime) {
+                //     try {
+                //         TimeUnit.SECONDS.sleep(1);
+                //         setTime1(getTime1() + 1);
+                //         // System.out.println("Waktu: " + getTimeString(waktu.getTime() % 720));
+                //     } catch (InterruptedException e) {
+                //         e.printStackTrace();
+                //     }
+                // }
 
-                // Kembali ke 00:00
-                waktu.setTime1(0);
+                // Periksa sisa waktu
+                // int elapsedTime = getTime1() - startTime;
+
+                // if (getTime1() >= 720) {
+                //     // Waktu sudah habis, lanjut ke hari berikutnya
+                //     setDay1(getDay1() + 1);
+                //     setTime1(elapsedTime);
+                //     // System.out.println("Waktu habis, lanjut ke hari ke-" + waktu.getDay());
+                // } else {
+                //     if (getTime() == randomWaktu) {
+                //         System.out.println("Barang telah sampai dan dimasukkan ke dalam inventory");
+
+                //     }
+                // }
 
                 // Set isIdle to true
-                waktu.setIsIdle(true);
+                setIsIdle(true);
             }
         };
         threadBekerja.start();
     }
-    public void doAksi1(int x, Waktu waktu) {
-        int startTime = waktu.getTime();
+    public void doAksi1(int x) {
+        int startTime = getTime();
         int endTime = startTime + x;
         // tunggu hingga waktu selesai aksi
-        while (waktu.getTime() < endTime) {
+        while (getTime() < endTime) {
             try {
                 TimeUnit.SECONDS.sleep(1);
-                waktu.setTime(waktu.getTime()+1);
-                System.out.println("Waktu: " + getTimeString(waktu.getTime()%720));
+                setTime(getTime()+1);
+                System.out.println("Waktu: " + getTimeString(getTime()%720));
             
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         // periksa sisa waktu
-        int elapsedTime = waktu.getTime() - startTime;
+        int elapsedTime = getTime() - startTime;
 
-        if (waktu.getTime() >= 720) {
+        if (getTime() >= 720) {
             // waktu sudah habis, lanjut ke hari berikutnya
-            waktu.setDay(waktu.getDay()+1);
-            waktu.setTime(elapsedTime);
-            System.out.println("Waktu habis, lanjut ke hari ke-" + waktu.getDay());
+            setDay(getDay()+1);
+            setTime(elapsedTime);
+            System.out.println("Waktu habis, lanjut ke hari ke-" + getDay());
         } else {
-            System.out.println("Waktu saat ini: " + getTimeString(waktu.getTime()));
+            System.out.println("Waktu saat ini: " + getTimeString(getTime()));
         }
                 // set isIdle to true
-        waktu.setIsIdle(true);
+        setIsIdle(true);
     }
 
     public void idle() {
