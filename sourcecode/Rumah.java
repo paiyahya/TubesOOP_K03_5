@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Rumah {
-    private static String namarumah;
+    private String namarumah;
     private int x;
     private int y;
     private int panjangRumah;
@@ -181,35 +181,35 @@ public class Rumah {
         }
     }
 
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.print("Masukkan X: ");
-        int x = scan.nextInt();
-        System.out.print("Masukkan Y: ");
-        int y = scan.nextInt();
-    //     // while(x < 6 || y < 6)
-    //     // {
-    //     //     System.out.println("Rumah terlalu kecil! Masukkan kembali x dan y");
-    //     //     System.out.print("Masukkan X: ");
-    //     //     x = scan.nextInt();
-    //     //     System.out.print("Masukkan Y: ");
-    //     //     y = scan.nextInt();
-    //     // }
-        Rumah rumah = new Rumah(namarumah, x, y);
-        Rumah rumah2 = new Rumah(namarumah, x, y);
-        // setRuangan();
-        rumah.printListRuanganRumah();
-        Ruangan ruangan = new Ruangan("Kamar Tidur", 6, 6);
-        rumah.setRuangan();
-        // getListRuanganRumah().add(ruangan);
-        rumah.printListRuanganRumah();
-        rumah.PilihRuangan();
-    //     // ruangan.tambahBarang("Kasur Single");
-    //     // ruangan.tampilkanRuangan();
-    //     // ruangan.tambahBarang("Meja dan Kursi");
-    //     // ruangan.tampilkanRuangan();
-    //     // ruangan.tambahBarang("Jam");
-    //     // ruangan.tampilkanRuangan();
-    //     // ruangan.printBarangRuangan();
-    } 
+//     public static void main(String[] args) {
+//         Scanner scan = new Scanner(System.in);
+//         System.out.print("Masukkan X: ");
+//         int x = scan.nextInt();
+//         System.out.print("Masukkan Y: ");
+//         int y = scan.nextInt();
+//     //     // while(x < 6 || y < 6)
+//     //     // {
+//     //     //     System.out.println("Rumah terlalu kecil! Masukkan kembali x dan y");
+//     //     //     System.out.print("Masukkan X: ");
+//     //     //     x = scan.nextInt();
+//     //     //     System.out.print("Masukkan Y: ");
+//     //     //     y = scan.nextInt();
+//     //     // }
+//         Rumah rumah = new Rumah(namarumah, x, y);
+//         Rumah rumah2 = new Rumah(namarumah, x, y);
+//         // setRuangan();
+//         rumah.printListRuanganRumah();
+//         Ruangan ruangan = new Ruangan("Kamar Tidur", 6, 6);
+//         rumah.setRuangan();
+//         // getListRuanganRumah().add(ruangan);
+//         rumah.printListRuanganRumah();
+//         rumah.PilihRuangan();
+//     //     // ruangan.tambahBarang("Kasur Single");
+//     //     // ruangan.tampilkanRuangan();
+//     //     // ruangan.tambahBarang("Meja dan Kursi");
+//     //     // ruangan.tampilkanRuangan();
+//     //     // ruangan.tambahBarang("Jam");
+//     //     // ruangan.tampilkanRuangan();
+//     //     // ruangan.printBarangRuangan();
+//     } 
 }
