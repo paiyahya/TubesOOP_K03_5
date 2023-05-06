@@ -59,6 +59,20 @@ public class Pekerjaan{
         System.out.println("pekerjaan: " + getPekerjaan());
     }
 
+    public void printDaftarPekerjaan() {
+        System.out.println("Daftar pekerjaan:");
+        System.out.println("1. Badut Sulap");
+        System.out.println("2. Koki");
+        System.out.println("3. Polisi");
+        System.out.println("4. Programmer");
+        System.out.println("5. Dokter");
+        System.out.println("6. Penulis");
+        System.out.println("7. Arsitek");
+        System.out.println("8. Barista");
+        System.out.println("9. Wartawan");
+        System.out.println("10. Hakim");
+    }
+
     public void printGaji() {
         System.out.println("Gaji: " + getGaji());
     }
@@ -73,13 +87,13 @@ public class Pekerjaan{
     }
 
 
-    //public static void main (String[] args) {
-      //  Pekerjaan pekerjaan = new Pekerjaan();
-        //pekerjaan.getRandomPekerjaan();
-        //pekerjaan.printPekerjaan();
-        //pekerjaan.printGaji();
-        //pekerjaan.setGantiPekerjaan("Arsitek")
-        //pekerjaan.printPekerjaan();
-        //pekerjaan.printGaji();
-    //}
+    public static void main (String[] args) {
+        Pekerjaan pekerjaan = new Pekerjaan();
+        pekerjaan.getRandomPekerjaan();
+        pekerjaan.printPekerjaan();
+        pekerjaan.printGaji();
+        pekerjaan.setGantiPekerjaan("Hakim");
+        pekerjaan.printPekerjaan();
+        pekerjaan.printGaji();
+    }
 }
