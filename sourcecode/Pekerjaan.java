@@ -3,6 +3,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Pekerjaan{
+    Sim sim;
+    public int gajiPertama;
     public String [] pekerjaan;
     private static String [] namaPekerjaan =
     {
@@ -30,7 +32,22 @@ public class Pekerjaan{
         45
     };
 
+    private static int [] gajipertamas = {
+        7,
+        15,
+        17,
+        22,
+        25,
+        15,
+        20,
+        10,
+        20,
+        22
+
+    };
+
     private boolean sudahGantiPekerjaan = false;
+    private int gaji;
 
     public Pekerjaan(){
         this.pekerjaan = new String [1];
@@ -44,6 +61,11 @@ public class Pekerjaan{
     public int getGaji(){
         int index = getIndexPekerjaan(pekerjaan[0]);
         return gajis[index];
+    }
+
+    public int getGajiPertama(){
+        int index = getIndexPekerjaan(pekerjaan[0]);
+        return gajipertamas[index];
     }
 
     public void setGantiPekerjaan (String pekerjaanBaru){
@@ -66,12 +88,10 @@ public class Pekerjaan{
 
     public void gajibarupertama() {
         if (!sudahGantiPekerjaan) {
-            int index = getIndexPekerjaan(pekerjaan[0]);
-            gajis[index] /= 2; // mengurangi gaji setengahnya
+            getGajiPertama(); // mengurangi gaji setengahnya
             sudahGantiPekerjaan = true;
         }
     }
-
 
     public void printPekerjaan() {
         System.out.println("pekerjaan: " + getPekerjaan());
@@ -95,6 +115,21 @@ public class Pekerjaan{
         System.out.println("Gaji: " + getGaji());
     }
 
+    public void printGajiPertama(){
+        System.out.println("Gaji pertama " + getGajiPertama());
+    }
+
+    public void setGaji(int gaji) {
+        this.gaji = gaji;
+    }
+
+    public void setGajiPertama(int gajiPertama) {
+        this.gajiPertama = gajiPertama;
+    }
+
+    public void resetGajiPertama() {
+        this.gaji = this.gajiPertama;
+    }
     
     private int getIndexPekerjaan(String pekerjaan){
         for( int i = 0; i < namaPekerjaan.length; i++){
@@ -118,6 +153,6 @@ public class Pekerjaan{
         pekerjaan.getPekerjaan();
         pekerjaan.setGantiPekerjaan(pekerjaanBaru);
         pekerjaan.printPekerjaan();
-        pekerjaan.printGaji();
+        pekerjaan.printGajiPertama();
     }
 }
