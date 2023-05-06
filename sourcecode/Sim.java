@@ -17,6 +17,7 @@ public class Sim {
     private boolean isBeliBarang;
     private int waktuBeliBarang;
     private int jumlahDoKerja;
+    private int waktuCuti;
 
     public Sim (String namaLengkap, Pekerjaan pekerjaan, int uang, int kekenyangan, int kesehatan, String status, int mood, boolean NowPlaying) {
         this.namaLengkap = namaLengkap;
@@ -135,6 +136,24 @@ public class Sim {
         System.out.println("Gaji sudah bertambah");
         this.status = "idle";
         this.jumlahDoKerja++;
+    }
+
+    public void printjumlahdoKerja(){
+        System.out.println("Anda sudah bekerja " + getJumlahDoKerja() + " kali ");
+    }
+
+    public void setJumlahDoKerja(int jumlahDoKerja) {
+        this.jumlahDoKerja = jumlahDoKerja;
+    }
+
+
+    public void doCuti() {
+        if (waktuCuti > 0) {
+            waktuCuti--;
+            System.out.println("Anda sedang cuti, silakan tunggu " + waktuCuti + " detik lagi. ");
+        }else {
+            System.out.println("Waktu Cuti telah selesai. ");
+        }
     }
 
     public void doOlahraga (int kesehatan, int kekenyangan, int mood) {
@@ -414,5 +433,11 @@ public class Sim {
     }
     public int getJumlahDoKerja() {
         return this.jumlahDoKerja;
+    }
+    public int getWaktuCuti() {
+        return waktuCuti;
+    }
+    public void setWaktuCuti(int waktuCuti) {
+        this.waktuCuti = waktuCuti;
     }
 }
