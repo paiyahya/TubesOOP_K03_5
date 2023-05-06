@@ -21,6 +21,14 @@ public class Rumah {
         // Membuat ruangan pertama berukuran 6x6
     }
 
+    public void tambahRuang(Ruangan ruangan){
+        listRuanganRumah.add(ruangan);
+    }
+
+    public List<Ruangan> getListRuangan(){
+        return listRuanganRumah;
+    }
+
     public String getNamarumah() {
         return namarumah;
     }
