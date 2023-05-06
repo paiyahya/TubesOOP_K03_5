@@ -258,12 +258,18 @@ public class Main {
                         // Menampilkan tampilan ruangan
                         System.out.println("### Tampilan Ruangan ###");
                         currentSim.getRuangan().tampilkanRuangan();
-                        // Menerima input barang yang dimiliki
+                        
+                        // Menampilkan barang yang dimiliki di inventory
+                        System.out.println("Barang di Inventory Anda :");
+                        barang.printBarangInventory();
+                        
                         // Menerima input barang yang ingin ditambah ke ruangan
                         System.out.println("\nBarang apa yang ingin Anda tambahkan?");
+                        System.out.println("Ingat, hanya barang yang ada di inventory Anda yang bisa ditambah ke ruangan!");
                         String trash = input.nextLine();
                         String barangEdit = input.nextLine();
                         currentSim.getRuangan().tambahBarang(barangEdit);
+                        
                         // Menampilkan ruangan dan barang yang ada di ruangan
                         System.out.println("### Tampilan Ruangan ###");              
                         currentSim.getRuangan().tampilkanRuangan();
@@ -271,17 +277,21 @@ public class Main {
                     } else if (piledit1 == 2){
                         System.out.println("### Tampilan Ruangan ###");
                         currentSim.getRuangan().tampilkanRuangan();
+                        
                         // Menerima input barang yang ingin dipindahkan ke ruangan
                         System.out.println("\nBarang apa yang ingin Anda pindahkan?");
                         String trash = input.nextLine();
                         String barangEdit = input.nextLine();
+                        
                         // Remove barang dari list barang di ruangan
                         currentSim.getRuangan().removeBarang(barangEdit);
                         System.out.println("... Pemindahan barang ...");
                         currentSim.getRuangan().tambahBarang(barangEdit);
+                        
                         // Menampilkan ruangan setelah barang dipindah
                         System.out.println("### Tampilan Ruangan ###");
                         currentSim.getRuangan().tampilkanRuangan();
+                        
                         // Menampilkan barang yang ada di ruangan
                         currentSim.getRuangan().printBarangRuangan();                        
                     }
@@ -298,8 +308,6 @@ public class Main {
 
                 Pekerjaan pekerjaan1 = new Pekerjaan();
                 pekerjaan1.getRandomPekerjaan();
-                pekerjaan1.printPekerjaan();
-                pekerjaan1.printGaji();
 
                 // Menambahkan Sim baru ke simList
                 simList.add(new Sim(nama1, pekerjaan1, 100, 80, 80, "idle", 80, false));
