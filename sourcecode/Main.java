@@ -941,38 +941,34 @@ public class Main {
                         System.out.println("Apakah anda ingin mengganti pekerjaan? (y/n)");
                         String pilihkerja = input.next();
                         if(pilihkerja.equals("y")){
-                            if (currentSim.getWaktuCuti()== 0) {
-                                pekerjaan.printDaftarPekerjaan();
-                                System.out.println("Masukkan nama pekerjaan yang diinginkan : ");
-                                Scanner namaKerja = new Scanner(System.in);
-                                String pekerjaanBaru = namaKerja.nextLine();
-                                pekerjaan.getPekerjaan();
-                                pekerjaan.setGantiPekerjaan(pekerjaanBaru);
-                                pekerjaan.printPekerjaan();
-                                pekerjaan.gajibarupertama();
-                                pekerjaan.printGaji();
-                                currentSim.setJumlahDoKerja(0);
-                                currentSim.setWaktuCuti(12);
-                            }else {
-                                System.out.println("Anda sedang istirahat, silakan tunggu " + currentSim.getWaktuCuti() + " menit lagi. ");
-                                currentSim.doCuti();
-                            }
+                            pekerjaan.printDaftarPekerjaan();
+                            System.out.println("Masukkan nama pekerjaan yang diinginkan : ");
+                            Scanner namaKerja = new Scanner(System.in);
+                            String pekerjaanBaru = namaKerja.nextLine();
+                            pekerjaan.getPekerjaan();
+                            pekerjaan.setGantiPekerjaan(pekerjaanBaru);
+                            pekerjaan.printPekerjaan();
+                            pekerjaan.gajibarupertama();
+                            pekerjaan.printGajiPertama();
+                            currentSim.setJumlahDoKerja(0);
+                            currentSim.setWaktuCuti(11);
+                            currentSim.doCuti();
+                            currentSim.doPertamaKerja(currentSim.getKekenyangan(), currentSim.getMood());
+                            System.out.println("Gaji selanjutnya akan kembali " + pekerjaan.getGaji());
                         } else {
                             System.out.println("Anda sedang bekerja");
                             currentSim.doKerja(currentSim.getKekenyangan(), currentSim.getMood());
                             currentSim.setJumlahDoKerja(currentSim.getJumlahDoKerja() + 1);
                             currentSim.printjumlahdoKerja();
-                        }
-                    } else {
+                        } 
+                        } else {
                         System.out.println("Anda sedang bekerja");
+                        pekerjaan.resetGajiPertama();
                         currentSim.doKerja(currentSim.getKekenyangan(), currentSim.getMood());
                         currentSim.setJumlahDoKerja(currentSim.getJumlahDoKerja());
                         currentSim.printjumlahdoKerja();
                         nextLine();
                     }
-                    System.out.println("Anda sedang bekerja");
-                    currentSim.doKerja(currentSim.getKekenyangan(), currentSim.getMood());
-                    nextLine();
                 }
                 else if (pilihan.equals(2)) {
                     int i = 1;
